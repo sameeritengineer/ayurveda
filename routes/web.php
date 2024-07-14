@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImageGalleryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +30,9 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth','adminM'])->group(function(){
     Route::get('/admin/dashboard',[HomeController::class,'index'])->name('adminDash');
     Route::resource('categories', CategoryController::class);
+    Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
+    Route::put('product/change-status', [ProductController::class, 'changeStatus'])->name('product.change-status');
+    Route::resource('products', ProductController::class);
+    /** Products image gallery route */
+    Route::resource('products-image-gallery', ProductImageGalleryController::class);
 });
