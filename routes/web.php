@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +31,8 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth','adminM'])->group(function(){
     Route::get('/admin/dashboard',[HomeController::class,'index'])->name('adminDash');
     Route::resource('categories', CategoryController::class);
+    Route::resource('testimonials', TestimonialController::class);
+    Route::resource('blogs', BlogController::class);
+    Route::get('/create-setting',[SettingController::class,'create'])->name('create-setting');
+    Route::post('/save-setting',[SettingController::class,'save'])->name('save-setting');
 });

@@ -8,7 +8,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li class="active">
+        <li class="{{ Route::is('adminDash') ? 'active' : '' }}">
           <a href="{{route('adminDash')}}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         </li>
         <li class="dropdown">
@@ -17,6 +17,15 @@
             <li><a class="nav-link" href="{{route('categories.index')}}">All Categories</a></li>
             <li><a class="nav-link" href="{{route('categories.create')}}">Add Categories</a></li>
           </ul>
+        </li>
+        <li  class="{{ Route::is(['testimonials.index','testimonials.create']) ? 'active' : '' }}">
+          <a href="{{route('testimonials.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Testimonials</span></a>
+        </li>
+        <li  class="{{ Route::is(['blogs.index','blogs.create']) ? 'active' : '' }}">
+          <a href="{{route('blogs.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Blogs</span></a>
+        </li>
+        <li  class="{{ Route::is(['create-setting']) ? 'active' : '' }}">
+          <a href="{{route('create-setting')}}" class="nav-link"><i class="fas fa-fire"></i><span>Settings</span></a>
         </li>
         {{-- <li class="menu-header">Starter</li>
         <li class="dropdown">
