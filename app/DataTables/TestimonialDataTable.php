@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\ProductImageGallery;
+use App\Models\Testimonial;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
@@ -13,7 +13,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ProductImageGalleryDataTable extends DataTable
+class TestimonialDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -25,26 +25,30 @@ class ProductImageGalleryDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $deleteBtn = "<a href='".route('products-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $editBtn = "<a href='".route('testimonials.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('testimonials.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
-                return $deleteBtn;
+
+                return $editBtn.$deleteBtn;
             })
             ->addColumn('image', function($query){
-                return "<img width='200px' src='".asset($query->image)."' ></img>";
+                return "<img width='70px' src='".asset($query->image)."' ></img>";
             })
-            ->rawColumns(['image', 'action'])
+
+
+            ->rawColumns(['image', 'type', 'status', 'action'])
             ->setRowId('id');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\ProductImageGallery $model
+     * @param \App\Models\Testimonial $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(ProductImageGallery $model): QueryBuilder
+    public function query(Testimonial $model)
     {
-        return $model->where('product_id', request()->product)->newQuery();
+        return $model->newQuery();
     }
 
     /**
@@ -52,10 +56,11 @@ class ProductImageGalleryDataTable extends DataTable
      *
      * @return \Yajra\DataTables\Html\Builder
      */
-    public function html(): HtmlBuilder
+    public function html()
     {
-        return $this->builder()
-                    ->setTableId('productimagegallery-table')
+
+                    return $this->builder()
+                    ->setTableId('testimonial-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -76,15 +81,19 @@ class ProductImageGalleryDataTable extends DataTable
      *
      * @return array
      */
-    public function getColumns(): array
+    protected function getColumns()
     {
         return [
-            Column::make('id')->width(100),
+
+            Column::make('id'),
             Column::make('image'),
+            Column::make('name'),
+            Column::make('designation'),
+            Column::make('description')->width(150),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
-            ->width(400)
+            ->width(200)
             ->addClass('text-center'),
         ];
     }
@@ -94,8 +103,8 @@ class ProductImageGalleryDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename(): string
+    protected function filename()
     {
-        return 'ProductImageGallery_' . date('YmdHis');
+        return 'Testimonial_' . date('YmdHis');
     }
 }

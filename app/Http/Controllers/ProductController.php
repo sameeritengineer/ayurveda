@@ -6,6 +6,7 @@ use App\DataTables\ProductDataTable;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImageGallery;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Support\Facades\Auth;
 use Str;
@@ -57,7 +58,7 @@ class ProductController extends Controller
         ]);
 
         /** Handle the image upload */
-        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+        $imagePath = $this->uploadImage($request, 'image', 'uploads/products');
 
         $product = new Product();
         $product->thumb_image = $imagePath;
@@ -135,7 +136,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         /** Handle the image upload */
-        $imagePath = $this->updateImage($request, 'image', 'uploads', $product->thumb_image);
+        $imagePath = $this->updateImage($request, 'image', 'uploads/products', $product->thumb_image);
 
         $product->thumb_image = empty(!$imagePath) ? $imagePath : $product->thumb_image;
         $product->name = $request->name;
@@ -172,6 +173,14 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+
+        $this->deleteImage($product->thumb_image);
+
+        $galleryImages = ProductImageGallery::where('product_id', $product->id)->get();
+        foreach($galleryImages as $image){
+            $this->deleteImage($image->image);
+            $image->delete();
+        }
 
         $product->delete();
 
