@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>Add Testimonial</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{route('adminDash')}}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{route('testimonials.create')}}">Add Testimonial</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('testimonials.index') }}">All Testimonial</a></div>
             </div>
         </div>
 
@@ -19,30 +19,33 @@
                             <h4>Create Testimonial</h4>
                         </div>
                         <div class="card-body">
-                            @if($type == 1)
-                            <form method="post" action="{{ route('testimonials.store') }}" enctype="multipart/form-data">
-                            @else
-                            <form method="post" action="{{route('testimonials.update', $testimonial->id)}}" enctype="multipart/form-data">
-                            {{ method_field('PUT') }}
-                            <input type="hidden" name="testimonial_id" value="{{$testimonial->id}}">
+                            @if ($type == 1)
+                                <form method="post" action="{{ route('testimonials.store') }}"
+                                    enctype="multipart/form-data">
+                                @else
+                                    <form method="post" action="{{ route('testimonials.update', $testimonial->id) }}"
+                                        enctype="multipart/form-data">
+                                        {{ method_field('PUT') }}
+                                        <input type="hidden" name="testimonial_id" value="{{ $testimonial->id }}">
                             @endif
                             @csrf
                             <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text"
-                                        class="form-control @if ($errors->has('name')) is-invalid @endif"
-                                        name="name" id="name" value="{{ old('name',$type == 2 ? $testimonial->name:'') }}">
-                                    @if ($errors->has('name'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('name') }}
-                                        </div>
-                                    @endif
+                                <label>Name</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('name')) is-invalid @endif" name="name"
+                                    id="name" value="{{ old('name', $type == 2 ? $testimonial->name : '') }}">
+                                @if ($errors->has('name'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('name') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Designation</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('designation')) is-invalid @endif"
-                                    name="designation" id="designation" value="{{ old('designation',$type == 2 ? $testimonial->designation:'') }}">
+                                    name="designation" id="designation"
+                                    value="{{ old('designation', $type == 2 ? $testimonial->designation : '') }}">
                                 @if ($errors->has('designation'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('designation') }}
@@ -50,31 +53,31 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea name="description" value="{{ old('description') }}"
-                                        class="@if ($errors->has('description')) is-invalid @endif ckeditor form-control custometexareaproduct custom-control">
+                                <label>Description</label>
+                                <textarea name="description" value="{{ old('description') }}"
+                                    class="@if ($errors->has('description')) is-invalid @endif ckeditor form-control custometexareaproduct custom-control">
                                     {{ $type == 2 ? $testimonial->description : '' }}
                                     </textarea>
-                                    @if ($errors->has('cat_slug'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('description') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    @if($type == 2)
+                                @if ($errors->has('cat_slug'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('description') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                @if ($type == 2)
                                     <img width="200px" src="{{ asset($testimonial->image) }}" alt="Example Image">
-                                    @endif
-                                    <input class="form-control @if ($errors->has('image')) is-invalid @endif"
-                                        type="file" name="image">
-                                    @if ($errors->has('image'))
-                                        <div class="img-invalid-feedback">
-                                            {{ $errors->first('image') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                @endif
+                                <input class="form-control @if ($errors->has('image')) is-invalid @endif"
+                                    type="file" name="image">
+                                @if ($errors->has('image'))
+                                    <div class="img-invalid-feedback">
+                                        {{ $errors->first('image') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
 
 
                             </form>

@@ -25,11 +25,12 @@ class TestimonialDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $editBtn = "<a href='".route('testimonials.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $viewBtn = "<a href='".route('testimonials.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
+                $editBtn = "<a href='".route('testimonials.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
                 $deleteBtn = "<a href='".route('testimonials.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
 
-                return $editBtn.$deleteBtn;
+                return $viewBtn.$editBtn.$deleteBtn;
             })
             ->addColumn('image', function($query){
                 return "<img width='70px' src='".asset($query->image)."' ></img>";
