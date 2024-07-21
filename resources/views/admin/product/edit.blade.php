@@ -5,7 +5,10 @@
     <section class="section">
         <div class="section-header">
             <h1>Product</h1>
-
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('products.index') }}">All Products</a></div>
+            </div>
         </div>
 
         <div class="section-body">
@@ -57,7 +60,8 @@
                                                 @foreach ($subCategories as $subCategory)
                                                     <option
                                                         {{ $subCategory->id == $product->sub_category_id ? 'selected' : '' }}
-                                                        value="{{ $subCategory->id }}">{{ $subCategory->cat_name }}</option>
+                                                        value="{{ $subCategory->id }}">{{ $subCategory->cat_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
