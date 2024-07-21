@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageGalleryController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
@@ -42,4 +43,8 @@ Route::middleware(['auth','adminM'])->group(function(){
     Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
     Route::put('product/change-status', [ProductController::class, 'changeStatus'])->name('product.change-status');
     Route::resource('products', ProductController::class);
+
+    /* Coupon Route */
+    Route::put('coupon/change-status', [CouponController::class, 'changeStatus'])->name('coupon.change-status');
+    Route::resource('coupons', CouponController::class);
 });
