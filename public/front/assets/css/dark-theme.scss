@@ -1,0 +1,554 @@
+/*-------------------------------
+    Dark Theme  CSS
+-------------------------------*/
+$clr_aztech: #111828;
+$clr_cod: #111;
+$clr_gray: #222;
+$clr_white: #fff;
+$clr_offwhite: rgba(255,255,255,0.8);
+$clr_black: #000;
+$clr_emperor: #666666;
+$clr_yellow: #FFC422;
+$clr_olive:#015C3B;
+$clr_green:#024E32;
+$clr_anzac:#DCBE4A;
+.switch-theme-mode{
+    position: fixed;
+    top: 200px;
+    right: 15px;
+    z-index: 99;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    &.round {
+        border-radius: 50%;
+        &:before{
+            border-radius: 50%;
+        }
+    }
+    &:before {
+        position: absolute;
+        content: "";
+        height: 35px;
+        width: 35px;
+        left: 0px;
+        bottom: 4px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        box-shadow: 0 0px 15px #2020203d;
+        background: white url('../img/night.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color:$clr_aztech;
+        background-size: 17px;
+    }
+}
+input:checked + .slider {
+  background-color: transparent;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px  transparent;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  background: white url('../img/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+
+}
+/*---------------------------------
+    Color CSS For Elements 
+-----------------------------------*/
+.theme-light {
+    .navbar-brand{
+        .logo-dark{
+            display: none!important;
+        }
+        .logo-light{
+            display: block!important;
+        }
+    }
+}
+
+.theme-dark {
+    .navbar-brand{
+        .logo-light{
+            display: none!important;
+        }
+        .logo-dark{
+            display: block!important;
+        }
+    }
+    .hero-wrap.style1,
+    .newsletter-wrap,
+    .hero-wrap.style2,
+    .hero-wrap.style3,
+    .header-wrap.style4,
+    .bg-green{
+        background-color: $clr_gray!important;
+    }
+    .td-cod,
+    .contact-widget,
+    .search-area.open,
+    .cta-wrap .cta-shape,
+    .about-wrap.style2 .about-content .content-feature-list li,
+    .footer-wrap {
+        background-color: $clr_cod!important;
+    }
+    body,
+    .bg-white,
+    .product-card.style3 .product-info,
+    .testimonial-card.style3{
+        background-color: $clr_black!important;
+    }
+    .td-aztech,
+    .bg_primary,
+    .bg_ash,
+    .bg-albastor,
+    .contact-item,
+    .apply-form,
+    .post-author,
+    .wp-block-quote,
+    .header-wrap.style2,
+    .header-wrap.style1 .header-box,
+    .header-wrap.sticky.style1,
+    .accordion-item .accordion-header .accordion-button,
+    .header-wrap.sticky.style3,
+    .header-wrap.header-two.sticky,
+    .blog-card.style2 .blog-info,
+    .cart-table table thead tr,
+    .category-box.style2 li a,
+    .cat-card .cat-info,
+    .ui-slider-horizontal,
+    .feature-product-slider.owl-carousel .owl-nav button.owl-prev,
+    .feature-product-slider.owl-carousel .owl-nav button.owl-next,
+    .product-slide-item .product-offer-price,
+    .product-card.style4 .product-info-wrap,
+    .header-wrap.header-three .header-bottom{
+        background-color: $clr_aztech!important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    h3 a,
+    .cat-card .cat-info,
+    .social-profile.style2 li a i,
+    .social-profile.style3 li a i,
+    .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a,
+    .header-wrap.header-two .navbar .navbar-nav .nav-item a,
+    .header-wrap.header-three .header-bottom .navbar .navbar-nav .nav-item a,
+    .checkout-details .select-payment-method div label,
+    article p strong, article p b, .service-desc p strong, .service-desc p b, .single-listing-desc p strong, .single-listing-desc p b, .terms-wrap p strong, .terms-wrap p b{
+        color: $clr_white!important;
+    }
+    p,span,
+    .checkbox label,
+    .content-feature-list li,
+    .login-form .login-body .form-group label,
+    article ol li,
+    .terms-wrap ol li,
+    article p strong,
+    .cart-table table thead tr th,
+    .footer-wrap .footer-widget .comp-desc, 
+    .product-tab-content .product_features li,
+    .checkout-details .bill-item b,
+     .checkout-details .bill-item-footer b,
+     .checkout-details .bill-item-title b,
+     .pricing-card .pricing-features li,
+    .terms-wrap p strong{
+        color: $clr_offwhite!important;
+    }
+    .discount-card.ds-bg-3 h3 a,
+    .discount-card.style2 .discount-content p,
+    .discount-card .discount-content span,
+    .discount-card .discount-content h3{
+        color: $clr_black!important;
+    }
+    h3:hover a,
+    article p a, .service-desc p a, .terms-wrap p a,
+    .copyright-text span,
+    .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
+    .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a.active,
+    .header-wrap.header-three .header-bottom .navbar .navbar-nav .nav-item a:hover,
+    .header-wrap.header-three .header-bottom .navbar .navbar-nav .nav-item a.active,
+    .copyright-text a{
+        color: $clr_yellow!important;
+    }
+    .pp-post-item .pp-post-info h6 a,
+    .category-box li a,
+    .tag-list.style2 li a,
+    .contact-item .contact-info li p,
+    .contact-item .contact-info li a,
+    .post-metainfo li a,
+    .new-product-item .new-product-info h6 a,
+    .header-wrap.style2 .navbar .navbar-nav .nav-item a,
+    .header-wrap.style4 .navbar .navbar-nav .nav-item a,
+    .blog-card .blog-metainfo li a{
+        color: $clr_offwhite;
+        &:hover{
+            color: $clr_yellow;
+        }
+    }
+    .accordion-item .accordion-header .accordion-button,
+    .product-more-option-item a,
+    .post-metainfo li,
+    .header-wrap.style4 .option-item .searchbtn i,
+    .shopcart-btn i,
+    .blog-card .blog-metainfo li{
+        color: $clr_offwhite;
+    }
+    .promo-card.style2,
+    .cart-total .cart-total-wrap .cart-total-item,
+    .cart-table table thead tr th,
+    .product-tablist,
+    .checkout-details .bill-item-title,
+    .checkout-details .bill-item-wrap,
+    .blog-card.style1 .blog-metainfo{
+        border-color: rgba(255,255,255,0.2);
+    }
+    .service-card.style1 .service-icon,
+    .product-cat-card,
+    .blog-card.style1{
+        background-color: transparent;
+        border:1px solid rgba(255, 255, 255, 0.2)
+    }
+    .promo-card.style1,
+    .cart-table table tbody tr td,
+    .cart-total {
+        background-color: $clr_black;
+        color: $clr_offwhite;
+        border: 1px solid rgba(255, 255, 255, 0.19);
+    }
+    article,
+    .cart-coupon{
+        border-color: rgba(255,255,255,0.19);
+    }
+    .tag-list ul li a{
+        background: transparent;
+        border:1px solid rgba(255, 255, 255, 0.2);
+        color:$clr_white!important;
+    }
+    .tag-list ul li a:hover{
+        background: $clr_yellow!important;
+        color: $clr_white;
+        border-color: transparent;
+    }
+    .benefit-wrap.style2 .benefit-img-wrap .benefit-list-icon li .bn-shape-arrow,
+    .benefit-wrap.style2 .benefit-img-wrap .benefit-list-icon li .bn-shape {
+        filter: brightness(0) invert(1);
+        &:hover{
+            filter: brightness(1) invert(0);
+        }
+    }
+    .breadcrumb-wrap{
+        position: relative;
+        z-index: 1;
+        &:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content:"";
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.75);
+            z-index: -1;
+        }
+        .breadcrumb-menu {
+            li {
+                color: $clr_white;
+                &:after {
+                    background-color: $clr_white;
+                }
+                &:last-child {
+                    color: $clr_white;
+                }
+                a {
+                    color: $clr_anzac;
+                    &:hover {
+                        color: $clr_white;
+                    }
+                }
+            }
+        }
+    }
+    .owl-carousel .owl-nav button.owl-prev,
+    .owl-carousel .owl-nav button.owl-next{
+        background-color: rgba(255, 255, 255, 0.1);
+        &:hover{
+            background-color: $clr_anzac;
+        }
+    }
+    .cat-card .cat-info:hover,
+    .pricing-card .btn.style4,
+    .promo-card.style2 .promo-title .promo-icon,
+    .product-cat-card.style1 .product-cat-icon,
+    .promo-card.style1 .promo-icon{
+        background-color: $clr_anzac!important;
+    }
+    .checkout-details .bill-item::after,
+    .checkout-details .bill-item-title::after,
+    .checkout-details .bill-item-footer::after,
+    .testimonial-slider-one.owl-carousel .owl-dots .owl-dot span,
+    .offer-pproduct-slider.owl-carousel .owl-dots .owl-dot span{
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .testimonial-slider-one.owl-carousel .owl-dots .owl-dot.active span,
+    .offer-pproduct-slider.owl-carousel .owl-dots .owl-dot.active span{
+        background-color: $clr_yellow;
+    }
+    .search-area{
+        button{
+            i{
+                color: $clr_white;
+            }
+        }
+    }
+   
+    .product-quantity {
+        .qtySelector {
+            span {
+                background-color: transparent;
+                color: $clr_white;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+            }
+            input {
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: $clr_white;
+                background-color: transparent;
+            }
+        }
+    }
+    .product-tablist {
+        .nav-item {
+            .nav-link {
+                color: $clr_white;
+                &.active {
+                    color:$clr_yellow;
+                }
+            }
+        }
+    }
+    .product-tab-content {
+        .product_features{
+            li{
+                b{
+                    color: $clr_white;
+                }
+            }
+        }
+    }
+   
+    .checkout-promobox {
+        background: $clr_aztech;
+        i{
+            color: $clr_yellow;
+            position: relative;
+            top: 4px;
+            font-size: 20px;
+            margin-right: 5px;
+        }
+    }
+    .checkout-form {
+        .form-group {
+            margin: 0 0 15px;
+            label{
+                color: $clr_offwhite;
+            }
+            input,
+            textarea {
+                background: $clr_white;
+                color: $clr_black;;
+            }
+            select{
+                background-color: $clr_black;
+                background-image: url(../img/down-arrow-white.png);
+                color: $clr_white;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+    select,
+    .filter-item-cat select{
+        background-image: url(../img/down-arrow-white.png);
+    }
+    .checkout-details.style2,
+    .service-card.style2,
+    .checkbox.style2 label::before,
+    .select-payment-method [type="radio"]:checked + label::before,
+    .select-payment-method [type="radio"]:not(:checked) + label::before {
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    .header-wrap .navbar .navbar-nav .nav-item a:hover,
+    .header-wrap .navbar .navbar-nav .nav-item a:focus,
+    .header-wrap .navbar .navbar-nav .nav-item a.active {
+        color: $clr_yellow!important;
+    }
+    .comment-item{
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+    .login-form-wrap,
+    .post-author{
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    input,textarea,
+    .newsletter-wrap .newsletter-form input,
+    .contact-widget .form-group input,
+    .contact-widget .form-group textarea,
+    .apply-form form .form-group input,
+    .login-form-wrap .login-form .form-group input,
+    #cmt-form .comment-form .form-group input,
+    #cmt-form .comment-form .form-group textarea,
+    .client-review-form .form-group input,
+    .client-review-form .form-group textarea,
+    #contactForm .form-group input,
+    .search-box .form-group input,
+    #contactForm .form-group textarea,
+    .checkout-form .form-group input,
+    .checkout-form .form-group textarea,
+    .product-card.style2 .product-info, .product-card.style5 .product-info,
+    .login-form-wrap .login-body .form-group input{
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: $clr_white;
+        &::placeholder{
+            color: $clr_white;
+            opacity: 0.8;
+        }
+    }
+    .cart-table table thead tr th{
+        background-color: transparent;
+    }
+    .comment-item-wrap .reply-btn,
+    .social-profile.style2 li a,
+    .social-profile.style3 li a,
+    .page-nav li a{
+        background:transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: $clr_white;
+        &:hover,
+        &.active{
+            background-color:$clr_green;
+            color: $clr_white!important;
+            border-color: transparent;
+        }
+    }
+    .filter-item-num select,
+    .filter-item-cat select,
+    .countdown-deals .cdown,
+    .register-form .form-group select{
+        background-color:$clr_aztech;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: $clr_white;
+    }
+
+    select{
+        background-image: url(../img/down-arrow-white.webp);
+    }
+    .hero-wrap.style2 .hero-shape-five,
+    .product-wrap.style2 .wave-one,
+    .feature-product-wrap .feature-shape-two,
+    .footer-wrap .footer-shape-five {
+        filter: brightness(0);
+    }
+    .team-desc img{
+        filter: brightness(0) invert(1);
+    }
+    .pricing-card{
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+        .pricing-header{
+            border-color: rgba(255, 255, 255, 0.2);;
+        }
+    }
+    .link{
+        &.style1{
+            color: $clr_anzac;
+            &:after{
+                background-color: $clr_anzac;
+            }
+        }
+    }
+    .category-box li a i,
+    .category-box.style2 li a i,
+    .service-card.style2 .service-icon i,
+    .benefit-wrap.style2 .benefit-img-wrap .benefit-list-icon li i,
+    .content-feature-list li i,
+    .contact-item .contact-info li i,
+    .service-card.style1 .service-icon i,
+    .blog-card .blog-metainfo li i{
+        color: $clr_anzac;
+    }
+    .checkbox input:checked + label:before,
+    .checkbox label:before{
+        border-color: $clr_anzac;
+    }
+    .checkbox input:checked + label:after{
+        background-color: $clr_anzac;
+    }
+}
+@media only screen and (max-width:991px) {
+    .theme-dark{
+        .main-menu-wrap,
+        .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu{
+            background-color:$clr_aztech;
+        }
+        .menu-close i,
+        .header-wrap .navbar .navbar-nav .nav-item .menu-expand i{
+            color: $clr_white!important
+        }
+        .header-wrap .navbar .navbar-nav .nav-item a.active,
+        .main-menu li a.active{
+            color: $clr_yellow!important;
+        }
+        .main-menu li a.active,
+        .main-menu li a{
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+@media only screen and (min-width:992px) {
+    .theme-dark{
+        .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu,
+        .main-menu-wrap #menu ul li.has-children .sub-menu{
+            background-color:$clr_aztech;
+        }
+        .header-wrap .navbar .navbar-nav .nav-item a:hover,
+        .header-wrap .navbar .navbar-nav .nav-item a:focus,
+        .header-wrap .navbar .navbar-nav .nav-item a.active{
+              color: $clr_yellow!important;
+         }
+         .header-wrap.style2 .navbar .navbar-nav .nav-item .dropdown-menu li{
+            border-color:rgba(255, 255, 255, 0.15);
+        }
+    }
+}
