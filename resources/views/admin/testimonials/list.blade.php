@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>Add Testimonial</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{route('adminDash')}}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{route('testimonials.index')}}">All Testimonial</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('testimonials.index') }}">All Testimonial</a></div>
             </div>
         </div>
         <div class="section-body">
@@ -14,12 +14,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Testimonials</h4>
+                            <div class="card-header-action">
+                                <a href="{{ route('testimonials.create') }}" class="btn btn-primary"><i
+                                        class="fas fa-plus"></i>Add Testimonials</a>
+                            </div>
                         </div>
                         <div class="card-body">
-                            <div class="buttons">
-                                <a href="{{ route('testimonials.create') }}" class="btn btn-primary">Add Testimonials</a>
-                            </div>
-                            <table class="table table-hover">
+
+                            {{-- <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -30,7 +32,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($testimonial as $testimonial)
+                                    @foreach ($testimonial as $testimonial)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $testimonial->name }}</td>
@@ -47,18 +49,16 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
+                            </table> --}}
                             <!-- Pagination Links -->
-                            <div class="card-body">
-                                
-                            </div>
+                            {{ $dataTable->table() }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    @if (session('success'))
+    {{-- @if (session('success'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var successMessage = {!! json_encode(session('success')) !!};
@@ -69,29 +69,33 @@
                 });
             });
         </script>
-    @endif
-    <script>
-       function YesDeleted(id){
+    @endif --}}
+    {{-- <script>
+        function YesDeleted(id) {
             var url = "{{ route('testimonials.destroy', ':id') }}".replace(':id', id);
             $.ajax({
-                    url: url,
-                    type: 'DELETE',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (response) {
-                        iziToast.success({
+                url: url,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    iziToast.success({
                         title: '',
                         message: response.message,
                         position: 'topRight'
                     });
-                        window.location.reload();
-                    },
-                    error: function (xhr) {
-                        console.error('Error:', xhr.responseText);
-                        alert('Error deleting category.');
-                    }
-                });
-       }  
-    </script>
+                    window.location.reload();
+                },
+                error: function(xhr) {
+                    console.error('Error:', xhr.responseText);
+                    alert('Error deleting category.');
+                }
+            });
+        }
+    </script> --}}
 @endsection
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
