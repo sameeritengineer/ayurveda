@@ -25,9 +25,9 @@ class CouponDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $viewBtn = "<a href='".route('coupons.show', $query->id)."' class='btn btn-primary'><i class='far fa-eye'></i></a>";
-                $editBtn = "<a href='".route('coupons.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('coupons.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $viewBtn = "<a href='".route('admin.coupons.show', $query->id)."' class='btn btn-primary'><i class='far fa-eye'></i></a>";
+                $editBtn = "<a href='".route('admin.coupons.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin.coupons.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $viewBtn.$editBtn.$deleteBtn;
             })

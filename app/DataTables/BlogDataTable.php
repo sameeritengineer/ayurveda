@@ -25,9 +25,9 @@ class BlogDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $viewBtn = "<a href='".route('blogs.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
-                $editBtn = "<a href='".route('blogs.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('blogs.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $viewBtn = "<a href='".route('admin.blogs.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
+                $editBtn = "<a href='".route('admin.blogs.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin.blogs.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
 
                 return $viewBtn.$editBtn.$deleteBtn;

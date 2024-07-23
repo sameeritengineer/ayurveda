@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>Add Testimonial</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('testimonials.index') }}">All Testimonial</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.testimonials.index') }}">All Testimonial</a></div>
             </div>
         </div>
         <div class="section-body">
@@ -15,7 +15,7 @@
                         <div class="card-header">
                             <h4>Testimonials</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('testimonials.create') }}" class="btn btn-primary"><i
+                                <a href="{{ route('admin.testimonials.create') }}" class="btn btn-primary"><i
                                         class="fas fa-plus"></i>Add Testimonials</a>
                             </div>
                         </div>
@@ -40,10 +40,10 @@
                                         <td>{{ $testimonial->designation }}</td>
                                         <td>
                                             <div class="buttons">
-                                                <a href="{{ route('testimonials.show', $testimonial->id) }}"
+                                                <a href="{{ route('admin.testimonials.show', $testimonial->id) }}"
                                                     class="btn btn-primary">View</a>
-                                                <a href="{{ route('testimonials.edit', $testimonial->id) }}" class="btn btn-warning">Edit</a>
-                                                <button class="btn btn-danger" data-url="{{ route('testimonials.destroy', $testimonial->id) }}" data-confirm="Realy?|Do you want to continue?" data-confirm-yes="YesDeleted({{$testimonial->id}})">Delete</button>
+                                                <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}" class="btn btn-warning">Edit</a>
+                                                <button class="btn btn-danger" data-url="{{ route('admin.testimonials.destroy', $testimonial->id) }}" data-confirm="Realy?|Do you want to continue?" data-confirm-yes="YesDeleted({{$testimonial->id}})">Delete</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -72,7 +72,7 @@
     @endif --}}
     {{-- <script>
         function YesDeleted(id) {
-            var url = "{{ route('testimonials.destroy', ':id') }}".replace(':id', id);
+            var url = "{{ route('admin.testimonials.destroy', ':id') }}".replace(':id', id);
             $.ajax({
                 url: url,
                 type: 'DELETE',

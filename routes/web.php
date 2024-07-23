@@ -10,6 +10,8 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Frontend\FproductController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckOutController;
+use App\Http\Controllers\Frontend\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,26 +47,19 @@ Route::get('apply-coupon', [CartController::class, 'applyCoupon'])->name('apply-
 Route::get('coupon-calculation', [CartController::class, 'couponCalculation'])->name('coupon-calculation');
 
 
+Route::group(['middleware' =>['auth'], 'prefix' => 'user', 'as' => 'user.'], function(){
+/** Checkout routes */
+Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
+Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
+
+
+/** Payment routes */
+Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
+
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
-Route::middleware(['auth','adminM'])->group(function(){
-    Route::get('/admin/dashboard',[HomeController::class,'index'])->name('adminDash');
-    Route::resource('categories', CategoryController::class);
-    Route::resource('testimonials', TestimonialController::class);
-    Route::resource('blogs', BlogController::class);
-    Route::get('/create-setting',[SettingController::class,'create'])->name('create-setting');
-    Route::post('/save-setting',[SettingController::class,'save'])->name('save-setting');
-    /** Products image gallery route */
-    Route::resource('products-image-gallery', ProductImageGalleryController::class);
-    Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
-    Route::put('product/change-status', [ProductController::class, 'changeStatus'])->name('product.change-status');
-    Route::resource('products', ProductController::class);
-
-    /* Coupon Route */
-    Route::put('coupon/change-status', [CouponController::class, 'changeStatus'])->name('coupon.change-status');
-    Route::resource('coupons', CouponController::class);
-});

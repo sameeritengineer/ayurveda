@@ -115,7 +115,11 @@
                                     <span><b id="cart_total">{{getCurrencySymbol('INR')}}{{getMainCartTotal()}}</b></span>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn style1 d-block w-100">Proceed To Checkout</a>
+                            @if(Auth::check())
+                            <a href="{{route('user.checkout')}}" class="btn style1 d-block w-100">Proceed To Checkout</a>
+                            @else
+                            <a href="{{route('login')}}" class="btn style1 d-block w-100">Proceed To Checkout</a>
+                            @endif
                         </div>
                     </div>
                 </div>

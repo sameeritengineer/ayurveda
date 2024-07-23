@@ -6664,3 +6664,20 @@ article {
     padding-right: 40px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+/* Custom css */
+.selected-address {
+  border: 2px solid #007bff;
+  background-color: #e9f7ff;
+}
+
+.checkout-box-title {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+.option-item.addressBtn {
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+}

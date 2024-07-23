@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
                             <div class="buttons">
-                                <a href="{{ route('categories.create') }}" class="btn btn-primary">Add Category</a>
+                                <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Add Category</a>
                             </div>
                             <table class="table table-hover">
                                 <thead>
@@ -59,10 +59,10 @@
                                             </td>
                                             <td>
                                                 <div class="buttons">
-                                                    <a href="{{ route('categories.show', $cats->id) }}"
+                                                    <a href="{{ route('admin.categories.show', $cats->id) }}"
                                                         class="btn btn-primary">View</a>
-                                                    <a href="{{ route('categories.edit', $cats->id) }}" class="btn btn-warning">Edit</a>
-                                                    <button class="btn btn-danger" data-url="{{ route('categories.destroy', $cats->id) }}" data-confirm="Realy?|Do you want to continue?" data-confirm-yes="YesDeleted({{$cats->id}})">Delete</button>
+                                                    <a href="{{ route('admin.categories.edit', $cats->id) }}" class="btn btn-warning">Edit</a>
+                                                    <button class="btn btn-danger" data-url="{{ route('admin.categories.destroy', $cats->id) }}" data-confirm="Realy?|Do you want to continue?" data-confirm-yes="YesDeleted({{$cats->id}})">Delete</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -93,7 +93,7 @@
     @endif
     <script>
        function YesDeleted(id){
-            var url = "{{ route('categories.destroy', ':id') }}".replace(':id', id);
+            var url = "{{ route('admin.categories.destroy', ':id') }}".replace(':id', id);
             $.ajax({
                     url: url,
                     type: 'DELETE',

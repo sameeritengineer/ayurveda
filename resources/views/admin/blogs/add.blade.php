@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>Add Blogs</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('blogs.index') }}">All Blogs</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.blogs.index') }}">All Blogs</a></div>
             </div>
         </div>
 
@@ -20,9 +20,9 @@
                         </div>
                         <div class="card-body">
                             @if ($type == 1)
-                                <form method="post" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
+                                <form method="post" action="{{ route('admin.blogs.store') }}" enctype="multipart/form-data">
                                 @else
-                                    <form method="post" action="{{ route('blogs.update', $blog->id) }}"
+                                    <form method="post" action="{{ route('admin.blogs.update', $blog->id) }}"
                                         enctype="multipart/form-data">
                                         {{ method_field('PUT') }}
                                         <input type="hidden" name="blog_id" value="{{ $blog->id }}">

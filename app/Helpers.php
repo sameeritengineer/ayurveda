@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\ShippingRule;
+
     // common function for image uploading
     if (!function_exists('upload_image')) {
         function upload_image($uploadPath,$image) {
@@ -91,6 +93,22 @@ function getCartDiscount(){
     }else {
         return 0;
     }
+}
+
+/** get selected shipping fee from session */
+function getShppingFee(){
+    if(Session::has('shippingDetails')){
+        $shipping_method_id = Session::get('shippingDetails')['shipping_method_id'];
+        $data = ShippingRule::where('id',$shipping_method_id)->first();
+        return $data->cost;
+    }else {
+        return 0;
+    }
+}
+
+/** get payable amount */
+function getFinalPayableAmount(){
+    return  getMainCartTotal() + getShppingFee();
 }
 
 

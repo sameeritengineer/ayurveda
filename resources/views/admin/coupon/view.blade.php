@@ -6,8 +6,8 @@
         <div class="section-header">
             <h1>Coupon</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('coupons.index') }}">All Coupons</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.coupons.index') }}">All Coupons</a></div>
             </div>
         </div>
 

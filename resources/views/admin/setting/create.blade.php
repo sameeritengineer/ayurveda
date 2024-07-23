@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>Add Setting</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{route('adminDash')}}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{route('create-setting')}}">Add Setting</a></div>
+                <div class="breadcrumb-item active"><a href="{{route('admin.adminDash')}}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{route('admin.create-setting')}}">Add Setting</a></div>
             </div>
         </div>
 
@@ -20,9 +20,9 @@
                         </div>
                         <div class="card-body">
                             @if($type == 1)
-                            <form method="post" action="{{ route('save-setting') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('admin.save-setting') }}" enctype="multipart/form-data">
                             @else
-                            <form method="post" action="{{route('save-setting', $setting->id)}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('admin.save-setting', $setting->id)}}" enctype="multipart/form-data">
                             <input type="hidden" name="setting_id" value="{{$setting->id}}">
                             @endif
                             @csrf

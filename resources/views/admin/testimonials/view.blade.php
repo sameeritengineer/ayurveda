@@ -4,8 +4,8 @@
         <div class="section-header">
             <h1>View Testimonial</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('testimonials.index') }}">All Testimonial</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.testimonials.index') }}">All Testimonial</a></div>
             </div>
         </div>
 

@@ -6,12 +6,12 @@
         <div class="section-header">
             <h1>Product Image Gallery</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('adminDash') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('products.index') }}">All Products</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.adminDash') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">All Products</a></div>
             </div>
         </div>
         <div class="mb-3">
-            <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
+            <a href="{{ route('admin.products.index') }}" class="btn btn-primary">Back</a>
         </div>
         <div class="section-body">
             <div class="row">
@@ -21,7 +21,7 @@
                             <h4>Product: {{ $product->name }}</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('products-image-gallery.store') }}" method="POST"
+                            <form action="{{ route('admin.products-image-gallery.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">

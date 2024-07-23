@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        session()->put('previous_url', url()->previous());
         return view('auth.login');
     }
 
@@ -28,6 +29,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $previous_url = $request->session()->pull('previous_url', 'default');
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -35,7 +37,8 @@ class AuthenticatedSessionController extends Controller
             return redirect('admin/dashboard');
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        //return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended($previous_url);
     }
 
     /**

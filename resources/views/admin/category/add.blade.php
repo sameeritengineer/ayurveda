@@ -20,9 +20,9 @@
                         </div>
                         <div class="card-body">
                             @if($type == 1)
-                            <form method="post" action="{{ route('categories.store') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
                             @else
-                            <form method="post" action="{{route('categories.update', $category->id)}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('admin.categories.update', $category->id)}}" enctype="multipart/form-data">
                             {{ method_field('PUT') }}
                             <input type="hidden" name="category_id" value="{{$category->id}}">
                             @endif
