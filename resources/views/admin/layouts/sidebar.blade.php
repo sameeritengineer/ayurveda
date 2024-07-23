@@ -9,29 +9,43 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="{{ Route::is('admin.adminDash') ? 'active' : '' }}">
-                <a href="{{ route('admin.adminDash') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('admin.adminDash') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="{{ Route::is(['admin.categories.index', 'admin.categories.create','admin.categories.show','admin.categories.edit']) ? 'active' : '' }}">
-                <ali><a class="nav-link" href="{{ route('admin.categories.index') }}"><i class="fas fa-fire"></i><span>All Categories</a></li>
+            <li
+                class="{{ Route::is(['admin.categories.index', 'admin.categories.create', 'admin.categories.show', 'admin.categories.edit']) ? 'active' : '' }}">
+                <ali><a class="nav-link" href="{{ route('admin.categories.index') }}"><i
+                            class="fas fa-fire"></i><span>All Categories</a>
             </li>
-            <li class="{{ Route::is(['admin.testimonials.index', 'admin.testimonials.create','admin.testimonials.show','admin.testimonials.edit']) ? 'active' : '' }}">
+            </li>
+            <li
+                class="{{ Route::is(['admin.testimonials.index', 'admin.testimonials.create', 'admin.testimonials.show', 'admin.testimonials.edit']) ? 'active' : '' }}">
                 <a href="{{ route('admin.testimonials.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Testimonials</span></a>
             </li>
-            <li class="{{ Route::is(['admin.blogs.index','admin.blogs.create','admin.blogs.show','admin.blogs.edit']) ? 'active' : '' }}">
-                <a href="{{ route('admin.blogs.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Blogs</span></a>
+            <li
+                class="{{ Route::is(['admin.blogs.index', 'admin.blogs.create', 'admin.blogs.show', 'admin.blogs.edit']) ? 'active' : '' }}">
+                <a href="{{ route('admin.blogs.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Blogs</span></a>
             </li>
             <li class="{{ Route::is(['admin.create-setting']) ? 'active' : '' }}">
                 <a href="{{ route('admin.create-setting') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Settings</span></a>
             </li>
-            <li class="{{ Route::is(['admin.products.index','admin.products.create','admin.products.show','admin.products.edit']) ? 'active' : '' }}">
+            <li
+                class="{{ Route::is(['admin.products.index', 'admin.products.create', 'admin.products.show', 'admin.products.edit']) ? 'active' : '' }}">
                 <a href="{{ route('admin.products.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Products</span></a>
             </li>
-            <li class="{{ Route::is(['admin.coupons.index','admin.coupons.create','admin.coupons.edit','admin.coupons.show']) ? 'active' : '' }}">
+            <li
+                class="{{ Route::is(['admin.coupons.index', 'admin.coupons.create', 'admin.coupons.edit', 'admin.coupons.show']) ? 'active' : '' }}">
                 <a href="{{ route('admin.coupons.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Coupons</span></a>
+            </li>
+            <li
+                class="{{ Route::is(['admin.shippingrules.index', 'admin.shippingrules.create', 'admin.shippingrules.edit', 'admin.shippingrules.show']) ? 'active' : '' }}">
+                <a href="{{ route('admin.shippingrules.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Shipping Rule</span></a>
             </li>
             {{-- <li class="menu-header">Starter</li>
         <li class="dropdown">

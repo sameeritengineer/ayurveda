@@ -8,6 +8,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ShippingRuleController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','adminM'])->group(function(){
@@ -26,5 +27,9 @@ Route::middleware(['auth','adminM'])->group(function(){
     /* Coupon Route */
     Route::put('coupon/change-status', [CouponController::class, 'changeStatus'])->name('coupon.change-status');
     Route::resource('coupons', CouponController::class);
+
+    /* Coupon Route */
+    Route::put('shippingrule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shippingrule.change-status');
+    Route::resource('shippingrules', ShippingRuleController::class);
 });
 ?>
