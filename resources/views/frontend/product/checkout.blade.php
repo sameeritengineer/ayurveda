@@ -167,7 +167,7 @@ $(document).ready(function() {
             $('#shipping_method_id').val($(this).val());
             $('#shipping_fee').text("₹"+shippingFee);
 
-            $('#total_amount').text("$"+totalAmount)
+            $('#total_amount').text("₹"+totalAmount)
     });
 
     $('.shipping_address').on('click', function(){

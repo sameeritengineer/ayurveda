@@ -55,10 +55,11 @@ Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSub
 
 /** Payment routes */
 Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
+Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
 });
 
-Route::get('/dashboard', function () {
+Route::get('/user/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 

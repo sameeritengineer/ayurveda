@@ -165,7 +165,11 @@
                                         <a class="shopcart-btn" href="{{route('cart-details')}}"><i class="flaticon-bag"></i> <span class="cart-count">{{Cart::content()->count()}}</span></a>
                                     </div>
                                     <div class="option-item">
-                                        <a href="{{ route('login') }}" class="btn style1">Login Now</a>
+                                    @if(Auth::check())
+                                    <a href="login.html" class="btn style1 w-block w-100">Welcome,{{Auth::user()->name}}</a>
+                                    @else
+                                    <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
+                                    @endif
                                     </div>
                                     <div class="search-area">
                                         <input type="search" placeholder="Search Here..">
