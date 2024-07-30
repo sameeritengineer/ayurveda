@@ -10,6 +10,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ShippingRuleController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','adminM'])->group(function(){
@@ -35,5 +36,8 @@ Route::middleware(['auth','adminM'])->group(function(){
 
     /* Faq Route */
     Route::resource('faqs', FaqController::class);
+
+    /* Pages Route */
+    Route::resource('pages', PageController::class);
 });
 ?>

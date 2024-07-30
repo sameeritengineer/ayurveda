@@ -52,6 +52,11 @@
                 <a href="{{ route('admin.faqs.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>FAQ's</span></a>
             </li>
+            <li
+                class="{{ Route::is(['admin.pages.index', 'admin.pages.create', 'admin.pages.edit', 'admin.pages.show']) ? 'active' : '' }}">
+                <a href="{{ route('admin.pages.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Pages</span></a>
+            </li>
             {{-- <li class="menu-header">Starter</li>
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
