@@ -46,7 +46,7 @@
         <div class="page-wrapper">
 
             <!-- Header Section Start -->
-            @if(Route::is('/')) 
+            @if(Route::is('homepage')) 
             @include('frontend.layouts.header')
             @else
             @include('frontend.layouts.header2')

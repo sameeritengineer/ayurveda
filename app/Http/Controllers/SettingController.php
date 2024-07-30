@@ -54,9 +54,9 @@ class SettingController extends Controller
     }
 
     if($setting->save()){
-        return redirect()->route('create-setting')->with('success', 'Setting Updated Successfully.');
+        return redirect()->route('admin.create-setting')->with('success', 'Setting Updated Successfully.');
     } else {
-        return redirect()->route('create-setting')->with('alert', 'Failed to update Setting. Please try again.');
+        return redirect()->route('admin.create-setting')->with('alert', 'Failed to update Setting. Please try again.');
     }
 
 

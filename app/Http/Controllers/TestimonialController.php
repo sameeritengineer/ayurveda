@@ -61,9 +61,9 @@ class TestimonialController extends Controller
         //$testimonial->image =  upload_image('images/testimonials/',$request->image);
         $testimonial->image = $imagePath;
         if($testimonial->save()){
-            return redirect()->route('testimonials.index')->with('success', 'Testimonial Added Successfully.');
+            return redirect()->route('admin.testimonials.index')->with('success', 'Testimonial Added Successfully.');
         } else {
-            return redirect()->route('testimonials.index')->with('alert', 'Failed to save testimonial. Please try again.');
+            return redirect()->route('admin.testimonials.index')->with('alert', 'Failed to save testimonial. Please try again.');
         }
     }
 
@@ -128,9 +128,9 @@ class TestimonialController extends Controller
         //     $testimonial->image =  upload_image('images/testimonials/',$request->image);
         // }
         if($testimonial->save()){
-            return redirect()->route('testimonials.index')->with('success', 'Testimonial Updated Successfully.');
+            return redirect()->route('admin.testimonials.index')->with('success', 'Testimonial Updated Successfully.');
         } else {
-            return redirect()->route('testimonials.index')->with('alert', 'Failed to update testimonial. Please try again.');
+            return redirect()->route('admin.testimonials.index')->with('alert', 'Failed to update testimonial. Please try again.');
         }
     }
 

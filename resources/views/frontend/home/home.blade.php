@@ -578,16 +578,17 @@
                         <h2>What Our Patient Say About Us</h2>
                     </div>
                     <div class="testimonial-slider-one owl-carousel">
+                        @foreach($testimonials as $test)
                         <div class="testimonial-card style3">
-                            <p class="client-quote">Occaecati cupiditate non provident simi que sunt in culpa  officia deunt mollitia anim id est laborum et dolorum fuga. Et harum quidem rerum facilis est etour expedita distinctio libero tempore dolor.</p>
+                            <p class="client-quote">{!! $test->description !!}</p>
                             <div class="client-info-area">
                                 <div class="client-info-wrap">
                                     <div class="client-img">
-                                        <img src="{{ asset('front/assets/img/testimonials/client-1.jpg') }}" alt="Image">
+                                        <img src="{{ asset($test->image) }}" alt="Image">
                                     </div>
                                     <div class="client-info">
-                                        <h3>Jim Morison</h3>
-                                        <span>Director, BAT</span>
+                                        <h3>{{$test->name}}</h3>
+                                        <span>{{$test->designation}}</span>
                                     </div>
                                 </div>
                                 <div class="quote-icon">
@@ -595,74 +596,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="testimonial-card style3">
-                            <p class="client-quote">Occaecati cupiditate non provident simi que sunt in culpa  officia deunt mollitia anim id est laborum et dolorum fuga. Et harum quidem rerum facilis est etour expedita distinctio libero tempore dolor.</p>
-                            <div class="client-info-area">
-                                <div class="client-info-wrap">
-                                    <div class="client-img">
-                                        <img src="{{ asset('front/assets/img/testimonials/client-2.jpg') }}" alt="Image">
-                                    </div>
-                                    <div class="client-info">
-                                        <h3>Alex Cruis</h3>
-                                        <span>CEO, IBAC</span>
-                                    </div>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="flaticon-right-quote-sign"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card style3">
-                            <p class="client-quote">Occaecati cupiditate non provident simi que sunt in culpa  officia deunt mollitia anim id est laborum et dolorum fuga. Et harum quidem rerum facilis est etour expedita distinctio libero tempore dolor.</p>
-                            <div class="client-info-area">
-                                <div class="client-info-wrap">
-                                    <div class="client-img">
-                                        <img src="{{ asset('front/assets/img/testimonials/client-3.jpg') }}" alt="Image">
-                                    </div>
-                                    <div class="client-info">
-                                        <h3>Tom Haris</h3>
-                                        <span>Engineer, Olleo</span>
-                                    </div>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="flaticon-right-quote-sign"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card style3">
-                            <p class="client-quote">Occaecati cupiditate non provident simi que sunt in culpa  officia deunt mollitia anim id est laborum et dolorum fuga. Et harum quidem rerum facilis est etour expedita distinctio libero tempore dolor.</p>
-                            <div class="client-info-area">
-                                <div class="client-info-wrap">
-                                    <div class="client-img">
-                                        <img src="{{ asset('front/assets/img/testimonials/client-4.jpg') }}" alt="Image">
-                                    </div>
-                                    <div class="client-info">
-                                        <h3>Harry Jackson</h3>
-                                        <span>Enterpreneur</span>
-                                    </div>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="flaticon-right-quote-sign"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card style3">
-                            <p class="client-quote">Occaecati cupiditate non provident simi que sunt in culpa  officia deunt mollitia anim id est laborum et dolorum fuga. Et harum quidem rerum facilis est etour expedita distinctio libero tempore dolor.</p>
-                            <div class="client-info-area">
-                                <div class="client-info-wrap">
-                                    <div class="client-img">
-                                        <img src="{{ asset('front/assets/img/testimonials/client-5.jpg') }}" alt="Image">
-                                    </div>
-                                    <div class="client-info">
-                                        <h3>Chris Haris</h3>
-                                        <span>MD, ITec</span>
-                                    </div>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="flaticon-right-quote-sign"></i>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </section>  
@@ -675,59 +610,28 @@
                         <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                             <div class="section-title style1 text-center mb-40">
                                 <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Our blog</span>
-                                <h2>Natest News &amp; Articles</h2>
+                                <h2>Latest News &amp; Articles</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-center">
+                        @foreach($blogs as $blog)
                         <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                             <div class="blog-card style1">
                                 <div class="blog-img">
-                                    <img src="{{ asset('front/assets/img/blog/blog-1.jpg') }}" alt="Image">
+                                    <img src="{{ asset($blog->image) }}" alt="Image">
                                 </div>
                                 <div class="blog-info">
-                                    <h3><a href="blog-details-right-sidebar.html">How Do I Access Medical  Cannabis Prescription</a></h3>
-                                    <p>On the other hand, we denounce with riindi gnation and dislike men who are.</p>
-                                    <a href="blog-details-right-sidebar.html" class="link style1">Read More</a>
+                                    <h3><a href="{{route('single-blog',['slug'=> $blog->slug])}}">{{$blog->name}}</a></h3>
+                                    <p>{!!truncateTo100Words($blog->description)!!}</p>
+                                    <a href="{{route('single-blog',['slug'=> $blog->slug])}}" class="link style1">Read More</a>
                                 </div>
                                 <ul class="blog-metainfo  list-style">
-                                    <li><i class="ri-calendar-2-line"></i><a href="posts-by-date.html">22 Jun, 2024</a></li>
-                                    <li><i class="ri-chat-3-line"></i>No Comment</li>
+                                    <li><i class="ri-calendar-2-line"></i><a href="posts-by-date.html">{{$blog->created_at}}</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                            <div class="blog-card style1">
-                                <div class="blog-img">
-                                    <img src="{{ asset('front/assets/img/blog/blog-2.jpg" alt="Image">
-                                </div>
-                                <div class="blog-info">
-                                    <h3><a href="blog-details-right-sidebar.html">Use Of Medical Cannabis In  Improving Symptoms</a></h3>
-                                    <p>On the other hand, we denounce with riindi gnation and dislike men who are.</p>
-                                    <a href="blog-details-right-sidebar.html" class="link style1">Read More</a>
-                                </div>
-                                <ul class="blog-metainfo  list-style">
-                                    <li><i class="ri-calendar-2-line"></i><a href="posts-by-date.html">13 Jun, 2024</a></li>
-                                    <li><i class="ri-chat-3-line"></i>No Comment</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                            <div class="blog-card style1">
-                                <div class="blog-img">
-                                <img src="{{ asset('front/assets/img/blog/blog-2.jpg" alt="Image">
-                                </div>
-                                <div class="blog-info">
-                                    <h3><a href="blog-details-right-sidebar.html">A Guide For Natural And  Sustainable Beauty Routine</a></h3>
-                                    <p>On the other hand, we denounce with riindi gnation and dislike men who are.</p>
-                                    <a href="blog-details-right-sidebar.html" class="link style1">Read More</a>
-                                </div>
-                                <ul class="blog-metainfo  list-style">
-                                    <li><i class="ri-calendar-2-line"></i><a href="posts-by-date.html">15 May, 2024</a></li>
-                                    <li><i class="ri-chat-3-line"></i>No Comment</li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>

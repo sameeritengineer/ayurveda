@@ -80,9 +80,9 @@ class BlogController extends Controller
             $blog->status = 0;
         }
         if($blog->save()){
-            return redirect()->route('blogs.index')->with('success', 'Blog Added Successfully.');
+            return redirect()->route('admin.blogs.index')->with('success', 'Blog Added Successfully.');
         } else {
-            return redirect()->route('blogs.index')->with('alert', 'Failed to save Blog. Please try again.');
+            return redirect()->route('admin.blogs.index')->with('alert', 'Failed to save Blog. Please try again.');
         }
     }
 
@@ -175,9 +175,9 @@ class BlogController extends Controller
         //     $blog->image =  upload_image('images/blogs/',$request->image);
         // }
         if($blog->save()){
-            return redirect()->route('blogs.index')->with('success', 'Blog Updated Successfully.');
+            return redirect()->route('admin.blogs.index')->with('success', 'Blog Updated Successfully.');
         } else {
-            return redirect()->route('blogs.index')->with('alert', 'Failed to update Blog. Please try again.');
+            return redirect()->route('admin.blogs.index')->with('alert', 'Failed to update Blog. Please try again.');
         }
     }
 

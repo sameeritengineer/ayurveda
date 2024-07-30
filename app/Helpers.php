@@ -111,5 +111,16 @@ function getFinalPayableAmount(){
     return  getMainCartTotal() + getShppingFee();
 }
 
+/** short descriptin */
+function truncateTo100Words($content) {
+    $words = explode(' ', $content);
+    if (count($words) > 10) {
+        $words = array_slice($words, 0, 10);
+        $content = implode(' ', $words) . '...';
+    }
+
+    return $content;
+}
+
 
 ?>

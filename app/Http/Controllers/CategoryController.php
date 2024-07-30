@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $request->validated();
         $result = $this->data->store($request->all());
         if($result){
-            return redirect()->route('categories.index')->with('success', 'Category Added Successfully.');
+            return redirect()->route('admin.categories.index')->with('success', 'Category Added Successfully.');
         }
         
     }
@@ -97,7 +97,7 @@ class CategoryController extends Controller
         $request->validated();
         $result = $this->data->update($request->all());
         if($result){
-            return redirect()->route('categories.index')->with('success', 'Category Updated Successfully.');
+            return redirect()->route('admin.categories.index')->with('success', 'Category Updated Successfully.');
         }
     }
 

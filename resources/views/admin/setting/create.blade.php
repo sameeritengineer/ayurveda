@@ -96,7 +96,7 @@
                                 <label>Website Right Reserve</label>
                                 <input type="text"
                                     class="form-control"
-                                    name="right_reserve" id="right_reserve" value="{{ old('right_reserve',$type == 2 ? $setting->footer_description:'') }}">
+                                    name="right_reserve" id="right_reserve" value="{{ old('right_reserve',$type == 2 ? $setting->right_reserve:'') }}">
                             </div>
                             <div class="form-group">
                                 <label>Social Links</label>   

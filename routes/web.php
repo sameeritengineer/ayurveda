@@ -12,6 +12,9 @@ use App\Http\Controllers\Frontend\FproductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\BlogpageController;
+use App\Http\Controllers\Frontend\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +28,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('frontend.home.home');
-})->name('homepage');
+
+/** Homepage and Other pages Routes **/
+Route::get('/',[HomepageController::class,'index'])->name('homepage');
+Route::get('/blogs',[BlogpageController::class,'index'])->name('all-blogs');
+Route::get('/blogs/{slug}',[BlogpageController::class,'singleblog'])->name('single-blog');
+Route::get('/testimonials',[PageController::class,'testimonials'])->name('testimonials');
+Route::get('/faqs',[PageController::class,'faqs'])->name('faqs');
+Route::get('/contact',[PageController::class,'contact'])->name('contact');
+Route::post('/postcontact',[PageController::class,'postcontact'])->name('postcontact');
+Route::get('/about-us',[PageController::class,'about'])->name('about');
+Route::get('/pages/{slug}',[PageController::class,'pages'])->name('pages');
+
+
 
 /** Product route */
 Route::get('/all-products',[FproductController::class,'index'])->name('getProducts');

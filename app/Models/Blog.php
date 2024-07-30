@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
+    protected $dateFormat = 'U';
     public function category(){
         return $this->belongsTo(BlogCategory::class);
+    }
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d M, Y',strtotime($value));
     }
 }

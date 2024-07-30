@@ -1,3 +1,6 @@
+@php
+$setting = \App\Models\Setting::first();
+@endphp
 <header class="header-wrap style4">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
@@ -14,97 +17,42 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="about.html" class="nav-link">
+                                            <a href="{{route('about')}}" class="nav-link {{ Route::is('about') ? 'active' : '' }}">
                                                 About
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('getProducts')}}" class="nav-link">
+                                            <a href="{{route('getProducts')}}" class="nav-link {{ Route::is('getProducts') ? 'active' : '' }}">
                                                 Shop
                                             </a>
                                         </li>
                                        
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link active">
+                                            <a href="#" class="nav-link {{ Route::is(['faqs', 'testimonials', 'pages']) ? 'active' : '' }}">
                                                 Pages
                                                 <i class="ri-arrow-down-line"></i>
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="feature.html" class="nav-link">
-                                                        Features
-                                                    </a>
+                                                    <a href="{{route('faqs')}}" class="nav-link {{ Route::is('faqs') ? 'active' : '' }}">FAQ</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="#" class="nav-link active">
-                                                        Shop
-                                                        <i class="ri-arrow-down-line"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li class="nav-item">
-                                                            <a href="shop-grid.html" class="nav-link">Shop Grid</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="shop-left-sidebar.html" class="nav-link active">Shop Left Sidebar</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="shop-right-sidebar.html" class="nav-link ">Shop Right Sidebar</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="shop-details.html" class="nav-link">Single Product</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="cart.html" class="nav-link ">Cart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="wishlist.html" class="nav-link ">Wishlist</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="checkout.html" class="nav-link">Checkout</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="login.html" class="nav-link">Login</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="register.html" class="nav-link">Register</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="my-account.html" class="nav-link">My Account</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="recover-password.html" class="nav-link">Recover Password</a>
-                                                        </li>
-                                                    </ul>
+                                                    <a href="{{route('testimonials')}}" class="nav-link {{ Route::is('testimonials') ? 'active' : '' }}">Testimonials</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="team.html" class="nav-link">Our Team</a>
+                                                    <a href="{{route('pages',['slug'=>'terms-of-service'])}}" class="nav-link {{ request()->route('slug') == 'terms-of-service' ? 'active' : '' }}">Terms of Service</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="pricing-plan.html" class="nav-link">Pricing Plan</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="faq.html" class="nav-link">FAQ</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="error-404.html" class="nav-link">404 Error Page</a>
+                                                    <a href="{{route('pages',['slug'=>'privacy-policy'])}}" class="nav-link {{ request()->route('slug') == 'privacy-policy' ? 'active' : '' }}">Privacy Policy</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{route('all-blogs')}}" class="nav-link">
                                                 Blog
-                                                <i class="ri-arrow-down-line"></i>
+                                                <!-- <i class="ri-arrow-down-line"></i> -->
                                             </a>
-                                            <ul class="dropdown-menu">
+                                            <!-- <ul class="dropdown-menu">
                                                 <li class="nav-item">
                                                     <a href="#" class="nav-link">
                                                         Blog Layout
@@ -139,10 +87,10 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <li class="nav-item">
-                                            <a href="contact.html" class="nav-link">Contact</a>
+                                            <a href="{{route('contact')}}" class="nav-link">Contact</a>
                                         </li>
                                         <li class="nav-item d-lg-none">
                                             <a href="login.html" class="btn style1 w-block w-100">Login Now</a>
@@ -151,9 +99,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <a class="navbar-brand" href="index.html">
-                                    <img class="logo-light" src="assets/img/logo.png" alt="logo">
-                                    <img class="logo-dark" src="assets/img/logo-white.png" alt="logo">
+                                <a class="navbar-brand" href="{{route('homepage')}}">
+                                    <img class="logo-light" src="{{ asset($setting->logo ?? '') }}" alt="logo">
+                                    <img class="logo-dark" src="{{ asset($setting->logo ?? '') }}" alt="logo">
                                 </a>
                             </div>
                             <div class="col-lg-5">
