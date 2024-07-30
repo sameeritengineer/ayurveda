@@ -12,6 +12,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 
 class BlogDataTable extends DataTable
 {
@@ -40,7 +41,7 @@ class BlogDataTable extends DataTable
             })
 
             ->addColumn('description', function($query){
-                return strip_tags($query->description);
+                return Str::limit(strip_tags($query->description), 400, '....');
             })
 
             ->addColumn('status', function($query){

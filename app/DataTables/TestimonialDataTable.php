@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+
 use App\Models\Testimonial;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,8 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
+
 
 class TestimonialDataTable extends DataTable
 {
@@ -37,7 +40,7 @@ class TestimonialDataTable extends DataTable
             })
 
             ->addColumn('description', function($query){
-                return strip_tags($query->description);
+                return Str::limit(strip_tags($query->description), 400, '....');
             })
 
             ->rawColumns(['image', 'type', 'status', 'action'])
