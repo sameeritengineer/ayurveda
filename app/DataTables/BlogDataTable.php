@@ -39,6 +39,10 @@ class BlogDataTable extends DataTable
                 return $blog->category->name;
             })
 
+            ->addColumn('description', function($query){
+                return strip_tags($query->description);
+            })
+
             ->addColumn('status', function($query){
                 if($query->status == 1){
                     $button = '<label class="custom-switch mt-2">

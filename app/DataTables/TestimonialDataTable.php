@@ -36,6 +36,9 @@ class TestimonialDataTable extends DataTable
                 return "<img width='70px' src='".asset($query->image)."' ></img>";
             })
 
+            ->addColumn('description', function($query){
+                return strip_tags($query->description);
+            })
 
             ->rawColumns(['image', 'type', 'status', 'action'])
             ->setRowId('id');
