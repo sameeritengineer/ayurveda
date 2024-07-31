@@ -57,6 +57,19 @@
                 <a href="{{ route('admin.pages.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Pages</span></a>
             </li>
+
+            <li class="dropdown {{ Route::is(['admin.order.index']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cart-plus"></i>
+                    <span>Orders</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Route::is(['admin.order.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.order.index') }}">All Orders</a></li>
+                    {{-- <li class="{{ setActive(['admin.pending-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.pending-orders') }}">All Pending Orders</a></li> --}}
+
+
+                </ul>
+            </li>
             {{-- <li class="menu-header">Starter</li>
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>

@@ -11,7 +11,9 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ShippingRuleController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::middleware(['auth','adminM'])->group(function(){
     Route::get('/dashboard',[HomeController::class,'index'])->name('adminDash');
@@ -39,5 +41,10 @@ Route::middleware(['auth','adminM'])->group(function(){
 
     /* Pages Route */
     Route::resource('pages', PageController::class);
+
+    /* Order Route */
+    Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
+    Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
+    Route::resource('order', OrderController::class);
 });
 ?>
