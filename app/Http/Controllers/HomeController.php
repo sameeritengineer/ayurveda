@@ -22,6 +22,11 @@ class HomeController extends Controller
         $totalOrders = Order::count();
         $totalPendingOrders = Order::where('order_status', 'pending')->count();
         $totalProcessedOrders = Order::where('order_status', 'processed_and_ready_to_ship')->count();
+        $totaldroppedoffOrders = Order::where('order_status', 'dropped_off')->count();
+        $totalshippedOrders = Order::where('order_status', 'shipped')->count();
+        $totaloutfordeliveryOrders = Order::where('order_status', 'out_for_delivery')->count();
+
+
         // $totalCanceledOrders = Order::where('order_status', 'canceled')->count();
         // $totalCompleteOrders = Order::where('order_status', 'delivered')->count();
 
@@ -57,6 +62,9 @@ class HomeController extends Controller
             'todaysOrder',
             'todaysPendingOrder',
             'totalProcessedOrders',
+            'totaldroppedoffOrders',
+            'totalshippedOrders',
+            'totaloutfordeliveryOrders',
 
             // 'totalCanceledOrders',
             // 'totalCompleteOrders',

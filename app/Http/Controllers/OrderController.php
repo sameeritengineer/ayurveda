@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 use App\DataTables\OrderDataTable;
 use App\DataTables\PendingOrderDataTable;
 use App\DataTables\processedOrderDataTable;
+use App\DataTables\droppedOffOrderDataTable;
+use App\DataTables\shippedOrderDataTable;
+use App\DataTables\outForDeliveryOrderDataTable;
+
+
+
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -27,6 +33,21 @@ class OrderController extends Controller
     public function processedOrders(processedOrderDataTable $dataTable)
     {
         return $dataTable->render('admin.order.processed-order');
+    }
+
+    public function droppedOfOrders(droppedOffOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.dropped-off-order');
+    }
+
+    public function shippedOrders(shippedOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.shipped-order');
+    }
+
+    public function outForDeliveryOrders(outForDeliveryOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.out-for-delivery-order');
     }
 
     /**
