@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\DataTables\OrderDataTable;
+use App\DataTables\PendingOrderDataTable;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,11 @@ class OrderController extends Controller
     public function index(OrderDataTable $dataTable)
     {
         return $dataTable->render('admin.order.index');
+    }
+
+    public function pendingOrders(PendingOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.pending-order');
     }
 
     /**
@@ -81,7 +87,16 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        // delete order products
+        $order->orderProducts()->delete();
+        // delete transaction
+        $order->transaction()->delete();
+
+        $order->delete();
+
+        return response(['status' => 'success', 'message' => 'Deleted successfully!']);
     }
 
     public function changeOrderStatus(Request $request)

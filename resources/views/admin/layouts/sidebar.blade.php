@@ -64,8 +64,8 @@
                 <ul class="dropdown-menu">
                     <li class="{{ Route::is(['admin.order.index']) }}"><a class="nav-link"
                             href="{{ route('admin.order.index') }}">All Orders</a></li>
-                    {{-- <li class="{{ setActive(['admin.pending-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin.pending-orders') }}">All Pending Orders</a></li> --}}
+                    <li class="{{ Route::is(['admin.pending-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.pending-orders') }}">All Pending Orders</a></li>
 
 
                 </ul>

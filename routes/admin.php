@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','adminM'])->group(function(){
     Route::get('/dashboard',[HomeController::class,'index'])->name('adminDash');
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('adminDash');
     Route::resource('categories', CategoryController::class);
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('blogs', BlogController::class);
@@ -43,6 +44,7 @@ Route::middleware(['auth','adminM'])->group(function(){
     Route::resource('pages', PageController::class);
 
     /* Order Route */
+    Route::get('pending-orders', [OrderController::class, 'pendingOrders'])->name('pending-orders');
     Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
     Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
     Route::resource('order', OrderController::class);
