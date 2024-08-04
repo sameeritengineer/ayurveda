@@ -66,6 +66,8 @@
                             href="{{ route('admin.order.index') }}">All Orders</a></li>
                     <li class="{{ Route::is(['admin.pending-orders']) }}"><a class="nav-link"
                             href="{{ route('admin.pending-orders') }}">All Pending Orders</a></li>
+                    <li class="{{ Route::is(['admin.processed-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.processed-orders') }}">All processed Orders</a></li>
 
 
                 </ul>

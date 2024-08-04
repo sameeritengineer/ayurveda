@@ -21,6 +21,7 @@ class HomeController extends Controller
         $todaysPendingOrder = Order::whereDate('created_at', Carbon::today())->where('order_status', 'pending')->count();
         $totalOrders = Order::count();
         $totalPendingOrders = Order::where('order_status', 'pending')->count();
+        $totalProcessedOrders = Order::where('order_status', 'processed_and_ready_to_ship')->count();
         // $totalCanceledOrders = Order::where('order_status', 'canceled')->count();
         // $totalCompleteOrders = Order::where('order_status', 'delivered')->count();
 
@@ -55,6 +56,7 @@ class HomeController extends Controller
             'totalPendingOrders',
             'todaysOrder',
             'todaysPendingOrder',
+            'totalProcessedOrders',
 
             // 'totalCanceledOrders',
             // 'totalCompleteOrders',

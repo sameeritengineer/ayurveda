@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\DataTables\OrderDataTable;
 use App\DataTables\PendingOrderDataTable;
+use App\DataTables\processedOrderDataTable;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,11 @@ class OrderController extends Controller
     public function pendingOrders(PendingOrderDataTable $dataTable)
     {
         return $dataTable->render('admin.order.pending-order');
+    }
+
+    public function processedOrders(processedOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.processed-order');
     }
 
     /**

@@ -44,6 +44,7 @@ Route::middleware(['auth','adminM'])->group(function(){
     Route::resource('pages', PageController::class);
 
     /* Order Route */
+    Route::get('processed-orders', [OrderController::class, 'processedOrders'])->name('processed-orders');
     Route::get('pending-orders', [OrderController::class, 'pendingOrders'])->name('pending-orders');
     Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
     Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
