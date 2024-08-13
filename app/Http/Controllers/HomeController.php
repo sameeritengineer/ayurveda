@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
+use App\Models\Category;
+use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -25,34 +28,32 @@ class HomeController extends Controller
         $totaldroppedoffOrders = Order::where('order_status', 'dropped_off')->count();
         $totalshippedOrders = Order::where('order_status', 'shipped')->count();
         $totaloutfordeliveryOrders = Order::where('order_status', 'out_for_delivery')->count();
+        $totaldeliveredOrders = Order::where('order_status', 'delivered')->count();
+        $totalcanceledOrders = Order::where('order_status', 'canceled')->count();
 
+        $todaysEarnings = Order::where('order_status','!=', 'canceled')
+        ->where('payment_status',1)
+        ->whereDate('created_at', Carbon::today())
+        ->sum('sub_total');
 
-        // $totalCanceledOrders = Order::where('order_status', 'canceled')->count();
-        // $totalCompleteOrders = Order::where('order_status', 'delivered')->count();
+        $monthEarnings = Order::where('order_status','!=', 'canceled')
+        ->where('payment_status',1)
+        ->whereMonth('created_at', Carbon::now()->month)
+        ->sum('sub_total');
 
-        // $todaysEarnings = Order::where('order_status','!=', 'canceled')
-        // ->where('payment_status',1)
-        // ->whereDate('created_at', Carbon::today())
-        // ->sum('sub_total');
-
-        // $monthEarnings = Order::where('order_status','!=', 'canceled')
-        // ->where('payment_status',1)
-        // ->whereMonth('created_at', Carbon::now()->month)
-        // ->sum('sub_total');
-
-        // $yearEarnings = Order::where('order_status','!=', 'canceled')
-        // ->where('payment_status',1)
-        // ->whereYear('created_at', Carbon::now()->year)
-        // ->sum('sub_total');
+        $yearEarnings = Order::where('order_status','!=', 'canceled')
+        ->where('payment_status',1)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->sum('sub_total');
 
         // $totalReview = ProductReview::count();
 
-        // $totalBrands = Brand::count();
-        // $totalCategories = Category::count();
-        // $totalBlogs = Blog::count();
+        $totalCategories = Category::count();
+        $totalBlogs = Blog::count();
         // $totalSubscriber = NewsletterSubscriber::count();
-        // $totalVendors = User::where('role', 'vendor')->count();
-        // $totalUsers = User::where('role', 'user')->count();
+
+        $totalUsers = User::where('user_type', 'user')->count();
+        $totalAdmins = User::where('user_type', 'admin')->count();
 
 
 
@@ -65,19 +66,21 @@ class HomeController extends Controller
             'totaldroppedoffOrders',
             'totalshippedOrders',
             'totaloutfordeliveryOrders',
+            'totaldeliveredOrders',
+            'totalcanceledOrders',
+            'todaysEarnings',
+            'monthEarnings',
+            'yearEarnings',
+            'totalCategories',
+            'totalBlogs',
+            'totalUsers',
+            'totalAdmins',
+             // 'totalSubscriber',
 
-            // 'totalCanceledOrders',
-            // 'totalCompleteOrders',
-            // 'todaysEarnings',
-            // 'monthEarnings',
-            // 'yearEarnings',
-            // 'totalReview',
-            // 'totalBrands',
-            // 'totalCategories',
-            // 'totalBlogs',
-            // 'totalSubscriber',
-            // 'totalVendors',
-            // 'totalUsers'
+
+
+
+
         ));
     }
 }

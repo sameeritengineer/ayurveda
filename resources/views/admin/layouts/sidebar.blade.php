@@ -29,9 +29,18 @@
                             href="{{ route('admin.shipped-orders') }}">All Shipped Orders</a></li>
                     <li class="{{ Route::is(['admin.out-for-delivery-orders']) }}"><a class="nav-link"
                             href="{{ route('admin.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li>
+                    <li class="{{ Route::is(['admin.delivered-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.delivered-orders') }}">All Delivered Orders</a></li>
+                    <li class="{{ Route::is(['admin.canceled-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.canceled-orders') }}">All Canceled Orders</a></li>
 
 
                 </ul>
+            </li>
+
+            <li class="{{ Route::is(['admin.transaction']) }}"><a class="nav-link"
+                    href="{{ route('admin.transaction') }}"><i class="fas fa-money-bill-alt"></i>
+                    <span>Transactions</span></a>
             </li>
 
             <li
@@ -81,6 +90,29 @@
                 <a href="{{ route('admin.pages.index') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Pages</span></a>
             </li>
+
+
+            <li class="menu-header">Settings & More</li>
+
+
+            <li
+                class="dropdown {{ Route::is(['admin.customer.index', 'admin.admin-list.index', 'admin.manage-user.index']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i>
+                    <span>Users</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Route::is(['admin.customer.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.customer.index') }}">Customer list</a></li>
+
+                    <li class="{{ Route::is(['admin.admin-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>
+
+                    <li class="{{ Route::is(['admin.manage-user.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.manage-user.index') }}">Manage user</a></li>
+
+                </ul>
+            </li>
+
+
 
 
             {{-- <li class="menu-header">Starter</li>

@@ -7,7 +7,8 @@ use App\DataTables\processedOrderDataTable;
 use App\DataTables\droppedOffOrderDataTable;
 use App\DataTables\shippedOrderDataTable;
 use App\DataTables\outForDeliveryOrderDataTable;
-
+use App\DataTables\deliveredOrderDataTable;
+use App\DataTables\canceledOrderDataTable;
 
 
 use App\Models\Order;
@@ -48,6 +49,16 @@ class OrderController extends Controller
     public function outForDeliveryOrders(outForDeliveryOrderDataTable $dataTable)
     {
         return $dataTable->render('admin.order.out-for-delivery-order');
+    }
+
+    public function deliveredOrders(deliveredOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.delivered-order');
+    }
+
+    public function canceledOrders(canceledOrderDataTable $dataTable)
+    {
+        return $dataTable->render('admin.order.canceled-order');
     }
 
     /**
