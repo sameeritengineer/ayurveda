@@ -1,95 +1,350 @@
-{{-- <h1>Admin</h1> --}}
 @extends('admin.layouts.app')
+
 @section('content')
     <section class="section">
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <div class="card card-statistic-2">
-            <div class="card-stats">
-              <div class="card-stats-title">Order Statistics - 
-                <div class="dropdown d-inline">
-                  <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">August</a>
-                  <ul class="dropdown-menu dropdown-menu-sm">
-                    <li class="dropdown-title">Select Month</li>
-                    <li><a href="#" class="dropdown-item">January</a></li>
-                    <li><a href="#" class="dropdown-item">February</a></li>
-                    <li><a href="#" class="dropdown-item">March</a></li>
-                    <li><a href="#" class="dropdown-item">April</a></li>
-                    <li><a href="#" class="dropdown-item">May</a></li>
-                    <li><a href="#" class="dropdown-item">June</a></li>
-                    <li><a href="#" class="dropdown-item">July</a></li>
-                    <li><a href="#" class="dropdown-item active">August</a></li>
-                    <li><a href="#" class="dropdown-item">September</a></li>
-                    <li><a href="#" class="dropdown-item">October</a></li>
-                    <li><a href="#" class="dropdown-item">November</a></li>
-                    <li><a href="#" class="dropdown-item">December</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-stats-items">
-                <div class="card-stats-item">
-                  <div class="card-stats-item-count">24</div>
-                  <div class="card-stats-item-label">Pending</div>
-                </div>
-                <div class="card-stats-item">
-                  <div class="card-stats-item-count">12</div>
-                  <div class="card-stats-item-label">Shipping</div>
-                </div>
-                <div class="card-stats-item">
-                  <div class="card-stats-item-count">23</div>
-                  <div class="card-stats-item-label">Completed</div>
-                </div>
-              </div>
-            </div>
-            <div class="card-icon shadow-primary bg-primary">
-              <i class="fas fa-archive"></i>
-            </div>
-            <div class="card-wrap">
-              <div class="card-header">
-                <h4>Total Orders</h4>
-              </div>
-              <div class="card-body">
-                59
-              </div>
-            </div>
-          </div>
+        <div class="section-header">
+            <h1>Dashboard</h1>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <div class="card card-statistic-2">
-            <div class="card-chart">
-              <canvas id="balance-chart" height="80"></canvas>
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.order.index') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="card-icon shadow-primary bg-primary">
-              <i class="fas fa-dollar-sign"></i>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.pending-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Pending Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalPendingOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="card-wrap">
-              <div class="card-header">
-                <h4>Balance</h4>
-              </div>
-              <div class="card-body">
-                $187,13
-              </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.order.index') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Todays Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $todaysOrder }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.pending-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Todays Pending Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $todaysPendingOrder }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.processed-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Processed Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalProcessedOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.processed-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Dropped Off Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totaldroppedoffOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.shipped-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Shipped Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalshippedOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.out-for-delivery-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Out For Delivery Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totaloutfordeliveryOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.delivered-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-info">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Delivered Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totaldeliveredOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.canceled-orders') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-info">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>All Canceled Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalcanceledOrders }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-info">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Todays Earnings</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ '₹' . $todaysEarnings }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-info">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>This Month Earnings</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ '₹' . $monthEarnings }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>This Years Earnings</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ '₹' . $yearEarnings }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Categories</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalCategories }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Blogs</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalBlogs }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Subscribers</h4>
+                            </div>
+                            <div class="card-body">
+                                {{-- {{ $totalUsers }} --}}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.order.index') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Users</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalUsers }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('admin.order.index') }}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-cart-plus"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Admins</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $totalAdmins }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <div class="card card-statistic-2">
-            <div class="card-chart">
-              <canvas id="sales-chart" height="80"></canvas>
-            </div>
-            <div class="card-icon shadow-primary bg-primary">
-              <i class="fas fa-shopping-bag"></i>
-            </div>
-            <div class="card-wrap">
-              <div class="card-header">
-                <h4>Sales</h4>
-              </div>
-              <div class="card-body">
-                4,732
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
 @endsection

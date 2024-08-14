@@ -2,10 +2,8 @@
 
 namespace App\DataTables;
 
-
-use App\Models\Testimonial;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
-use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -13,10 +11,8 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-use Illuminate\Support\Str;
 
-
-class TestimonialDataTable extends DataTable
+class TransactionDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -27,33 +23,29 @@ class TestimonialDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                $viewBtn = "<a href='".route('admin.testimonials.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
-                $editBtn = "<a href='".route('admin.testimonials.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin.testimonials.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
-
-
-                return $viewBtn.$editBtn.$deleteBtn;
+            ->addColumn('action', 'transaction.action')
+            ->addColumn('invoice_id', function($query){
+                return '#'.$query->order->invocie_id;
             })
-            ->addColumn('image', function($query){
-                return "<img width='70px' src='".asset($query->image)."' ></img>";
+            ->addColumn('amount', function($query){
+                return $query->amount_real_currency.' '.$query->amount_real_currency_name;
             })
-
-            ->addColumn('description', function($query){
-                return Str::limit(strip_tags($query->description), 400, '....');
+            ->filterColumn('invoice_id', function($query, $keyword){
+                $query->whereHas('order', function($query) use ($keyword){
+                    $query->where('invocie_id', 'like', "%$keyword%");
+                });
             })
 
-            ->rawColumns(['image', 'type', 'status', 'action'])
             ->setRowId('id');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Testimonial $model
+     * @param \App\Models\Transaction $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Testimonial $model)
+    public function query(Transaction $model)
     {
         return $model->newQuery();
     }
@@ -65,14 +57,12 @@ class TestimonialDataTable extends DataTable
      */
     public function html()
     {
-
-                    return $this->builder()
-                    ->setTableId('testimonial-table')
+        return $this->builder()
+                    ->setTableId('transaction-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
                     ->orderBy(0)
-                    ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),
@@ -93,15 +83,11 @@ class TestimonialDataTable extends DataTable
         return [
 
             Column::make('id'),
-            Column::make('image'),
-            Column::make('name'),
-            Column::make('designation'),
-            Column::make('description')->width(150),
-            Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(200)
-            ->addClass('text-center'),
+            Column::make('invoice_id'),
+            Column::make('transaction_id'),
+            Column::make('payment_method'),
+            Column::make('amount'),
+
         ];
     }
 
@@ -112,6 +98,6 @@ class TestimonialDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Testimonial_' . date('YmdHis');
+        return 'Transaction_' . date('YmdHis');
     }
 }

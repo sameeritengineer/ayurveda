@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Blog;
+use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
@@ -14,7 +14,7 @@ use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use Illuminate\Support\Str;
 
-class BlogDataTable extends DataTable
+class PageDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -26,54 +26,32 @@ class BlogDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $viewBtn = "<a href='".route('admin.blogs.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
-                $editBtn = "<a href='".route('admin.blogs.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin.blogs.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $viewBtn = "<a href='".route('admin.pages.show', $query->id)."' class='btn btn-info'><i class='far fa-eye'></i></a>";
+                $editBtn = "<a href='".route('admin.pages.edit', $query->id)."' class='btn btn-primary ml-2'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin.pages.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
 
                 return $viewBtn.$editBtn.$deleteBtn;
             })
-            ->addColumn('image', function($query){
-                return "<img width='70px' src='".asset($query->image)."' ></img>";
-            })
-            ->addColumn('category_name', function ($blog) {
-                return $blog->category->name;
-            })
 
             ->addColumn('description', function($query){
+                //return strip_tags($query->description);
                 return Str::limit(strip_tags($query->description), 400, '....');
             })
 
-            ->addColumn('status', function($query){
-                if($query->status == 1){
-                    $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" checked name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status" >
-                        <span class="custom-switch-indicator"></span>
-                    </label>';
-                }else {
-                    $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
-                        <span class="custom-switch-indicator"></span>
-                    </label>';
-                }
-                return $button;
-            })
-
-
-            ->rawColumns(['image', 'status', 'action'])
+            ->rawColumns(['description','action'])
             ->setRowId('id');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Blog $model
+     * @param \App\Models\Page $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Blog $model)
+    public function query(Page $model)
     {
-        //return $model->with('category')->newQuery();
-        return $model->newQuery()->with(['category']);
+        return $model->newQuery();
     }
 
     /**
@@ -84,12 +62,11 @@ class BlogDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('blog-table')
+                    ->setTableId('page-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
                     ->orderBy(0)
-                    ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),
@@ -109,10 +86,8 @@ class BlogDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('image'),
             Column::make('name'),
-            Column::make('category_name')->title('Category'),
-            Column::make('description')->width(150),
+            Column::make('description'),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
@@ -128,6 +103,6 @@ class BlogDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Blog_' . date('YmdHis');
+        return 'Page_' . date('YmdHis');
     }
 }

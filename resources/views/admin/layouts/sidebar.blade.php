@@ -12,12 +12,49 @@
                 <a href="{{ route('admin.adminDash') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+
+            <li class="dropdown {{ Route::is(['admin.order.index']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cart-plus"></i>
+                    <span>Orders</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Route::is(['admin.order.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.order.index') }}">All Orders</a></li>
+                    <li class="{{ Route::is(['admin.pending-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.pending-orders') }}">All Pending Orders</a></li>
+                    <li class="{{ Route::is(['admin.processed-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.processed-orders') }}">All processed Orders</a></li>
+                    <li class="{{ Route::is(['admin.dropped-off-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.dropped-off-orders') }}">All Dropped Off Orders</a></li>
+                    <li class="{{ Route::is(['admin.shipped-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.shipped-orders') }}">All Shipped Orders</a></li>
+                    <li class="{{ Route::is(['admin.out-for-delivery-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li>
+                    <li class="{{ Route::is(['admin.delivered-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.delivered-orders') }}">All Delivered Orders</a></li>
+                    <li class="{{ Route::is(['admin.canceled-orders']) }}"><a class="nav-link"
+                            href="{{ route('admin.canceled-orders') }}">All Canceled Orders</a></li>
+
+
+                </ul>
+            </li>
+
+            <li class="{{ Route::is(['admin.transaction']) }}"><a class="nav-link"
+                    href="{{ route('admin.transaction') }}"><i class="fas fa-money-bill-alt"></i>
+                    <span>Transactions</span></a>
+            </li>
+
             <li
                 class="{{ Route::is(['admin.categories.index', 'admin.categories.create', 'admin.categories.show', 'admin.categories.edit']) ? 'active' : '' }}">
-                <ali><a class="nav-link" href="{{ route('admin.categories.index') }}"><i
-                            class="fas fa-fire"></i><span>All Categories</a>
+                <a href="{{ route('admin.categories.index') }}" class="nav-link"><i
+                        class="fas fa-list"></i><span>Manage Categories</span></a>
             </li>
+
+            <li
+                class="{{ Route::is(['admin.products.index', 'admin.products.create', 'admin.products.show', 'admin.products.edit']) ? 'active' : '' }}">
+                <a href="{{ route('admin.products.index') }}" class="nav-link"><i class="fas fa-box"></i><span>Manage
+                        Products</span></a>
             </li>
+
             <li
                 class="{{ Route::is(['admin.testimonials.index', 'admin.testimonials.create', 'admin.testimonials.show', 'admin.testimonials.edit']) ? 'active' : '' }}">
                 <a href="{{ route('admin.testimonials.index') }}" class="nav-link"><i
@@ -26,27 +63,58 @@
             <li
                 class="{{ Route::is(['admin.blogs.index', 'admin.blogs.create', 'admin.blogs.show', 'admin.blogs.edit']) ? 'active' : '' }}">
                 <a href="{{ route('admin.blogs.index') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Blogs</span></a>
+                        class="fab fa-blogger-b"></i><span>Blogs</span></a>
             </li>
             <li class="{{ Route::is(['admin.create-setting']) ? 'active' : '' }}">
                 <a href="{{ route('admin.create-setting') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Settings</span></a>
+                        class="fas fa-cog"></i><span>Settings</span></a>
             </li>
-            <li
-                class="{{ Route::is(['admin.products.index', 'admin.products.create', 'admin.products.show', 'admin.products.edit']) ? 'active' : '' }}">
-                <a href="{{ route('admin.products.index') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Products</span></a>
-            </li>
+
             <li
                 class="{{ Route::is(['admin.coupons.index', 'admin.coupons.create', 'admin.coupons.edit', 'admin.coupons.show']) ? 'active' : '' }}">
                 <a href="{{ route('admin.coupons.index') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Coupons</span></a>
+                        class="fas fa-columns"></i><span>Coupons</span></a>
             </li>
             <li
                 class="{{ Route::is(['admin.shippingrules.index', 'admin.shippingrules.create', 'admin.shippingrules.edit', 'admin.shippingrules.show']) ? 'active' : '' }}">
                 <a href="{{ route('admin.shippingrules.index') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Shipping Rule</span></a>
+                        class="fas fa-columns"></i><span>Shipping Rule</span></a>
             </li>
+            <li
+                class="{{ Route::is(['admin.faqs.index', 'admin.faqs.create', 'admin.faqs.edit', 'admin.faqs.show']) ? 'active' : '' }}">
+                <a href="{{ route('admin.faqs.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>FAQ's</span></a>
+            </li>
+            <li
+                class="{{ Route::is(['admin.pages.index', 'admin.pages.create', 'admin.pages.edit', 'admin.pages.show']) ? 'active' : '' }}">
+                <a href="{{ route('admin.pages.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Pages</span></a>
+            </li>
+
+
+            <li class="menu-header">Settings & More</li>
+
+
+            <li
+                class="dropdown {{ Route::is(['admin.customer.index', 'admin.admin-list.index', 'admin.manage-user.index']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i>
+                    <span>Users</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Route::is(['admin.customer.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.customer.index') }}">Customer list</a></li>
+
+                    <li class="{{ Route::is(['admin.admin-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>
+
+                    <li class="{{ Route::is(['admin.manage-user.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.manage-user.index') }}">Manage user</a></li>
+
+                </ul>
+            </li>
+
+
+
+
             {{-- <li class="menu-header">Starter</li>
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
