@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageGalleryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Frontend\FproductController;
@@ -39,6 +40,7 @@ Route::get('/contact',[PageController::class,'contact'])->name('contact');
 Route::post('/postcontact',[PageController::class,'postcontact'])->name('postcontact');
 Route::get('/about-us',[PageController::class,'about'])->name('about');
 Route::get('/pages/{slug}',[PageController::class,'pages'])->name('pages');
+Route::post('/newsletter',[PageController::class,'newsletter'])->name('newsletter');
 
 
 
@@ -71,8 +73,12 @@ Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->nam
 
 });
 
-Route::get('/user/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+    Route::get('/dashboard',[UserController::class,'index'])->name('userdashboard');
+    Route::get('profile', [UserController::class, 'userindex'])->name('user.profile'); 
+    Route::put('profile', [UserController::class, 'updateProfile'])->name('user.profileUpdate');
+    Route::post('profile', [UserController::class, 'updatePassword'])->name('user.update.password');
+    Route::get('reviews', [UserController::class, 'reviews'])->name('user.review');
+});    
 
 require __DIR__.'/auth.php';

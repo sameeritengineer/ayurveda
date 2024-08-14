@@ -1,5 +1,11 @@
 <script>
     $(document).ready(function() {
+
+        $(".homeAddCart").click(function(e){
+                e.preventDefault();
+                $(this).siblings(".shopping-cart-form").submit();
+            });
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

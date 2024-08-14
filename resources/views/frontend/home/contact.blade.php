@@ -27,12 +27,15 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="contact-item">
+                                    @php
+                                    $setting = \App\Models\Setting::first();
+                                    @endphp
                                     <img src="{{ asset('front/assets/img/shape-6.png') }}" alt="Image" class="contact-shape">
                                     <h3>Address</h3>
                                     <ul class="contact-info list-style">
-                                        <li><i class="flaticon-pin"></i><p>1576 Gordon Street, Etihad, Georgia</p></li>
-                                        <li><i class="flaticon-call-1"></i><a href="tel:9094630378">909-463-0378</a></li>
-                                        <li><i class="flaticon-email-2"></i><a href="mailto:info@muva.com">info@muva.com</a></li>
+                                        <li><i class="flaticon-pin"></i><p>{{$setting->address}}</p></li>
+                                        <li><i class="flaticon-call-1"></i><a href="tel:{{$setting->phone}}">{{$setting->phone}}</a></li>
+                                        <li><i class="flaticon-email-2"></i><a href="mailto:{{$setting->email}}">{{$setting->email}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -106,7 +109,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button type="submit" name="submit">Send Message</button>
+                                                <button type="submit" name="submit" class="contact-btn style1 w-block w-100">Send Message</button>
                                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                                 <div class="clearfix"></div>
                                             </div>

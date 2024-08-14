@@ -82,7 +82,7 @@ class ProductController extends Controller
         $product->seo_description = $request->seo_description;
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'Product Added Successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product Added Successfully.');
     }
 
     /**
@@ -164,7 +164,7 @@ class ProductController extends Controller
 
         //toastr('Updated Successfully!', 'success');
 
-        return redirect()->route('products.index')->with('success', 'Product Update Successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product Update Successfully.');
 
     }
 

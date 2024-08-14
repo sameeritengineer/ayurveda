@@ -1,7 +1,7 @@
 @php
 $setting = \App\Models\Setting::first();
 @endphp
-<footer class="footer-wrap style1" style="background-color:{{$setting->background_color ?? ''}}">
+<footer class="footer-wrap style1" style="background-color:#1c363d">
                 <img src="{{ asset('front/assets/img/footer-shape-1.png') }}" alt="Image" class="footer-shape-one">
                 <img src="{{ asset('front/assets/img/footer-shape-2.png') }}" alt="Image" class="footer-shape-two moveVertical  sm-none">
                 <img src="{{ asset('front/assets/img/footer-shape-3.png') }}" alt="Image" class="footer-shape-three moveHorizontal">

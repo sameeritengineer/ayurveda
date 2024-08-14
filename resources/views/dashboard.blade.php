@@ -58,6 +58,12 @@
         <a href="#"><i class="bi bi-gear"></i> Settings</a>
         <a href="#"><i class="bi bi-envelope"></i> Messages</a>
         <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="btn btn-danger">
+                  Logout
+              </button>
+          </form>
     </div>
 
     <!-- Main Content -->

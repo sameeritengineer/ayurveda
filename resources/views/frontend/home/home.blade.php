@@ -9,62 +9,31 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-7">
                             <div class="section-title style1  mb-40">
-                                <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">We're Top Sellers</span>
-                                <h2>Check Our Medical Marijuana Products</h2>
+                                <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">We Serve Authenticity</span>
+                                <h2>Unveiling the Natural Power of
+                                Mleyered Ayurvedic Hair Care</h2>
                             </div>
                         </div>
                     </div>
                     <div class="product-cat-slider owl-carousel">
+                        @php
+                         $i = 1;
+                        @endphp
+                        @foreach($home_section1 as $section)
                         <div class="product-cat-card style1">
-                            <span class="count-num">01</span>
+                            <span class="count-num">{{$i}}</span>
                             <div class="product-cat-icon">
-                            <i class="flaticon-cbd-oil"></i>
+                            {!! $section->icon !!}
                             </div>
                             <div class="product-cat-info">
-                                <h3><a href="shop-details.html">Fresh Cannabies</a></h3>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
+                                <h3><a href="shop-details.html">{{$section->title}}</a></h3>
+                                <p>{{$section->text}}</p>
                             </div>
                         </div>
-                        <div class="product-cat-card style1">
-                            <span class="count-num">02</span>
-                            <div class="product-cat-icon">
-                                <i class="flaticon-capsule"></i>
-                            </div>
-                            <div class="product-cat-info">
-                                <h3><a href="shop-details.html">Medical Pills</a></h3>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
-                        <div class="product-cat-card style1">
-                            <span class="count-num">03</span>
-                            <div class="product-cat-icon">
-                                <i class="flaticon-handbook"></i>
-                            </div>
-                            <div class="product-cat-info">
-                                <h3><a href="shop-details.html">Educational Materials</a></h3>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
-                        <div class="product-cat-card style1">
-                            <span class="count-num">04</span>
-                            <div class="product-cat-icon">
-                            <i class="flaticon-herbal-1"></i>
-                            </div>
-                            <div class="product-cat-info">
-                                <h3><a href="shop-details.html">Cannabies Infused</a></h3>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
-                        <div class="product-cat-card style1">
-                            <span class="count-num">05</span>
-                            <div class="product-cat-icon">
-                            <i class="flaticon-herbal"></i>
-                            </div>
-                            <div class="product-cat-info">
-                                <h3><a href="shop-details.html">CBD Cookies</a></h3>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
+                        @php $i++; @endphp
+                        @endforeach
+
+
                     </div>
                 </div>
             </section>
@@ -78,18 +47,17 @@
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                             <div class="about-img-wrap">
-                                <img src="{{ asset('front/assets/img/about/about-img-1.png') }}" alt="Image">
+                                <img src="{{ asset($home_section2->image ?? '') }}" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                             <div class="about-content">
                                 <div class="content-title style1">
-                                    <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">About Our Dispensary</span>
-                                    <h2>We Provide High Quality And Certified Products</h2>
-                                    <h6>All the Lorem Ipsum generators on the Internet tend to repeat defined chunks making this the first true generator on Internet.</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available, bhe mred aln ine form, by injected humour, or randomised words which don't look even slilievable. If youre going to use a passage of lorem.</p>
+                                    <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">{{$home_section2->heading}}</span>
+                                    <h2>{{$home_section2->title}}</h2>
+                                    {!! $home_section2->text !!}
                                 </div>
-                                <a href="about.html" class="btn style1">Learn More</a>
+                                <a href="about.html" class="cstylebtn">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -99,166 +67,52 @@
             
             <!-- Product Section Start -->
             <section class="product-wrap ptb-100 bg-green">
-                <img src="{{ asset('front/assets/img/shape-7.png') }}" alt="Image" class="shape-one">
+                <!-- <img src="{{ asset('front/assets/img/shape-7.png') }}" alt="Image" class="shape-one"> -->
                 <div class="container">
                     <div class="section-title style2 text-center mb-40">
-                        <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Online Store</span>
-                        <h2>Muva Popular Products</h2>
+                        <!-- <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">Online Store</span> -->
+                        <h2>Our Popular Products</h2>
                     </div>
-                    <ul class="product-filter list-style">
+                    <!-- <ul class="product-filter list-style">
                         <li><a data-filter="" class="filter-active">All</a></li>
                         <li><a data-filter=".cannabis">Cannabis</a></li>
                         <li><a data-filter=".cbd-oil">CBD Oil</a></li>
                         <li><a data-filter=".edibles">Edibles</a></li>
                         <li><a data-filter=".flowers">Flowers</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="swiper product-item-slider">
                     <div class="swiper-wrapper">
+                       @foreach($products as $product)
                         <div class="swiper-slide Flowers edibles">
                             <div class="product-card style7">
                                 <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-30.jpg') }}" alt="Image">
+                                    <img src="{{ asset('front/assets/img/product/product-30.jpg') }}" alt="Image"> 
                                     <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
+                                        <li><a href="{{route('product-detail',['slug' => $product->slug])}}"><i class="ri-eye-line"></i></a></li>
+                                        <li>
+                                        <form class="shopping-cart-form">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input class="" name="qty" type="hidden" min="1" max="100" value="1">
+                                  <button class="btn style2 add-cart" type="submit">Add To Cart</button>
+                                </form>
+                                            <a class="homeAddCart"><i class="ri-shopping-cart-line"></i></a></li>
+                                        <!-- <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li> -->
                                     </ul>
                                 </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Black Rose Oil</a></h3>
-                                    <p class="price">$89.00</p>
+                        <div class="product-info">
+                            <h3><a href="shop-details.html">{{$product->name}}</a></h3>
+                            @if(checkDiscount($product))
+                            <p class="price">{{getCurrencySymbol('INR')}}{{$product->offer_price}}<span class="discount">{{getCurrencySymbol('INR')}}{{$product->price}}</span></p>
+                            @else
+                            <p class="price">{{getCurrencySymbol('INR')}}{{$product->price}}</p>
+                            @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide cannabis flowers cbd-oil">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-31.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Lemon Zkittez</a></h3>
-                                    <p class="price">$74.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cannabis cbd-oil">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-32.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">CBD Seeds</a></h3>
-                                    <p class="price">$54.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide edibles cannabis flowers">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-33.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Cannabis Oil</a></h3>
-                                    <p class="price">$69.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide edibles cannabis cbd-oil flowers">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-25.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Citric Krush</a></h3>
-                                    <p class="price">$58.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cannabis cbd-oil flowers">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-26.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Elphabil Bliss</a></h3>
-                                    <p class="price">$123.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cannabis flowers edibles">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-27.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Marley Indica</a></h3>
-                                    <p class="price">$69.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cbd-oil edibles">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-28.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <h3><a href="shop-details.html">Amnesi Haze(CBD)</a></h3>
-                                    <p class="price">$65.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide edible flower">
-                            <div class="product-card style7">
-                                <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-29.jpg') }}" alt="Image">
-                                    <ul class="product-meta-option">
-                                        <li><a href="shop-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="cart.html"><i class="ri-shopping-cart-line"></i></a></li>
-                                        <li><a href="wishlist.html"><i class="ri-heart-line"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-info">
-                                    <p class="price">$123.00</p>
-                                    <h3><a href="shop-details.html">Sabotage 50ml</a></h3>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                     <div class="product-filter-pagination"></div>
                 </div>
@@ -275,24 +129,24 @@
                         <div class="col-lg-6 order-lg-1 order-md-2 order-2" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                             <div class="offer-content">
                                 <div class="content-title style1">
-                                    <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Best Offer</span>
-                                    <h2>Muva Marijuanna Best Offer For Our Customers</h2>
-                                    <p>There are many variations of passages of Lorem Ipsum available, bhe mred aln ine form, by injected humour, or randomised words which don't look even slilievable. If youre going to use a passage of Lorem Ipsum, you  to be sure there isn't anything </p>
+                                    <!-- <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Best Offer</span> -->
+                                    <h3>{{$home_section3->title}}</h3>
+                                    {!! $home_section3->text !!}
                                 </div>
                                 <div class="countdown-deals text-center" data-countdown="2024/12/11"></div>
-                                <a href="shop-right-sidebar.html" class="btn style1">Shop Now</a>
+                                <a href="shop-right-sidebar.html" class="cstylebtn">Shop Now</a>
                             </div>
                         </div>
                         <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                             <div class="offer-pproduct-slider owl-carousel">
                                 <div class="product-slide-item">
-                                    <div class="discout">
+                                    <!-- <div class="discout">
                                         <span>15%</span> Off
                                     </div>
-                                    <span class="product-offer-price">$130</span>
-                                    <img src="{{ asset('front/assets/img/product/offer-slider-1.jpg') }}" alt="Image">
+                                    <span class="product-offer-price">$130</span> -->
+                                    <img src="{{ asset($home_section3->image ?? '') }}" alt="Image">
                                 </div>
-                                <div class="product-slide-item">
+                                <!-- <div class="product-slide-item">
                                     <div class="discout">
                                         <span>10%</span> Off
                                     </div>
@@ -305,7 +159,7 @@
                                     </div>
                                     <span class="product-offer-price">$89</span>
                                     <img src="{{ asset('front/assets/img/product/offer-slider-3.jpg') }}" alt="Image">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -319,74 +173,43 @@
                     <div class="row">
                         <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                             <div class="section-title style1 text-center mb-40">
-                                <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Our Services</span>
-                                <h2>Our Best Marijuanna Services</h2>
+                                <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">Our Services</span>
+                                <h2>Benefits Of Mleyered Ayurvedic Hair Oil</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-lg-4">
+                            @foreach($home_section4_1 as $section4_1)
                             <div class="service-card style1" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                                 <div class="service-icon">
-                                   <i class="flaticon-meditation"></i>
+                                   {!! $section4_1->icon !!}
                                 </div>
                                 <div class="service-info">
-                                    <h3><a href="service-details.html">Promote Relaxation</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus.</p>
+                                    <h3><a href="#">{{$section4_1->title}}</a></h3>
+                                    <p>{{$section4_1->text}}</p>
                                 </div>
                             </div>
-                            <div class="service-card style1" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="300">
-                                <div class="service-icon">
-                                   <i class="flaticon-massage"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3><a href="service-details.html">Remove Headache</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus.</p>
-                                </div>
-                            </div>
-                            <div class="service-card style1" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="400">
-                                <div class="service-icon">
-                                   <i class="flaticon-herbal"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3><a href="service-details.html">Increase Appetite</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus.</p>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                         <div class="col-lg-4">
                             <div class="service-img-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                                <img src="{{ asset('front/assets/img/service/service-img-1.png') }}" alt="Image">
+                                <img src="{{ asset('front/assets/img/service/service-img-1.jpg') }}" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-4">
+                        @foreach($home_section4_2 as $section4_2)
                             <div class="service-card style1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                                 <div class="service-icon">
-                                    <i class="flaticon-back-1"></i>
+                                {!! $section4_2->icon !!}
                                 </div>
                                 <div class="service-info">
-                                    <h3><a href="service-details.html">Relieves Pain</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus </p>
+                                    <h3><a href="#">{{$section4_2->title}}</a></h3>
+                                    <p>{{$section4_2->text}}</p>
                                 </div>
                             </div>
-                            <div class="service-card style1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
-                                <div class="service-icon">
-                                   <i class="flaticon-time-to-sleep"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3><a href="service-details.html">Fights Insomnia</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus.</p>
-                                </div>
-                            </div>
-                            <div class="service-card style1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
-                                <div class="service-icon">
-                                   <i class="flaticon-cat"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3><a href="service-details.html">Improves Mood</a></h3>
-                                    <p>Sed ut perspiciatis unde omnis is natus error sit voluptatem accus.</p>
-                                </div>
-                            </div>
+                        @endforeach       
                         </div>
                     </div>
                 </div>
@@ -399,7 +222,7 @@
                     <img src="{{ asset('front/assets/img/counter-shape-1.png') }}" alt="Image">
                 </div>
                 <div class="container">
-                    <div class="counter-card-wrap  pb-75">
+                    <!-- <div class="counter-card-wrap  pb-75">
                         <div class="counter-card">
                             <div class="counter-text">
                                 <div class="counter-num">
@@ -432,31 +255,76 @@
                                 <p>Percent Growth In The Last Tow Years</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-lg-6 order-lg-1 order-md-2 order-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                             <div class="apply-form">
                                 <div class="content-title style1">
-                                    <h2>Apply For Treatment</h2>
-                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms.</p>
+                                    <h2>Apply For Consultation</h2>
+                                    <p>On the other hand, we denounce with righteous indignation and
+                                    dislike men who are so beguiled and demoralized by the charms.</p>
                                 </div>
-                                <form action="#">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" placeholder="Phone">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Subject">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn style1 w-100 d-block">Submit Application</button>
-                                    </div>
-                                </form>
+                                <form method="post" class="form-wrap" id="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="name" placeholder="Name*" id="name"
+                                                        required data-error="Please enter your name">
+                                                    <input type="hidden" id="posturl" name="posturl" value="{{route('postcontact')}}" />    
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="email" name="email" id="email" required
+                                                        placeholder="Email*" data-error="Please enter your email">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="phone_number" id="phone_number" required
+                                                        placeholder="Phone*" data-error="Please enter your phone">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="msg_subject" placeholder="Subject*" id="msg_subject" required data-error="Please enter your subject">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group v1">
+                                                    <textarea name="message" id="message" placeholder="Your Messages.." cols="30" rows="10" required data-error="Please enter your message"></textarea>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <div class="form-check checkbox">
+                                                        <input
+                                                            name="gridCheck"
+                                                            value="I agree to the terms and privacy policy."
+                                                            class="form-check-input"
+                                                            type="checkbox"
+                                                            id="gridCheck"
+                                                            required
+                                                        >
+                                                        <label class="form-check-label" for="gridCheck">
+                                                            I agree to the <a class="link style1" href="terms-of-service.html">Terms &amp; Conditions</a> and <a class="link style1" href="privacy-policy.html">Privacy Policy</a>
+                                                        </label>
+                                                        <div class="help-block with-errors gridCheck-error"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" name="submit" class="contact-btn style1 w-block w-100">Send Message</button>
+                                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </form>
                             </div>
                         </div>
                         <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -469,50 +337,20 @@
                         </div>
                     </div>
                     <div class="row pt-100 justify-content-center">
+                    @foreach($home_section5 as $section5)    
                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                             <div class="promo-card style1">
                                 <div class="promo-title">
                                     <span class="promo-icon">
-                                        <i class="flaticon-herbal-2"></i>
+                                    {!! $section5->icon !!}
                                     </span>
-                                    <h3>Best Herbs</h3>
+                                    <h3>{{$section5->title}}</h3>
                                 </div>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
+                                <p>{{$section5->text}}</p>
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                            <div class="promo-card style1">
-                                <div class="promo-title">
-                                    <span class="promo-icon">
-                                        <i class="flaticon-medicine"></i>
-                                    </span>
-                                    <h3>Best Product</h3>
-                                </div>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                            <div class="promo-card style1">
-                                <div class="promo-title">
-                                    <span class="promo-icon">
-                                        <i class="flaticon-shipped"></i>
-                                    </span>
-                                    <h3>Home Delivery</h3>
-                                </div>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
-                            <div class="promo-card style1">
-                                <div class="promo-title">
-                                    <span class="promo-icon">
-                                        <i class="flaticon-bong"></i>
-                                    </span>
-                                    <h3>Bong Medical</h3>
-                                </div>
-                                <p>There are many variaties of rem amet consec but the major have suffered alteration in some case. </p>
-                            </div>
-                        </div>
+                    @endforeach   
+
                     </div>
                 </div>
             </div>
@@ -526,18 +364,17 @@
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6">
                             <div class="feature-img-wrap">
-                                <img src="{{ asset('front/assets/img/about/feature-img-1.png') }}" alt="Image">
+                                <img src="{{ asset($home_section6->image ?? '') }}" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="feature-content">
                                 <div class="content-title style1">
-                                    <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Recetional Medicine</span>
-                                    <h2>Medical Marijuana Is Used To Many Health Problems</h2>
-                                    <h6>All the Lorem Ipsum generators on the Internet tend to repeat defined chunks making this the first true generator on Internet.</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available, bhe mred aln ine form, by injected humour, or randomised words which don't look even slilievable. If youre going to use a passage of lorem.</p>
+                                    <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">{{$home_section6->heading}}</span>
+                                    <h2>{{$home_section6->title}}</h2>
+                                    {!! $home_section6->text !!}
                                 </div>
-                                <a href="about.html" class="btn style1 mt-30">Learn More</a>
+                                <a href="#" class="btn cstylebtn mt-30">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -554,14 +391,15 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="content-title style2">
-                                <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Newsletter</span>
+                                <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">Newsletter</span>
                                 <h2>Subscribe To Newsletter</h2>
-                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks making this the first true generator consect.</p>
+                                <p>Stay in the Loop! Subscribe to our newsletter for the latest
+                                updates, exclusive offers, and tips delivered straight to your inbox.</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form action="#" class="newsletter-form">
-                                <input type="email" placeholder="Enter Your Email Address">
+                            <form class="newsletter-form" id="newsletter-form-sub">
+                                <input id="news_email" type="email" name="email" placeholder="Enter Your Email Address" required>
                                 <button type="submit">Subscribe Now</button>
                             </form>
                         </div>
@@ -574,8 +412,8 @@
              <section class="testimonial-wrap ptb-100 bg-albastor">
                 <div class="container">
                     <div class="section-title style1 text-center mb-40">
-                        <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Testimonials</span>
-                        <h2>What Our Patient Say About Us</h2>
+                        <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Customer Reviews</span>
+                        <h2>What Our Customer Say About Us</h2>
                     </div>
                     <div class="testimonial-slider-one owl-carousel">
                         @foreach($testimonials as $test)
@@ -609,7 +447,7 @@
                     <div class="row">
                         <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                             <div class="section-title style1 text-center mb-40">
-                                <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Our blog</span>
+                                <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">Our blog</span>
                                 <h2>Latest News &amp; Articles</h2>
                             </div>
                         </div>
@@ -637,3 +475,31 @@
             </section>
             <!-- Blog Section End -->
 @endsection
+@push('scripts')
+<script>
+$(document).ready(function(){ 
+    $(document).on('submit', '#newsletter-form-sub', function(e) {
+        e.preventDefault();
+        let formData = $(this).serialize();
+        $.ajax({
+                method: 'POST',
+                data: formData,
+                url: "{{ route('newsletter') }}",
+                success: function(data) {
+                    if(data.status === 'success'){
+                        showToast('success',data.message);
+                        $("#newsletter-form-sub")[0].reset();
+                    }else if (data.status === 'exists'){
+                        showToast('error', data.message);
+                    }else{
+                        showToast('error', 'Something Went Wrong');
+                    }
+                },
+                error: function(data) {
+
+                }
+            });
+    });    
+});
+</script>
+@endpush

@@ -26,12 +26,20 @@
                   (m = e("#phone_number").val()),
                   (r = e("#message").val()),
                   (x = e("#posturl").val()),
+                  e(".preloader").show(),
                   e.ajax({
                       type: "POST",
                       url: x,
                       data: "name=" + s + "&email=" + i + "&phone_number=" + m + "&msg_subject=" + o + "&message=" + r,
                       success: function (n) {
-                        console.log(n);
+                        if(n.status == 'success'){
+                            showToast('success','Thank you for getting in touch! We have received your message and will get back');
+                            e("#contactForm")[0].reset();
+                            e(".preloader").hide()
+                            e("#msgSubmit").hide()
+                        }else{
+                            showToast('error','Something went Wrong');
+                        }
                           //"success" == n ? (e("#contactForm")[0].reset(), a(!0, "Message Submitted!")) : (t(), a(!1, n));
                       },
                   }));
