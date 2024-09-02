@@ -29,11 +29,11 @@
         </div> -->
         <div class="row">
         <div class="col-6">
-                <h3 class="checkout-box-title">Shipping Details</h3>
+                <h3 class="checkout-box-title">Shipping Details </h3>
             </div>
             <div class="col-6 text-right">
                 <div class="option-item addressBtn">
-                    <a href="http://127.0.0.1:8001/login" class="btn btn-primary style1">Add New Address</a>
+                    <a href="@auth {{route('user.add-address')}} @endauth @guest {{route('login')}} @endguest" class="btn btn-primary style1">Add New Address</a>
                 </div>
             </div>
         @foreach($addresses as $address)    
