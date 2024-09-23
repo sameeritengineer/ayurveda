@@ -1,5 +1,10 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
+    <?php
+      $isActiveRoute = function(){
+
+      }
+    ?>
     <li class="nav-item {{ Route::is('userdashboard') ? 'active' : '' }}">
       <a class="nav-link" href="{{route('userdashboard')}}">
         <i class="icon-grid menu-icon"></i>
@@ -34,6 +39,10 @@
       <a class="nav-link" href="{{route('user.orders.completed')}}">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Completed Orders</span>
+    <li class="nav-item  @isActiveRoute(['user.address', 'user.address.edit'])">
+      <a class="nav-link" href="{{route('user.address')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Address</span>
       </a>
     </li>
     <li class="nav-item">

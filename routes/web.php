@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageGalleryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\{UserController, AddressController};
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Frontend\FproductController;
@@ -85,6 +85,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('orders/pending', [UserController::class, 'pendingOrders'])->name('user.orders.pending');
     Route::get('orders/completed', [UserController::class, 'completedOrders'])->name('user.orders.completed');
     Route::get('orders/show/{id}', [UserController::class, 'orderShow'])->name('user.orders.show');
+    //user address related routes
+    Route::get('address', [AddressController::class, 'address'])->name('user.address');
+    Route::delete ('address/delete/{id}', [AddressController::class, 'addressDelete'])->name('user.address.delete');
+    Route::get('address/edit/{id}', [AddressController::class, 'addressEdit'])->name('user.address.edit');
+    Route::get('add-address', [AddressController::class, 'addAddress'])->name('user.add-address');
+    Route::post('store-address', [AddressController::class, 'storeAddress'])->name('user.store-address');
+    Route::get('/get-states/{country_id}', [AddressController::class, 'getStates'])->name('user.get-states');
+    Route::get('/get-cities/{state_id}', [AddressController::class, 'getCities'])->name('user.get-cities');
+    Route::get('address-add', [AddressController::class, 'addressAdd'])->name('user.address-add');
+    Route::post('address-store', [AddressController::class, 'addressStore'])->name('user.address-store');
+    Route::put('address-update/{id?}', [AddressController::class, 'addressUpdate'])->name('user.address-update');
 });    
 
 require __DIR__.'/auth.php';

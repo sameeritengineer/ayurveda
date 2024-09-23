@@ -14,3 +14,7 @@ yarn-error.log
 /.idea
 /.vscode
 .DS_Store
+composer.json
+composer.lock
+package-lock.json
+package.json
