@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="hero-img-wrap">
-                                <div class="discunt-price">25% <br>off</div>
+                                {{-- <div class="discunt-price">25% <br>off</div> --}}
                                 <img class="hero-img" src="{{ asset($setting->slider_image ?? '') }}" alt="Image">
                                 <img class="rotate" src="{{ asset('front/assets/img/hero/hero-img-shape.png') }}" alt="Image">
                             </div>

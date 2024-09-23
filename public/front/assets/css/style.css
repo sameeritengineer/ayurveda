@@ -6720,3 +6720,6 @@ button.contact-btn.style1.w-block.w-100 {
   float: none;
   display: table;
 }
+.login-form .btn.style1:before {
+  background: #1c363d;
+}
