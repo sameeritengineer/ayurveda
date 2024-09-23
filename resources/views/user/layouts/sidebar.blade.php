@@ -18,6 +18,24 @@
         <span class="menu-title">Reviews</span>
       </a>
     </li>
+    <li class="nav-item {{ Route::is('user.orders.index') ? 'active' : '' }}">
+      <a class="nav-link" href="{{route('user.orders.index')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">All Orders</span>
+      </a>
+    </li>
+    <li class="nav-item {{ Route::is('user.orders.pending') ? 'active' : '' }}">
+      <a class="nav-link" href="{{route('user.orders.pending')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Pending Orders</span>
+      </a>
+    </li>
+    <li class="nav-item {{ Route::is('user.orders.completed') ? 'active' : '' }}">
+      <a class="nav-link" href="{{route('user.orders.completed')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Completed Orders</span>
+      </a>
+    </li>
     <li class="nav-item">
     <form method="POST" action="{{ route('logout') }}">
             @csrf

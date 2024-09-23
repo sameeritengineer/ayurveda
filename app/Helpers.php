@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\ShippingRule;
+use Illuminate\Support\Facades\Session;
 
     // common function for image uploading
     if (!function_exists('upload_image')) {

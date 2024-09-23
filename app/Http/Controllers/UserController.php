@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Auth;
 use File;
 use App\DataTables\UserProductReviewsDataTable;
+use App\DataTables\UserOrderDataTable;
+use App\DataTables\UserPendingOrderDataTable;
+use App\DataTables\UserCompletedOrderDataTable;
+use App\Models\Order;
 
 class UserController extends Controller
 {
@@ -75,4 +79,24 @@ class UserController extends Controller
     {
         return $dataTable->render('user.review.index');
     }
+
+    public function orderIndex(UserOrderDataTable $dataTable){
+        return $dataTable->render('user.order.index');
+    }
+
+    public function pendingOrders(UserPendingOrderDataTable $dataTable)
+    {
+        return $dataTable->render('user.order.index');
+    }
+    public function completedOrders(UserCompletedOrderDataTable $dataTable)
+    {
+        return $dataTable->render('user.order.index');
+    }
+    public function orderShow(string $id)
+    {
+        $order = Order::findOrFail($id);
+        return view('user.order.show', compact('order'));
+    }
+
+    
 }

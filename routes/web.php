@@ -79,6 +79,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('profile', [UserController::class, 'updateProfile'])->name('user.profileUpdate');
     Route::post('profile', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::get('reviews', [UserController::class, 'reviews'])->name('user.review');
+
+    /** Order Routes */
+    Route::get('orders', [UserController::class, 'orderIndex'])->name('user.orders.index');
+    Route::get('orders/pending', [UserController::class, 'pendingOrders'])->name('user.orders.pending');
+    Route::get('orders/completed', [UserController::class, 'completedOrders'])->name('user.orders.completed');
+    Route::get('orders/show/{id}', [UserController::class, 'orderShow'])->name('user.orders.show');
 });    
 
 require __DIR__.'/auth.php';
