@@ -9,7 +9,7 @@ use App\DataTables\shippedOrderDataTable;
 use App\DataTables\outForDeliveryOrderDataTable;
 use App\DataTables\deliveredOrderDataTable;
 use App\DataTables\canceledOrderDataTable;
-
+use App\Jobs\OrderStatusMailJob;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -142,6 +142,9 @@ class OrderController extends Controller
         $order = Order::findOrFail($request->id);
         $order->order_status = $request->status;
         $order->save();
+
+        //प्रेषण कार्य
+        dispatch(new OrderStatusMailJob($order)); //dispaching job
 
         return response(['status' => 'success', 'message' => 'Updated Order Status']);
     }

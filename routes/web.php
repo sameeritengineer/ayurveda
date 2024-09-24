@@ -17,7 +17,7 @@ use App\Http\Controllers\Frontend\HomepageController;
 use App\Http\Controllers\Frontend\BlogpageController;
 use App\Http\Controllers\Frontend\PageController;
 use Illuminate\Support\Facades\Route;
-
+use App\Jobs\OrderConfirmationMailJob;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,3 +94,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });    
 
 require __DIR__.'/auth.php';
+
+
+// Route::get('or',function(){
+//    $order =  \App\Models\Order::find(3);
+//    dispatch(new OrderConfirmationMailJob($order));
+// });
+
