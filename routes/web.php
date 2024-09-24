@@ -101,3 +101,4 @@ require __DIR__.'/auth.php';
 //    dispatch(new OrderConfirmationMailJob($order));
 // });
 
+//add new variable in .env ADMIN_EMAIL = avinashsmartitventures@gmail.com
