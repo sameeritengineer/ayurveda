@@ -25691,3 +25691,12 @@ table.dataTable tbody td.select-checkbox:after {
   }
 }
 /*# sourceMappingURL=maps/style.css.map */
+li.nav-item.logout:hover {
+    background: #4b49ac;
+    color: #fff !important;
+    /* border: 1px solid #000; */
+    border-radius: 10px;
+}
+li.nav-item.logout span.menu-title:hover{
+  color:#fff;
+}

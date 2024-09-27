@@ -636,10 +636,11 @@ select {
   opacity: 1;
 }
 .btn.style1:before {
-  background: linear-gradient(90deg, #ccc 0%, #fff 99.88%);
+  /*background: linear-gradient(90deg, #ccc 0%, #fff 99.88%);*/
+  background: #9cc526;
 }
 .btn.style1:after {
-  background: linear-gradient(-90deg, #fff 0%, #ccc 99.88%);
+  background: linear-gradient(-90deg, #fff 0%, #9cc526 99.88%);
 }
 .btn.style2 {
   border-radius: 5px;
@@ -1149,7 +1150,7 @@ select {
   border-radius: 0;
 }
 .social-profile.style1 li a i {
-  color: #DCBE4A;
+  color: #9cc526;
 }
 .social-profile.style1 li a:hover {
   background-color: #fff;
@@ -1469,7 +1470,7 @@ li.page-item.active span.page-link {
     Contact Widget CSS
 -------------------------------*/
 .contact-widget {
-  background-color: #024E32;
+  background-color: #1c363d;
   padding: 25px 30px 30px;
 }
 .contact-widget h3 {
@@ -3191,7 +3192,7 @@ li.page-item.active span.page-link {
 .testimonial-slider-one.owl-carousel .owl-dots .owl-dot.active span,
 .offer-pproduct-slider.owl-carousel .owl-dots .owl-dot.active span {
   width: 32px;
-  background-color: #DCBE4A;
+  background-color: #9cc526;
 }
 
 /*-------------------------------
@@ -3466,7 +3467,7 @@ li.page-item.active span.page-link {
   width: 100px;
   height: 100px;
   transform: translate(-50%, -50%);
-  background-color: #DCBE4A;
+  background-color: #9cc526;
   font-size: 40px;
   line-height: 99px;
   border: none;
@@ -4542,7 +4543,7 @@ li.page-item.active span.page-link {
   top: 3px;
   font-size: 40px;
   line-height: 0.8;
-  color: #024E32;
+  color: #9cc526;
   opacity: 0.4;
 }
 

@@ -26,7 +26,7 @@
                             {!! $section->icon !!}
                             </div>
                             <div class="product-cat-info">
-                                <h3><a href="shop-details.html">{{$section->title}}</a></h3>
+                                <h3><a href="#">{{$section->title}}</a></h3>
                                 <p>{{$section->text}}</p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                     <h2>{{$home_section2->title}}</h2>
                                     {!! $home_section2->text !!}
                                 </div>
-                                <a href="about.html" class="cstylebtn">Shop Now</a>
+                                <a href="{{route('getProducts')}}" class="cstylebtn">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                         <div class="swiper-slide Flowers edibles">
                             <div class="product-card style7">
                                 <div class="product-img">
-                                    <img src="{{ asset('front/assets/img/product/product-30.jpg') }}" alt="Image"> 
+                                    <img src="{{asset($product->thumb_image)}}" alt="Image"> 
                                     <ul class="product-meta-option">
                                         <li><a href="{{route('product-detail',['slug' => $product->slug])}}"><i class="ri-eye-line"></i></a></li>
                                         <li>
@@ -101,7 +101,7 @@
                                     </ul>
                                 </div>
                         <div class="product-info">
-                            <h3><a href="shop-details.html">{{$product->name}}</a></h3>
+                            <h3><a href="{{route('product-detail',['slug' => $product->slug])}}">{{$product->name}}</a></h3>
                             @if(checkDiscount($product))
                             <p class="price">{{getCurrencySymbol('INR')}}{{$product->offer_price}}<span class="discount">{{getCurrencySymbol('INR')}}{{$product->price}}</span></p>
                             @else
@@ -119,53 +119,33 @@
             </section>
             <!-- Product Section End -->
 
-            <!-- Product Offser Section Start -->
-            <section class="offer-wrap ptb-100">
-                <img src="{{ asset('front/assets/img/shape-8.png') }}" alt="Image" class="offer-shape-one moveVertical sm-none">
-                <img src="{{ asset('front/assets/img/shape-9.png') }}" alt="Image" class="offer-shape-two animationFramesTwo">
+                        <!-- Feature Section Start -->
+            <section class="feature-wrap style1 pt-100 pb-75 ">
+                <img src="{{ asset('front/assets/img/about/feature-shape-1.png') }}" alt="Image" class="feature-shape-one">
+                <img src="{{ asset('front/assets/img/about/feature-shape-2.png') }}" alt="Image" class="feature-shape-two">
                 <div class="container">
-                    <img src="{{ asset('front/assets/img/shape-10.png') }}" alt="Image" class="offer-shape-three sm-none">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6 order-lg-1 order-md-2 order-2" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                            <div class="offer-content">
-                                <div class="content-title style1">
-                                    <!-- <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Best Offer</span> -->
-                                    <h3>{{$home_section3->title}}</h3>
-                                    {!! $home_section3->text !!}
-                                </div>
-                                <!-- <div class="countdown-deals text-center" data-countdown="2024/12/11"></div> -->
-                                <a href="shop-right-sidebar.html" class="cstylebtn">Shop Now</a>
+                        <div class="col-lg-6">
+                            <div class="feature-img-wrap">
+                                <img src="{{ asset($home_section6->image ?? '') }}" alt="Image">
                             </div>
                         </div>
-                        <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                            <div class="offer-pproduct-slider owl-carousel">
-                                <div class="product-slide-item">
-                                    <!-- <div class="discout">
-                                        <span>15%</span> Off
-                                    </div>
-                                    <span class="product-offer-price">$130</span> -->
-                                    <img src="{{ asset($home_section3->image ?? '') }}" alt="Image">
+                        <div class="col-lg-6">
+                            <div class="feature-content">
+                                <div class="content-title style1">
+                                    <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">{{$home_section6->heading}}</span>
+                                    <h2>{{$home_section6->title}}</h2>
+                                    {!! $home_section6->text !!}
                                 </div>
-                                <!-- <div class="product-slide-item">
-                                    <div class="discout">
-                                        <span>10%</span> Off
-                                    </div>
-                                    <span class="product-offer-price">$110</span>
-                                    <img src="{{ asset('front/assets/img/product/offer-slider-2.jpg') }}" alt="Image">
-                                </div>
-                                <div class="product-slide-item">
-                                    <div class="discout">
-                                        <span>25%</span> Off
-                                    </div>
-                                    <span class="product-offer-price">$89</span>
-                                    <img src="{{ asset('front/assets/img/product/offer-slider-3.jpg') }}" alt="Image">
-                                </div> -->
+                                <a href="{{route('getProducts')}}" class="btn cstylebtn mt-30">Shop Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Product Offser Section End -->
+            <!-- Feature Sectin End -->
+
+
 
             <!-- Service Section Start -->
             <section class="service-wrap style1 pt-100 pb-75 bg-albastor">
@@ -355,33 +335,55 @@
                 </div>
             </div>
             <!-- CTA Section End -->
+            
 
-            <!-- Feature Section Start -->
-            <section class="feature-wrap style1 pb-100">
-                <img src="{{ asset('front/assets/img/about/feature-shape-1.png') }}" alt="Image" class="feature-shape-one">
-                <img src="{{ asset('front/assets/img/about/feature-shape-2.png') }}" alt="Image" class="feature-shape-two">
+                        <!-- Product Offser Section Start -->
+            <section class="offer-wrap ptb-100">
+                <img src="{{ asset('front/assets/img/shape-8.png') }}" alt="Image" class="offer-shape-one moveVertical sm-none">
+                <img src="{{ asset('front/assets/img/shape-9.png') }}" alt="Image" class="offer-shape-two animationFramesTwo">
                 <div class="container">
+                    <img src="{{ asset('front/assets/img/shape-10.png') }}" alt="Image" class="offer-shape-three sm-none">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="feature-img-wrap">
-                                <img src="{{ asset($home_section6->image ?? '') }}" alt="Image">
+                        <div class="col-lg-6 order-lg-1 order-md-2 order-2" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                            <div class="offer-content">
+                                <div class="content-title style1">
+                                    <!-- <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Best Offer</span> -->
+                                    <h3>{{$home_section3->title}}</h3>
+                                    {!! $home_section3->text !!}
+                                </div>
+                                <!-- <div class="countdown-deals text-center" data-countdown="2024/12/11"></div> -->
+                                <a href="{{route('getProducts')}}" class="cstylebtn">Shop Now</a>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="feature-content">
-                                <div class="content-title style1">
-                                    <span><img src="{{ asset('front/assets/img/section-img1.png') }}" alt="Image">{{$home_section6->heading}}</span>
-                                    <h2>{{$home_section6->title}}</h2>
-                                    {!! $home_section6->text !!}
+                        <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                            <div class="offer-pproduct-slider owl-carousel">
+                                <div class="product-slide-item">
+                                    <!-- <div class="discout">
+                                        <span>15%</span> Off
+                                    </div>
+                                    <span class="product-offer-price">$130</span> -->
+                                    <img src="{{ asset($home_section3->image ?? '') }}" alt="Image">
                                 </div>
-                                <a href="#" class="btn cstylebtn mt-30">Shop Now</a>
+                                <!-- <div class="product-slide-item">
+                                    <div class="discout">
+                                        <span>10%</span> Off
+                                    </div>
+                                    <span class="product-offer-price">$110</span>
+                                    <img src="{{ asset('front/assets/img/product/offer-slider-2.jpg') }}" alt="Image">
+                                </div>
+                                <div class="product-slide-item">
+                                    <div class="discout">
+                                        <span>25%</span> Off
+                                    </div>
+                                    <span class="product-offer-price">$89</span>
+                                    <img src="{{ asset('front/assets/img/product/offer-slider-3.jpg') }}" alt="Image">
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Feature Sectin End -->
-
+            <!-- Product Offser Section End -->
             <!-- Newsletter Section Start -->
             <section class="newsletter-wrap ptb-100">
                 <img src="{{ asset('front/assets/img/newsletter-shape-1.png') }}" alt="Image" class="newsletter-shape-one">

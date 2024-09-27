@@ -47,7 +47,7 @@
         <span class="menu-title">Address</span>
       </a>
     </li>  
-    <li class="nav-item">
+    <li class="nav-item logout">
     <form method="POST" action="{{ route('logout') }}">
             @csrf
             <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
