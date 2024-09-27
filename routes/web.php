@@ -96,9 +96,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 require __DIR__.'/auth.php';
 
 
-// Route::get('or',function(){
-//    $order =  \App\Models\Order::find(3);
-//    dispatch(new OrderConfirmationMailJob($order));
-// });
+Route::get('or',function(){
+   $order =  \App\Models\Order::find(2);
+   dispatch(new OrderConfirmationMailJob($order));
+});
 
 //add new variable in .env ADMIN_EMAIL = avinashsmartitventures@gmail.com

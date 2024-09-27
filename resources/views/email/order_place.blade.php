@@ -42,11 +42,27 @@
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
                                     <tr>
                                         <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
-                                            <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">Ayurveda</h1>
+                                            <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">Mleyered</h1>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
+                            <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;" class="mobile-hide">
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                    <tr>
+                                        <td align="right" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
+                                            <table cellspacing="0" cellpadding="0" border="0" align="right">
+                                                <tr>
+                                                    
+                                                    <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">
+                                                        <a href="#" target="_blank" style="color: #ffffff; text-decoration: none;"><img src="https://mleyered.com/images/settings/17271115888198.png" width="55" height="23" style="display: block; border: 0px;"/></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> 
                         </td>
                     </tr>
                     <tr>
