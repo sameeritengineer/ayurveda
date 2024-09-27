@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{ShippingRule,UserAddress,Order,Product,OrderProducts,Transaction};
 use Auth;
 use Cart;
+use App\Jobs\OrderConfirmationMailJob;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -25,7 +26,7 @@ class PaymentController extends Controller
 
 
       $this->storeOrder('COD', 0, \Str::random(10), $payableAmount,$currency_name);
-
+     
        // clear session
        $this->clearSession();
 
@@ -85,7 +86,9 @@ class PaymentController extends Controller
         $transaction->amount_real_currency_name = $paidCurrencyName;
         $transaction->save();
 
-    }
+        //प्रेषण कार्य
+        dispatch(new OrderConfirmationMailJob($order)); //dispaching job
+    }   
     
     public function clearSession()
     {
