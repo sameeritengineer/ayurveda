@@ -133,7 +133,7 @@
                                     <h3>{{$home_section3->title}}</h3>
                                     {!! $home_section3->text !!}
                                 </div>
-                                <div class="countdown-deals text-center" data-countdown="2024/12/11"></div>
+                                <!-- <div class="countdown-deals text-center" data-countdown="2024/12/11"></div> -->
                                 <a href="shop-right-sidebar.html" class="cstylebtn">Shop Now</a>
                             </div>
                         </div>
@@ -329,7 +329,7 @@
                         </div>
                         <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                             <div class="video-wrap bg-f video-bg-1">
-                                <a class="play-now" data-fslightbox href="https://www.youtube.com/watch?v=UNSSuTSQI9I">
+                                <a class="play-now" data-fslightbox href="https://www.youtube.com/watch?v=N7--BsL6cyA">
                                     <i class="ri-play-fill"></i>
                                     <span class="ripple"></span>
                                 </a>

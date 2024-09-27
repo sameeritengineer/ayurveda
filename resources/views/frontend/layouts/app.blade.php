@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ asset('front/assets/css/responsive.css') }}">
         <link rel="stylesheet" href="{{ asset('front/assets/css/dark-theme.css') }}">
 
-        <title>Muva - Medical Marijuana & Cannabis Shop HTML Template</title>
+        <title>M- LEYERED</title>
         <link rel="icon" type="image/png" href="{{ asset('front/assets/img/favicon.png') }}">
     </head>
 

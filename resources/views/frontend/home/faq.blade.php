@@ -4,7 +4,7 @@
             <div class="content-wrapper">
 
                 <!-- Breadcrumb Start -->
-                <div class="breadcrumb-wrap bg-f br-5">
+                <div class="breadcrumb-wrap bg-f br-1">
                     <div class="container">
                         <div class="breadcrumb-title">
                             <h2>Frequently Asked Questions</h2>
@@ -57,21 +57,22 @@
                 <!-- FAQ Section end -->
 
                  <!-- Contact Form Start -->
-                 <section class="contact-form-wrap bg-albastor ptb-100">
+                <section class="contact-form-wrap bg-albastor ptb-100">
                     <div class="container">
                         <div class="section-title text-center mb-40">
-                            <span><img src="assets/img/section-img.png" alt="Image">Contact Us</span>
+                            <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Contact Us</span>
                             <h2>Contact Us For Any Query</h2>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                                 <div class="contact-form">
-                                    <form class="form-wrap" id="contactForm">
+                                    <form method="post" class="form-wrap" id="contactForm">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <input type="text" name="name" placeholder="Name*" id="name"
                                                         required data-error="Please enter your name">
+                                                    <input type="hidden" id="posturl" name="posturl" value="{{route('postcontact')}}" />    
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -84,7 +85,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
-                                                    <input type="email" name="phone" id="phone" required
+                                                    <input type="text" name="phone_number" id="phone_number" required
                                                         placeholder="Phone*" data-error="Please enter your phone">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -120,7 +121,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button type="submit" class="btn style1 w-100 d-block">Send Message</button>
+                                                <button type="submit" name="submit" class="contact-btn style1 w-block w-100">Send Message</button>
                                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                                 <div class="clearfix"></div>
                                             </div>

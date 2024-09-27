@@ -39,12 +39,14 @@
       <a class="nav-link" href="{{route('user.orders.completed')}}">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Completed Orders</span>
+      </a>
+    </li>
     <li class="nav-item  @isActiveRoute(['user.address', 'user.address.edit'])">
       <a class="nav-link" href="{{route('user.address')}}">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Address</span>
       </a>
-    </li>
+    </li>  
     <li class="nav-item">
     <form method="POST" action="{{ route('logout') }}">
             @csrf

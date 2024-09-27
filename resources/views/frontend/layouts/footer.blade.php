@@ -72,11 +72,6 @@ $setting = \App\Models\Setting::first();
                                 <h3 class="footer-widget-title">Explore</h3>
                                 <ul class="footer-menu list-style">
                                     <li>
-                                        <a href="{{route('getProducts')}}">
-                                        Recreation Shop
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="{{route('all-blogs')}}">
                                             News &amp; Articles
                                         </a>

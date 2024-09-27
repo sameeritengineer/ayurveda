@@ -107,7 +107,7 @@ $setting = \App\Models\Setting::first();
                                     </div>
                                     <div class="option-item">
                                     @if(Auth::check())
-                                    <a href="login.html" class="btn style1 w-block w-100">Welcome,{{Auth::user()->name}}</a>
+                                    <a href="{{ route('userdashboard') }}" class="btn style1 w-block w-100">Welcome,{{Auth::user()->name}}</a>
                                     @else
                                     <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
                                     @endif

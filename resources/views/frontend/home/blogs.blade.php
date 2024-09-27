@@ -84,7 +84,7 @@
                     <div class="sidebar-widget contact-widget">
                         <h3>How We Can Help You</h3>
                         <p>Lorem ipsum dolor sit amet consec tetur adipcing elit. Voluptate quib ausd possq imus voluptem.</p>
-                        <a href="contact.html" class="btn style1">Contact us</a>
+                        <a href="{{route('contact')}}" class="btn style1">Contact us</a>
                     </div>
                 </div>
             </div>

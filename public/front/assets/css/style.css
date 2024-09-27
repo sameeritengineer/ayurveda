@@ -2068,7 +2068,7 @@ li.page-item.active span.page-link {
     position: relative;
   }
   .header-wrap .navbar .navbar-nav .nav-item a:hover, .header-wrap .navbar .navbar-nav .nav-item a:focus, .header-wrap .navbar .navbar-nav .nav-item a.active {
-    color: #D4AD19;
+    color: #9cc526;
   }
   .header-wrap .navbar .navbar-nav .nav-item a i {
     font-size: 12px;
@@ -2119,14 +2119,14 @@ li.page-item.active span.page-link {
     content: "";
     width: 2px;
     height: 0%;
-    background-color: #DCBE4A;
+    background-color: #9cc526;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-50%);
     transition: 0.4s;
   }
   .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a.active, .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a:hover {
-    color: #D4AD19;
+    color: #9cc526;
   }
   .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a.active:before, .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a:hover:before {
     height: 16px;
@@ -2180,7 +2180,7 @@ li.page-item.active span.page-link {
     color: #9cc526;
   }
   .header-wrap.style1 .navbar .navbar-nav .nav-item .dropdown-menu, .header-wrap.style3 .navbar .navbar-nav .nav-item .dropdown-menu {
-    background-color: #015C3B;
+    background-color: #1c363d;
   }
   .header-wrap.style1 .navbar .other-options .option-item, .header-wrap.style3 .navbar .other-options .option-item {
     margin: 0 0 0 30px;
@@ -6722,4 +6722,8 @@ button.contact-btn.style1.w-block.w-100 {
 }
 .login-form .btn.style1:before {
   background: #1c363d;
+}
+a.btn.cstylebtn:hover {
+    background: #1c363d;
+    color: #fff;
 }
