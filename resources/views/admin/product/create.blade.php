@@ -117,6 +117,16 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>How To Use</label>
+                                    <textarea name="how_to_use" class="form-control summernote"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Benifits</label>
+                                    <textarea name="benifits" class="form-control summernote"></textarea>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="inputState">Product Type</label>
                                     <select id="inputState" class="form-control" name="product_type">
                                         <option value="">Select</option>
