@@ -4,13 +4,13 @@
 <div class="content-wrapper">
 
 <!-- Breadcrumb Start -->
-<div class="breadcrumb-wrap bg-f br-1">
+<div class="breadcrumb-wrap bg-f br-about">
     <div class="container">
         <div class="breadcrumb-title">
-            <h2>About</h2>
+            <h2 style="color:#fff">About</h2>
             <ul class="breadcrumb-menu list-style">
-                <li><a href="index.html">Home </a></li>
-                <li>About</li>
+                <li><a href="index.html" style="color:#fff">Home </a></li>
+                <li style="color:#fff">About</li>
             </ul>
         </div>
     </div>
@@ -27,7 +27,7 @@
                         <img src="{{ asset('front/assets/img/about/about-shape-6.png') }}" alt="Iamge" class="bounce">
                     </div>
                     <img src="{{ asset('front/assets/img/about/about-img-3.png') }}" alt="Image">
-                    <div class="discunt-price">25% <br>off</div>
+                    <!-- <div class="discunt-price">25% <br>off</div> -->
                 </div>
             </div>
             <div class="col-lg-6">

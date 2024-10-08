@@ -2229,6 +2229,9 @@ li.page-item.active span.page-link {
 .br-1 {
   background-image: url(../img/breadcrumb/breadcrumb-1.jpg);
 }
+.br-about {
+  background-image: url(../img/breadcrumb/aboutus.png);
+}
 
 .br-2 {
   background-image: url(../img/breadcrumb/breadcrumb-2.jpg);
@@ -3442,7 +3445,7 @@ li.page-item.active span.page-link {
 }
 
 .video-bg-1 {
-  background-image: url(../img/video-bg-1.jpg);
+  background-image: url(../img/Videothumbnail.png);
 }
 
 .video-bg-2 {
