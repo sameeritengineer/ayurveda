@@ -135,19 +135,19 @@
                     </li>
                     <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab_2"
-                            type="button" role="tab">Incredients</button>
+                            type="button" role="tab">Ingredients</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link " data-bs-toggle="tab" data-bs-target="#tab_3" type="button"
-                            role="tab">Reviews</button>
+                        <button class="nav-link " data-bs-toggle="tab" data-bs-target="#tab_5" type="button"
+                            role="tab">Benefits</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link " data-bs-toggle="tab" data-bs-target="#tab_4" type="button"
                             role="tab">How To Use</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link " data-bs-toggle="tab" data-bs-target="#tab_5" type="button"
-                            role="tab">Benifits</button>
+                        <button class="nav-link " data-bs-toggle="tab" data-bs-target="#tab_3" type="button"
+                            role="tab">Reviews</button>
                     </li>
                 </ul>
                 <div class="tab-content product-tab-content">

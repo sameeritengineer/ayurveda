@@ -11,7 +11,7 @@
                             <div class="hero-content">
                                 <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">{{$setting->title ?? ''}}</h1>
                                 <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">{{$setting->description ?? ''}}</p>
-                                <a href="shop-right-sidebar.html" class="btn cstylebtn" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">Shop Now</a>
+                                <a href="{{route('getProducts')}}" class="btn cstylebtn" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">Shop Now</a>
                             </div>
                         </div>
                         <div class="col-md-6">

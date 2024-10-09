@@ -21,20 +21,20 @@
 <section class="about-wrap style3 ptb-100">
     <div class="container">
         <div class="row gx-5 align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="about-img-wrap">
-                    <div class="about-shape-one">
+                    <!-- <div class="about-shape-one">
                         <img src="{{ asset('front/assets/img/about/about-shape-6.png') }}" alt="Iamge" class="bounce">
-                    </div>
-                    <img src="{{ asset('front/assets/img/about/about-img-3.png') }}" alt="Image">
+                    </div> -->
+                    <img style="width:300px" src="{{ asset('front/assets/img/about/about-img-3.png') }}" alt="Image">
                     <!-- <div class="discunt-price">25% <br>off</div> -->
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="about-content">
                     <div class="content-title style1 mb-0">
                         <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">About Us</span>
-                        <h2>Who We Are</h2>
+                        <h4>Who We Are</h4>
                         <p>In the heart of Uttarakhand, where ancient whispers mingle with the modern breeze, Mleyered Ayurvedic House of A&amp;A Ayurvedic stands as a testament to timeless wisdom embraced by future-focused innovation. Founded on the legacy of Mr. Prem Niwas and Mrs. Kamlesh, and now expertly guided by their sons, A&amp;A Ayurvedic is more than just a name; it’s a connection.“Authenticity from Ancient Traditions” is the tagline that links the dependable Ayurvedic traditions to the demands of your busy life.</p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
     <div class="col-lg-12 mt-3">
     <div class="about-content">
                     <div class="content-title style1 mb-0">
-                        <h2>Our Mission</h2>
+                        <h4>Our Mission</h4>
                         <p>At Mleyered Ayurvedic House of A&amp;A Ayurvedic, our mission is to provide a path to holistic well-being, rooted in the ancient science of balancing your Tridoshas – Vata, Pitta, and Kapha. We understand the challenges of maintaining inner equilibrium in today’s dynamic world. That’s why we go beyond offering mere products; we offer a journey to reconnect with your roots, rediscover your rhythm, and embark on a healthier you.</p>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
     <div class="col-lg-12 mt-3">
     <div class="about-content">
                     <div class="content-title style1 mb-0">
-                        <h2>Quality Assurance</h2>
+                        <h4>Quality Assurance</h4>
                         <p>Our offerings are not just formulas; they are handcrafted expressions of purity. Each 100% herbal creation whispers of ancient secrets, meticulously crafted by skilled artisans using time-honored techniques. We are committed to maintaining the highest standards of quality, ensuring that every product is a true reflection of our dedication to authenticity and well-being.</p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
     <div class="col-lg-12 mt-3">
     <div class="about-content">
                     <div class="content-title style1 mb-0">
-                        <h2>Why Us?</h2>
+                        <h4>Why Us?</h4>
                         <p>Choose Mleyered Ayurvedic House of A&amp;A Ayurvedic for a unique blend of tradition and innovation. Our products are crafted with care, embodying the rich heritage of Ayurvedic wisdom. With a deep understanding of the ancient science of Ayurveda, we provide solutions that are not just effective but also align with the natural rhythms of your body. Trust us to bring you purity,authenticity, and a path to holistic health.</p>
                         <p>Reconnect with your roots, rediscover your rhythm, and embark on a journey to a healthier you with Mleyered House of A&amp;A Ayurvedic: where the past whispers wisdom, the future blossoms with well-being, and authenticity flows from ancient traditions.</p>
                     </div>

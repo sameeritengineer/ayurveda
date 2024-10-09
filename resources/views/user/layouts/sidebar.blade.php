@@ -11,6 +11,13 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('cart-details')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Go to Cart</span>
+      </a>
+    </li>
     <li class="nav-item {{ Route::is('user.profile') ? 'active' : '' }}">
       <a class="nav-link" href="{{route('user.profile')}}">
         <i class="icon-grid menu-icon"></i>

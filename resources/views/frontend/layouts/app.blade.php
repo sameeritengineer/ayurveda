@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
+@php
+$setting = \App\Models\Setting::first();
+@endphp
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -20,7 +22,7 @@
         <link rel="stylesheet" href="{{ asset('front/assets/css/dark-theme.css') }}">
 
         <title>M- LEYERED</title>
-        <link rel="icon" type="image/png" href="{{ asset('front/assets/img/favicon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset($setting->fav_icon ?? '') }}">
     </head>
 
     <body>

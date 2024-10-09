@@ -81,7 +81,7 @@
                         <li><a data-filter=".flowers">Flowers</a></li>
                     </ul> -->
                 </div>
-                <div class="swiper product-item-slider">
+                <div class="swiper product-item-slider container">
                     <div class="swiper-wrapper">
                        @foreach($products as $product)
                         <div class="swiper-slide Flowers edibles">
