@@ -91,6 +91,16 @@ $setting = \App\Models\Setting::first();
                                            Terms &amp; Conditions
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('pages',['slug'=>'shipping-policy'])}}">
+                                        Shipping Policy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('pages',['slug'=>'refund-return-policy'])}}">
+                                        Refund & Return Policy
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

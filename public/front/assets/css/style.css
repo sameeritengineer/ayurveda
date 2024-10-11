@@ -2248,6 +2248,37 @@ li.page-item.active span.page-link {
 .br-5 {
   background-image: url(../img/breadcrumb/breadcrumb-5.jpg);
 }
+.br-1 {
+  background-image: url(../img/breadcrumb/breadcrumb-1.jpg);
+}
+.banner_faq {
+  background-image: url(../img/breadcrumb/banner_faq.png);
+}
+.banner_testimonials{
+  background-image: url(../img/breadcrumb/banner_testimonials.png);
+}
+.banner_blogs{
+  background-image: url(../img/breadcrumb/banner_blogs.png);
+}
+.banner_privacy-policy{
+  background-image: url(../img/breadcrumb/banner_privacy-policy.png);
+}
+.banner_terms-of-service{
+  background-image: url(../img/breadcrumb/banner_terms-of-service.png);
+}
+.banner_shipping-policy{
+  background-image: url(../img/breadcrumb/banner_shipping-policy.png);
+}
+.banner_refund-return-policy{
+  background-image: url(../img/breadcrumb/banner_refund-return-policy.png);
+}
+.banner_contactus{
+  background-image: url(../img/breadcrumb/banner_contactus.png);
+}
+
+
+
+
 
 .breadcrumb-wrap {
   position: relative;

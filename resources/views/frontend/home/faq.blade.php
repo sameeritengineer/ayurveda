@@ -4,13 +4,13 @@
             <div class="content-wrapper">
 
                 <!-- Breadcrumb Start -->
-                <div class="breadcrumb-wrap bg-f br-1">
+                <div class="breadcrumb-wrap bg-f banner_faq">
                     <div class="container">
                         <div class="breadcrumb-title">
                             <h2>Frequently Asked Questions</h2>
                             <ul class="breadcrumb-menu list-style">
-                                <li><a href="index.html">Home </a></li>
-                                <li>FAQ</li>
+                                <li><a href="{{route('homepage')}}" style="color:#fff">Home </a></li>
+                                <li style="color:#fff">FAQ</li>
                             </ul>
                         </div>
                     </div>

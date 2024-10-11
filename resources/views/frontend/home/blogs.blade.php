@@ -4,13 +4,13 @@
  <div class="content-wrapper">
 
 <!-- Breadcrumb Start -->
-<div class="breadcrumb-wrap bg-f br-1">
+<div class="breadcrumb-wrap bg-f banner_blogs">
     <div class="container">
         <div class="breadcrumb-title">
-            <h2>Blogs</h2>
+            <h2 style="color:#fff">Blogs</h2>
             <ul class="breadcrumb-menu list-style">
-                <li><a href="{{route('homepage')}}">Home</a></li>
-                <li>Blog</li>
+                <li><a href="{{route('homepage')}}" style="color:#fff">Home</a></li>
+                <li style="color:#fff">Blog</li>
             </ul>
         </div>
     </div>
@@ -83,7 +83,7 @@
                     </div> -->
                     <div class="sidebar-widget contact-widget">
                         <h3>How We Can Help You</h3>
-                        <p>Lorem ipsum dolor sit amet consec tetur adipcing elit. Voluptate quib ausd possq imus voluptem.</p>
+                        <p>Have questions or need assistance? Reach out to us! We're here to help with any inquiries about our products, services, or your orders.</p>
                         <a href="{{route('contact')}}" class="btn style1">Contact us</a>
                     </div>
                 </div>

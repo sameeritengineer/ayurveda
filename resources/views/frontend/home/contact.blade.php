@@ -4,13 +4,13 @@
             <div class="content-wrapper">
 
                 <!-- Breadcrumb Start -->
-                <div class="breadcrumb-wrap bg-f br-1">
+                <div class="breadcrumb-wrap bg-f banner_contactus">
                     <div class="container">
                         <div class="breadcrumb-title">
                             <h2>Contact</h2>
                             <ul class="breadcrumb-menu list-style">
-                                <li><a href="index.html">Home </a></li>
-                                <li>Contact</li>
+                                <li><a href="{{route('homepage')}}" style="color:#000">Home </a></li>
+                                <li style="color:#000">Contact</li>
                             </ul>
                         </div>
                     </div>

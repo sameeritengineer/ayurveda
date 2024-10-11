@@ -9,7 +9,7 @@
         <div class="breadcrumb-title">
             <h2 style="color:#fff">About</h2>
             <ul class="breadcrumb-menu list-style">
-                <li><a href="index.html" style="color:#fff">Home </a></li>
+                <li><a href="{{route('homepage')}}" style="color:#fff">Home </a></li>
                 <li style="color:#fff">About</li>
             </ul>
         </div>

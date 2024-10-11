@@ -4,14 +4,14 @@
             <div class="content-wrapper">
 
                 <!-- Breadcrumb Start -->
-                <div class="breadcrumb-wrap bg-f br-1">
+                <div class="breadcrumb-wrap bg-f banner_blogs">
                     <div class="container">
                         <div class="breadcrumb-title">
-                            <h2>Blog Details</h2>
+                            <h2 style="color:#fff">Blog Details</h2>
                             <ul class="breadcrumb-menu list-style">
-                                <li><a href="{{route('homepage')}}">Home</a></li>
-                                <li><a href="{{route('all-blogs')}}">Blog</a></li>
-                                <li>Blog Details</li>
+                                <li><a href="{{route('homepage')}}" style="color:#fff">Home</a></li>
+                                <li><a href="{{route('all-blogs')}}" style="color:#fff">Blog</a></li>
+                                <li style="color:#fff">Blog Details</li>
                             </ul>
                         </div>
                     </div>

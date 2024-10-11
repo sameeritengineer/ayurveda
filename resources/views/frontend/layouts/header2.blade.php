@@ -45,6 +45,12 @@ $setting = \App\Models\Setting::first();
                                                 <li class="nav-item">
                                                     <a href="{{route('pages',['slug'=>'privacy-policy'])}}" class="nav-link {{ request()->route('slug') == 'privacy-policy' ? 'active' : '' }}">Privacy Policy</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a href="{{route('pages',['slug'=>'shipping-policy'])}}" class="nav-link {{ request()->route('slug') == 'shipping-policy' ? 'active' : '' }}">Shipping Policy</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="{{route('pages',['slug'=>'refund-return-policy'])}}" class="nav-link {{ request()->route('slug') == 'refund-return-policy' ? 'active' : '' }}">Refund & Return Policy</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="nav-item">
