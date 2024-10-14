@@ -2227,7 +2227,7 @@ li.page-item.active span.page-link {
        Breadcrumb CSS 
 -----------------------------------*/
 .br-1 {
-  background-image: url(../img/breadcrumb/breadcrumb-1.jpg);
+  background-image: url(../img/breadcrumb/breadcrumb-1.png);
 }
 .br-about {
   background-image: url(../img/breadcrumb/aboutus.png);
@@ -2247,9 +2247,6 @@ li.page-item.active span.page-link {
 
 .br-5 {
   background-image: url(../img/breadcrumb/breadcrumb-5.jpg);
-}
-.br-1 {
-  background-image: url(../img/breadcrumb/breadcrumb-1.jpg);
 }
 .banner_faq {
   background-image: url(../img/breadcrumb/banner_faq.png);
@@ -6760,5 +6757,20 @@ button.contact-btn.style1.w-block.w-100 {
 }
 a.btn.cstylebtn:hover {
     background: #1c363d;
+    color: #fff;
+}
+.info-container h3.title {
+    font-size: 19px;
+}
+.contact-us.text-center button#contactUs {
+    background: #9cc526;
+}
+.contact-us.text-center {
+    margin-top: 30px;
+}
+.col-12.col-md.col-md-auto.footer__block.center.middle.mob-block {
+    text-align: center;
+}
+.footer__block.center.middle.mob-block .start p {
     color: #fff;
 }

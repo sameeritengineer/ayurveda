@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 
 <!-- Breadcrumb Start -->
-<div class="breadcrumb-wrap bg-f br-3">
+<div class="breadcrumb-wrap bg-f br-1">
     <div class="container">
         <div class="breadcrumb-title">
             <h2>Cart</h2>

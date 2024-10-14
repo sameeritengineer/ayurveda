@@ -29,7 +29,7 @@ $setting = \App\Models\Setting::first();
                                             Shop
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             Pages
                                             <i class="ri-arrow-down-line"></i>
@@ -54,7 +54,7 @@ $setting = \App\Models\Setting::first();
                                                     <a href="{{route('pages',['slug'=>'refund-return-policy'])}}" class="nav-link {{ request()->route('slug') == 'refund-return-policy' ? 'active' : '' }}">Refund & Return Policy</a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
                                         <a href="{{route('all-blogs')}}" class="nav-link">
                                             Blog

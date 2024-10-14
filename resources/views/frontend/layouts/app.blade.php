@@ -34,12 +34,12 @@ $setting = \App\Models\Setting::first();
         <!--Preloader ends-->
 
         <!-- Theme Switcher Start -->
-        <div class="switch-theme-mode">
+        <!-- <div class="switch-theme-mode">
             <label id="switch" class="switch">
                     <input type="checkbox" onchange="toggleTheme()" id="slider">
                     <span class="slider round"></span>
             </label>
-        </div>
+        </div> -->
         <!-- Theme Switcher End -->
 
         <div class="body_overlay"></div>

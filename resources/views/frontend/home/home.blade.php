@@ -241,8 +241,7 @@
                             <div class="apply-form">
                                 <div class="content-title style1">
                                     <h2>Apply For Consultation</h2>
-                                    <p>On the other hand, we denounce with righteous indignation and
-                                    dislike men who are so beguiled and demoralized by the charms.</p>
+                                    <p>Address your concerns with trusted and experienced Ayurvedic Doctors who are just one click away and ready to support you from the comfort of your home.</p>
                                 </div>
                                 <form method="post" class="form-wrap" id="contactForm">
                                         <div class="row">
@@ -476,6 +475,42 @@
                 </div>
             </section>
             <!-- Blog Section End -->
+<section class="testimonial-wrap ptb-100 bg-albastor">
+                <div class="container">
+                    <div class="container features-contact-us-container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="feature text-center">
+                <div class="icon-container">
+                    <img loading="lazy" src="//avimeeherbal.com/cdn/shop/files/shipping-icon_1.png?v=1706782202" alt="Free Shipping Icon" class="img-fluid">
+                </div>
+                <div class="info-container">
+                    <h3 class="title">Free Shipping on Purchase of Rs 299/-</h3>
+                    <p class="subtitle">On All Domestic Orders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature text-center">
+                <div class="icon-container">
+                    <img loading="lazy" src="//avimeeherbal.com/cdn/shop/files/support.png?v=1706782084" alt="Support Icon" class="img-fluid">
+                </div>
+                <div class="info-container">
+                    <h3 class="title">WE SUPPORT</h3>
+                    <p class="subtitle">6 Days 10 am to 6 pm</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="contact-us text-center">
+                <h3 class="heading">Have Queries or Concerns?</h3>
+                <button id="contactUs" class="btn btn-primary mt-3"><a href="{{route('contact')}}" class="text-white">Contact Us</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+</section>            
 @endsection
 @push('scripts')
 <script>
