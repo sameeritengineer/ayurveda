@@ -31,11 +31,33 @@
                                     $setting = \App\Models\Setting::first();
                                     @endphp
                                     <img src="{{ asset('front/assets/img/shape-6.png') }}" alt="Image" class="contact-shape">
-                                    <h3>Address</h3>
+                                    <h3>Here To Help</h3>
                                     <ul class="contact-info list-style">
-                                        <li><i class="flaticon-pin"></i><p>{{$setting->address}}</p></li>
-                                        <li><i class="flaticon-call-1"></i><a href="tel:{{$setting->phone}}">{{$setting->phone}}</a></li>
-                                        <li><i class="flaticon-email-2"></i><a href="mailto:{{$setting->email}}">{{$setting->email}}</a></li>
+                                        <li><i class="flaticon-pin"></i><p>mleyered F-98,Industrial Area Bahadrabad Haridwar Uk-249403</p></li>
+                                        <li><i class="flaticon-call-1"></i><a href="tel:9411572004">9411572004, 01334-231115</a></li>
+                                        <li><i class="flaticon-email-2"></i><a href="mailto:support@mleyered.com.com">support@mleyered.com.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="contact-item">
+                                    <img src="{{ asset('front/assets/img/shape-6.png') }}" alt="Image" class="contact-shape">
+                                    <h3>Let's Join Hands For Job</h3>
+                                    <ul class="contact-info list-style">
+                                        <li><i class="flaticon-brain"></i><p>want to work with us, drop us your resume </p></li>
+                                        <li><i class="flaticon-call-1"></i><a href="tel:9411572004"> 9411572004, 01334-231115</a></li>
+                                        <li><i class="flaticon-email-2"></i><a href="mailto:marketing@mleyered.com">marketing@mleyered.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="contact-item">
+                                    <img src="{{ asset('front/assets/img/shape-6.png') }}" alt="Image" class="contact-shape">
+                                    <h3>Connect With Us For Business Enquiries</h3>
+                                    <ul class="contact-info list-style">
+                                        <li><i class="flaticon-drop"></i><p>Drop me an email for any business related proposals</p></li>
+                                        <li><i class="flaticon-call-1"></i><a href="tel:7618340004">7618340004</a></li>
+                                        <li><i class="flaticon-email-2"></i><a href="mailto:business@mleyered.com">business@mleyered.com</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -45,7 +67,7 @@
                 <!-- Contact Us section End -->
 
                 <!-- Contact Form Start -->
-                <section class="contact-form-wrap bg-albastor ptb-100">
+                <section class="contact-form-wrap bg-albastor ptb-50">
                     <div class="container">
                         <div class="section-title text-center mb-40">
                             <span><img src="{{ asset('front/assets/img/section-img.png') }}" alt="Image">Contact Us</span>
@@ -120,6 +142,42 @@
                         </div>
                     </div>
                 </section>
+                <section class="testimonial-wrap ptb-50 bg-albastor">
+                <div class="container">
+                    <div class="container features-contact-us-container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="feature text-center">
+                <div class="icon-container">
+                    <img loading="lazy" src="//avimeeherbal.com/cdn/shop/files/shipping-icon_1.png?v=1706782202" alt="Free Shipping Icon" class="img-fluid">
+                </div>
+                <div class="info-container">
+                    <h3 class="title">Free Shipping on Purchase of Rs 299/-</h3>
+                    <p class="subtitle">On All Domestic Orders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature text-center">
+                <div class="icon-container">
+                    <img loading="lazy" src="//avimeeherbal.com/cdn/shop/files/support.png?v=1706782084" alt="Support Icon" class="img-fluid">
+                </div>
+                <div class="info-container">
+                    <h3 class="title">WE SUPPORT</h3>
+                    <p class="subtitle">6 Days 10 am to 6 pm</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="contact-us text-center">
+                <h3 class="heading">Have Queries or Concerns?</h3>
+                <button id="contactUs" class="btn btn-primary mt-3"><a href="{{route('contact')}}" class="text-white">Contact Us</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+</section> 
                 <!-- Contact Form End -->
 
                 <!-- Map Start -->

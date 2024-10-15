@@ -637,10 +637,10 @@ select {
 }
 .btn.style1:before {
   /*background: linear-gradient(90deg, #ccc 0%, #fff 99.88%);*/
-  background: #9cc526;
+  background: #80dc12;
 }
 .btn.style1:after {
-  background: linear-gradient(-90deg, #fff 0%, #9cc526 99.88%);
+  background: linear-gradient(-90deg, #fff 0%, #80dc12 99.88%);
 }
 .btn.style2 {
   border-radius: 5px;
@@ -1150,7 +1150,7 @@ select {
   border-radius: 0;
 }
 .social-profile.style1 li a i {
-  color: #9cc526;
+  color: #80dc12;
 }
 .social-profile.style1 li a:hover {
   background-color: #fff;
@@ -2069,7 +2069,7 @@ li.page-item.active span.page-link {
     position: relative;
   }
   .header-wrap .navbar .navbar-nav .nav-item a:hover, .header-wrap .navbar .navbar-nav .nav-item a:focus, .header-wrap .navbar .navbar-nav .nav-item a.active {
-    color: #9cc526;
+    color: #80dc12;
   }
   .header-wrap .navbar .navbar-nav .nav-item a i {
     font-size: 12px;
@@ -2120,14 +2120,14 @@ li.page-item.active span.page-link {
     content: "";
     width: 2px;
     height: 0%;
-    background-color: #9cc526;
+    background-color: #80dc12;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-50%);
     transition: 0.4s;
   }
   .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a.active, .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a:hover {
-    color: #9cc526;
+    color: #80dc12;
   }
   .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a.active:before, .header-wrap .navbar .navbar-nav .nav-item .dropdown-menu li a:hover:before {
     height: 16px;
@@ -2178,7 +2178,7 @@ li.page-item.active span.page-link {
     color: #fff;
   }
   .header-wrap.style1 .navbar .navbar-nav .nav-item a:hover, .header-wrap.style1 .navbar .navbar-nav .nav-item a:focus, .header-wrap.style1 .navbar .navbar-nav .nav-item a.active, .header-wrap.style3 .navbar .navbar-nav .nav-item a:hover, .header-wrap.style3 .navbar .navbar-nav .nav-item a:focus, .header-wrap.style3 .navbar .navbar-nav .nav-item a.active {
-    color: #9cc526;
+    color: #80dc12;
   }
   .header-wrap.style1 .navbar .navbar-nav .nav-item .dropdown-menu, .header-wrap.style3 .navbar .navbar-nav .nav-item .dropdown-menu {
     background-color: #1c363d;
@@ -3223,7 +3223,7 @@ li.page-item.active span.page-link {
 .testimonial-slider-one.owl-carousel .owl-dots .owl-dot.active span,
 .offer-pproduct-slider.owl-carousel .owl-dots .owl-dot.active span {
   width: 32px;
-  background-color: #9cc526;
+  background-color: #80dc12;
 }
 
 /*-------------------------------
@@ -3498,7 +3498,7 @@ li.page-item.active span.page-link {
   width: 100px;
   height: 100px;
   transform: translate(-50%, -50%);
-  background-color: #9cc526;
+  background-color: #80dc12;
   font-size: 40px;
   line-height: 99px;
   border: none;
@@ -3944,7 +3944,7 @@ li.page-item.active span.page-link {
 }
 .product-card.style7 .product-info .price {
   width: 75px;
-  color: #9cc526;
+  color: #80dc12;
   margin: 0;
   text-align: right;
 }
@@ -3998,7 +3998,7 @@ li.page-item.active span.page-link {
   transition: 0.4s;
 }
 .product-item-slider .product-filter-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: #9cc526;
+  background-color: #80dc12;
   width: 30px;
 }
 
@@ -4574,7 +4574,7 @@ li.page-item.active span.page-link {
   top: 3px;
   font-size: 40px;
   line-height: 0.8;
-  color: #9cc526;
+  color: #80dc12;
   opacity: 0.4;
 }
 
@@ -4810,7 +4810,7 @@ li.page-item.active span.page-link {
   max-width: 90px;
 }
 .contact-item h3 {
-  font-size: 22px;
+  font-size: 15px;
   margin: 0 0 20px;
 }
 .contact-item .contact-info li {
@@ -6763,7 +6763,7 @@ a.btn.cstylebtn:hover {
     font-size: 19px;
 }
 .contact-us.text-center button#contactUs {
-    background: #9cc526;
+    background: #80dc12;
 }
 .contact-us.text-center {
     margin-top: 30px;
@@ -6773,4 +6773,13 @@ a.btn.cstylebtn:hover {
 }
 .footer__block.center.middle.mob-block .start p {
     color: #fff;
+}
+.discount-text {
+  padding:10px;
+  text-align: center;
+  margin: 0;
+  color: #000;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: #80dc12;
 }

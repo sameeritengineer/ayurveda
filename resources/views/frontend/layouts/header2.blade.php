@@ -2,6 +2,7 @@
 $setting = \App\Models\Setting::first();
 @endphp
 <header class="header-wrap style4">
+    <p class="discount-text">Unlock 10% Off with Code 'NEW10' at Checkout</p>
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <div class="row align-items-center w-100">
@@ -106,8 +107,8 @@ $setting = \App\Models\Setting::first();
                             </div>
                             <div class="col-lg-2">
                                 <a class="navbar-brand" href="{{route('homepage')}}">
-                                    <img class="logo-light" src="{{ asset($setting->logo ?? '') }}" alt="logo">
-                                    <img class="logo-dark" src="{{ asset($setting->logo ?? '') }}" alt="logo">
+                                    <img class="logo-light" src="{{ asset('front/assets/img/logoheader.png') }}" alt="logo">
+                                    <img class="logo-dark" src="{{ asset('front/assets/css/logoheader.png') }}" alt="logo">
                                 </a>
                             </div>
                             <div class="col-lg-5">
