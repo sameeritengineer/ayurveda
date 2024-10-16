@@ -88,7 +88,7 @@
                                     <img src="{{asset($top->thumb_image)}}" alt="Iamge">
                                 </div>
                                 <div class="new-product-info">
-                                    <h6><a href="shop-details.html">{{$top->name}}</a></h6>
+                                    <h6><a href="{{route('product-detail',['slug' => $top->slug])}}">{{$top->name}}</a></h6>
                                     <!-- <span>$128.00</span>
                                     <span class="discount">$140</span> -->
                             @if(checkDiscount($top))

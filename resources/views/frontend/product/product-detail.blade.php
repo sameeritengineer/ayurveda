@@ -280,7 +280,7 @@
                             <a href="cart.html" class="btn style2 add-cart">Add To Cart</a>
                         </div>
                         <div class="product-info">
-                        <h3><a href="shop-details.html">{{$data->name}}</a></h3>
+                        <h3><a href="{{route('product-detail',['slug' => $data->slug])}}">{{$data->name}}</a></h3>
                         @if(checkDiscount($product))
                         <p class="price">{{getCurrencySymbol('INR')}}{{$data->offer_price}} <span class="discount">{{getCurrencySymbol('INR')}}{{$data->price}}</span></p>
                         @else

@@ -846,7 +846,8 @@ select {
 }
 
 .content-wrapper {
-  margin-top: 84px;
+  /*margin-top: 84px;*/
+  margin-top: 110px;
 }
 
 .bg-transparent {
@@ -6775,7 +6776,6 @@ a.btn.cstylebtn:hover {
     color: #fff;
 }
 .discount-text {
-  padding:10px;
   text-align: center;
   margin: 0;
   color: #000;

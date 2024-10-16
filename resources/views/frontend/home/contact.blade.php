@@ -35,7 +35,7 @@
                                     <ul class="contact-info list-style">
                                         <li><i class="flaticon-pin"></i><p>mleyered F-98,Industrial Area Bahadrabad Haridwar Uk-249403</p></li>
                                         <li><i class="flaticon-call-1"></i><a href="tel:9411572004">9411572004, 01334-231115</a></li>
-                                        <li><i class="flaticon-email-2"></i><a href="mailto:support@mleyered.com.com">support@mleyered.com.com</a></li>
+                                        <li><i class="flaticon-email-2"></i><a href="mailto:support@mleyered.com.com">support@mleyered.com</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                     <img src="{{ asset('front/assets/img/shape-6.png') }}" alt="Image" class="contact-shape">
                                     <h3>Connect With Us For Business Enquiries</h3>
                                     <ul class="contact-info list-style">
-                                        <li><i class="flaticon-drop"></i><p>Drop me an email for any business related proposals</p></li>
+                                        <li><i class="flaticon-drop"></i><p>For any business-related proposals, please feel free to reach out to us via email.</p></li>
                                         <li><i class="flaticon-call-1"></i><a href="tel:7618340004">7618340004</a></li>
                                         <li><i class="flaticon-email-2"></i><a href="mailto:business@mleyered.com">business@mleyered.com</a></li>
                                     </ul>
