@@ -157,11 +157,9 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab_2" role="tabpanel">
-                        <ul class="product_features list-style">
-                            <li><b>Brand:</b> Maford</li>
-                           <li><b>Quantity:</b> 50ml</li>
-                           <li><b>Validity :</b> 24 Months</li>
-                        </ul>
+                        <div class="product_desc">
+                           {!! $product->ingredient !!}
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="tab_3" role="tabpanel">
                         <div class="row gx-5">

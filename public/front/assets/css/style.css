@@ -6783,3 +6783,6 @@ a.btn.cstylebtn:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   background: #80dc12;
 }
+.product-card .product-info h3 {
+    font-size: 16px;
+}

@@ -54,7 +54,7 @@ class ProductController extends Controller
             'long_description' => ['required'],
             'how_to_use' => ['required'],
             'benifits' => ['required'],
-            'ingredient' => ['ingredient'],
+            'ingredient' => ['required'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
@@ -141,7 +141,7 @@ class ProductController extends Controller
             'long_description' => ['required'],
             'how_to_use' => ['required'],
             'benifits' => ['required'],
-            'ingredient' => ['ingredient'],
+            'ingredient' => ['required'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
