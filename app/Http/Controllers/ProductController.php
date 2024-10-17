@@ -54,6 +54,7 @@ class ProductController extends Controller
             'long_description' => ['required'],
             'how_to_use' => ['required'],
             'benifits' => ['required'],
+            'ingredient' => ['ingredient'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
@@ -71,6 +72,7 @@ class ProductController extends Controller
         $product->qty = $request->qty;
         $product->short_description = $request->short_description;
         $product->benifits = $request->benifits;
+        $product->ingredient = $request->ingredient;
         $product->how_to_use = $request->how_to_use;
         $product->long_description = $request->long_description;
         $product->video_link = $request->video_link;
@@ -139,6 +141,7 @@ class ProductController extends Controller
             'long_description' => ['required'],
             'how_to_use' => ['required'],
             'benifits' => ['required'],
+            'ingredient' => ['ingredient'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
@@ -158,6 +161,7 @@ class ProductController extends Controller
         $product->short_description = $request->short_description;
         $product->long_description = $request->long_description;
         $product->benifits = $request->benifits;
+        $product->ingredient = $request->ingredient;
         $product->how_to_use = $request->how_to_use;
         $product->video_link = $request->video_link;
         $product->sku = $request->sku;

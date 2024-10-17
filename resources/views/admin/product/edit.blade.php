@@ -140,6 +140,11 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>Ingredients</label>
+                                    <textarea name="ingredient" class="form-control summernote">{!! $product->ingredient !!}</textarea>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="inputState">Product Type</label>
                                     <select id="inputState" class="form-control" name="product_type">
                                         <option value="">Select</option>

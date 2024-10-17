@@ -122,8 +122,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Benifits</label>
+                                    <label>Benefits</label>
                                     <textarea name="benifits" class="form-control summernote"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Ingredients</label>
+                                    <textarea name="ingredients" class="form-control summernote"></textarea>
                                 </div>
 
                                 <div class="form-group">
