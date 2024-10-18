@@ -132,7 +132,7 @@
                                 <input type="hidden" name="shipping_address_id" value="" id="shipping_address_id">
                                 <input type="hidden" name="payment_method_id" value="" id="payment_method_id">
                             </form>
-                            <button type="button" id="submitCheckoutForm" class="btn style1 d-block w-100 mt-10">Place Order</button>
+                            <button type="button" id="submitCheckoutForm">Place Order</button>
                         </div>
                     </div>
                 </div>

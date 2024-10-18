@@ -71,6 +71,10 @@ Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSub
 Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
 Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
+ /** Razorpay routes */
+Route::get('razorpay/payment', [PaymentController::class, 'payWithrzform'])->name('razor.form');
+Route::post('razorpay/payment', [PaymentController::class, 'payWithRazorPay'])->name('razorpay.payment');
+
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {

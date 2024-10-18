@@ -37,6 +37,8 @@ class CheckOutController extends Controller
        
         if($request->payment_method_id == 'cod'){
             return response(['status' => 'success', 'redirect_url' => route('user.cod.payment')]);
+        }else{
+            return response(['status' => 'success', 'redirect_url' => route('user.razor.form')]);
         }               
 
     }

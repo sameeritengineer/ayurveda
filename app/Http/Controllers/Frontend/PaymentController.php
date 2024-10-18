@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Session;
 class PaymentController extends Controller
 {
     //
+    public function payWithrzform(){ 
+        $sessionData = session()->get('shippingDetails');
+        if(empty($sessionData['payment_method_id'])){
+            return redirect()->route('user.checkout');
+        }
+        return view('frontend.product.razorpay');
+    }
+    public function payWithRazorPay(Request $request)
+    {
+        // Validate the request
+    $request->validate([
+        'paymentMethod' => 'required|string',
+        'paymentStatus' => 'required|string',
+        'transactionId' => 'required|string',
+        'amount' => 'required|numeric',
+        'currency' => 'required|string'
+    ]);
+
+       $this->storeOrder($request->paymentMethod,$request->paymentStatus, $request->transactionId, $request->amount,$request->currency);
+     
+       // clear session
+       $this->clearSession();
+
+       return redirect()->route('user.payment.success');
+    }
     public function payWithCod(){
         $sessionData = session()->get('shippingDetails');
         if(empty($sessionData['payment_method_id'])){
@@ -30,7 +55,6 @@ class PaymentController extends Controller
        // clear session
        $this->clearSession();
 
-       return redirect()->route('user.payment.success');
     }
 
     public function storeOrder($paymentMethod, $paymentStatus, $transactionId, $paidAmount, $paidCurrencyName)

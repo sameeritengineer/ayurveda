@@ -6786,3 +6786,20 @@ a.btn.cstylebtn:hover {
 .product-card .product-info h3 {
     font-size: 16px;
 }
+#submitCheckoutForm,input.razorpay-payment-button {
+    background: #80dc12;
+    line-height: 26px;
+    font-weight: 500;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.7s ease-in-out;
+    position: relative;
+    z-index: 1;
+    border: none;
+    padding: 15px 15px;
+    width: 100%;
+    border-radius: 0;
+    color: #000;
+    overflow: hidden;
+    white-space: nowrap;
+}
