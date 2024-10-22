@@ -46,7 +46,7 @@
                                     <!-- Email Address -->
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <x-input id="email" class="block mt-1 w-full" placeholder="Email Address" type="email" name="email" :value="old('email')" required />
+                                            <x-input id="email" class="block mt-1 w-full" placeholder="Email Address" type="email" name="email" value="{{ auth()->user()->email }}" required />
                                         </div>
                                     </div>
 

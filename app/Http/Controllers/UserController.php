@@ -10,12 +10,21 @@ use App\DataTables\UserOrderDataTable;
 use App\DataTables\UserPendingOrderDataTable;
 use App\DataTables\UserCompletedOrderDataTable;
 use App\Models\Order;
+use App\Models\UserAddress;
+use App\Models\ProductReview;
 
 class UserController extends Controller
 {
     //
     public function index(){
-         return view('user.dashboard');       
+         $userId = auth()->user()->id;
+         $totalOrders = Order::where('user_id',$userId)->count();
+         $totalPendingOrders = Order::where('user_id',$userId)->where('order_status', 'pending')->count();
+         $totaldeliveredOrders = Order::where('user_id',$userId)->where('order_status', 'delivered')->count();
+         $totalAddress = UserAddress::where('user_id',$userId)->count();
+         $totalReviews = ProductReview::where('user_id',$userId)->count();
+
+         return view('user.dashboard',compact('totalOrders','totalPendingOrders','totaldeliveredOrders','totalAddress','totalReviews'));       
     }
 
     public function userindex(){

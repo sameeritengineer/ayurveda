@@ -42,7 +42,8 @@ class AddressService
 
         return $request->validate([
             'name' => 'required|string|max:255',
-            'email' => $emailRule,
+            //'email' => $emailRule,
+            'email' => 'required|email',
             'phone' => 'required|numeric|digits_between:10,15',
             'country' => 'required|exists:countries,name',
             'state' => 'required|exists:states,name',

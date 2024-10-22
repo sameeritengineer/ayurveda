@@ -4,7 +4,7 @@
               <div class="col-md-12 grid-margin">
                 <div class="row">
                   <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                    <h3 class="font-weight-bold">Welcome John</h3>
+                    <h3 class="font-weight-bold">Welcome {{ auth()->user()->name }}</h3>
                   </div>
                  
                 </div>
@@ -18,7 +18,7 @@
                       <a class="nav-link" href="{{route('user.orders.index')}}">
                       <div class="card-body">
                         <p class="mb-4">Total Order</p>
-                        <p class="fs-30 mb-2">4006</p>
+                        <p class="fs-30 mb-2">{{$totalOrders}}</p>
                       </div>
                     </a>
                     </div>
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{route('user.orders.pending')}}">  
                       <div class="card-body">
                         <p class="mb-4">Pending Orders</p>
-                        <p class="fs-30 mb-2">61344</p>
+                        <p class="fs-30 mb-2">{{$totalPendingOrders}}</p>
                       </div>
                     </a>  
                     </div>
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{{route('user.orders.completed')}}">  
                       <div class="card-body">
                         <p class="mb-4">Completed Orders</p>
-                        <p class="fs-30 mb-2">61344</p>
+                        <p class="fs-30 mb-2">{{$totaldeliveredOrders}}</p>
                       </div>
                     </a>  
                     </div>
@@ -50,7 +50,7 @@
                     <a class="nav-link" href="{{route('user.review')}}">  
                       <div class="card-body">
                         <p class="mb-4">Reviews</p>
-                        <p class="fs-30 mb-2">34040</p>
+                        <p class="fs-30 mb-2">{{$totalReviews}}</p>
                       </div>
                     </a>  
                     </div>
@@ -68,7 +68,7 @@
                     <div class="card card-light-blue">
                       <div class="card-body">
                         <p class="mb-4">Addresses</p>
-                        <p class="fs-30 mb-2">3</p>
+                        <p class="fs-30 mb-2">{{$totalAddress}}</p>
                       </div>
                     </div>
                   </div>

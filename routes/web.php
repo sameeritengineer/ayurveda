@@ -100,6 +100,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('address-add', [AddressController::class, 'addressAdd'])->name('user.address-add');
     Route::post('address-store', [AddressController::class, 'addressStore'])->name('user.address-store');
     Route::put('address-update/{id?}', [AddressController::class, 'addressUpdate'])->name('user.address-update');
+
+    /** product review routes */
+    Route::post('review', [ReviewController::class, 'create'])->name('review.create');
 });    
 
 require __DIR__.'/auth.php';
