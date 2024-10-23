@@ -87,6 +87,16 @@ $setting = \App\Models\Setting::first();
         <script src="{{ asset('front/assets/js/tweenmax.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="{{ asset('front/assets/js/main.js') }}"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHMWV76KEJ">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FHMWV76KEJ');
+</script>
         <script>
                  // Function to display toast notifications
      function showToast(type, message) {

@@ -386,7 +386,7 @@
                         <div class="product-img">
                             <img src="{{asset($data->thumb_image)}}" alt="Image">
                             <form class="shopping-cart-form">
-                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" value="{{$data->id}}">
                                 <input class="" name="qty" type="hidden" min="1" max="100" value="1">
                                   <button class="btn style2 add-cart" type="submit">Add To Cart</button>
                                 </form>

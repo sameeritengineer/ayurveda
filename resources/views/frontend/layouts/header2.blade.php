@@ -100,7 +100,7 @@ $setting = \App\Models\Setting::first();
                                             <a href="{{route('contact')}}" class="nav-link">Contact</a>
                                         </li>
                                         <li class="nav-item d-lg-none">
-                                            <a href="login.html" class="btn style1 w-block w-100">Login Now</a>
+                                            <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
                                         </li>
                                     </ul>
                                 </div>
