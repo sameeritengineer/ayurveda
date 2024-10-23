@@ -55,6 +55,8 @@ class PaymentController extends Controller
        // clear session
        $this->clearSession();
 
+       return redirect()->route('user.payment.success');
+
     }
 
     public function storeOrder($paymentMethod, $paymentStatus, $transactionId, $paidAmount, $paidCurrencyName)
