@@ -167,7 +167,7 @@
                                     <div class="wsus__pro_det_review">
                                         <div class="wsus__pro_det_review_single">
                                             <div class="row">
-                                                <div class="col-xl-8 col-lg-7">
+                                                <div class="col-xl-7 col-lg-7">
                                                     <div class="wsus__comment_area">
                                                         <h4>Reviews <span>{{count($reviews)}}</span></h4>
                                                         @foreach ($reviews as $review)
@@ -204,7 +204,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
+                                                <div class="col-xl-5 col-lg-5 mt-4 mt-lg-0">
                                                     @auth
                                                     @php
                                                         $isBrought = false;
@@ -221,19 +221,15 @@
 
                                                     @if ($isBrought === true)
                                                     <div class="wsus__post_comment rev_mar" id="sticky_sidebar3">
-                                                        <h4>write a Review</h4>
-                                                        <form action="" enctype="multipart/form-data" method="POST">
+                                                        <h4>Share Your Review With Us</h4>
+                                                        <form id="userReview" enctype="multipart/form-data" method="POST">
                                                             @csrf
-                                                            <p class="rating">
-                                                                <span>select your rating : </span>
-                                                            </p>
-
                                                             <div class="row">
 
-                                                                <div class="col-xl-12 mb-4">
+                                                                <div class="col-xl-12">
                                                                     <div class="wsus__single_com">
                                                                         <select name="rating" id="" class="form-control">
-                                                                            <option value="">Select</option>
+                                                                            <option value="">Select Rating</option>
                                                                             <option value="1">1</option>
                                                                             <option value="2">2</option>
                                                                             <option value="3">3</option>
@@ -246,7 +242,7 @@
                                                                 <div class="col-xl-12">
                                                                     <div class="col-xl-12">
                                                                         <div class="wsus__single_com">
-                                                                            <textarea cols="3" rows="3" name="review"
+                                                                            <textarea cols="70" rows="4" name="review"
                                                                                 placeholder="Write your review"></textarea>
                                                                         </div>
                                                                     </div>
@@ -258,10 +254,9 @@
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" name="product_id" id="" value="{{$product->id}}">
-                                                            <input type="hidden" name="vendor_id" id="" value="{{$product->vendor_id}}">
 
-                                                            <button class="common_btn" type="submit">submit
-                                                                review</button>
+                                                            <button class="common_btn btn style1 w-block w-100" type="submit">Submit
+                                                            </button>
                                                         </form>
                                                     </div>
                                                     @endif
@@ -412,3 +407,38 @@
 </div>
 <!-- Content Wrapper End -->
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#userReview').on('submit', function(e){
+            e.preventDefault();
+            let formData = $(this).serialize();
+            $.ajax({
+                method: 'POST',
+                url: "{{route('user.review.create')}}",
+                data: formData,
+                success: function(data) {
+                   if(data.status === 'error'){
+                    showToast('error',data.message);
+                   }else if (data.status === 'success'){
+                    $("#userReview")[0].reset();
+                    showToast('success',data.message);
+                   }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            })
+
+        });
+
+ });       
+</script>
+@endpush

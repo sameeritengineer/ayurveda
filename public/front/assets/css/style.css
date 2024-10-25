@@ -6803,3 +6803,21 @@ a.btn.cstylebtn:hover {
     overflow: hidden;
     white-space: nowrap;
 }
+#sticky_sidebar3 select.form-control {
+    border: 2px solid #abada8;
+    width: 95%;
+    margin-bottom: 18px;
+}
+#sticky_sidebar3 .wsus__single_com textarea {
+    border: 2px solid #abada8;
+    width: 95%;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+#sticky_sidebar3 input[type="file"] {
+    margin-bottom: 15px;
+}
+button.common_btn.btn.style1.w-block.w-100 {
+    max-width: 40%;
+    float: none;
+}

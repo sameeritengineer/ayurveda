@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\HomepageController;
 use App\Http\Controllers\Frontend\BlogpageController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\ReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Jobs\OrderConfirmationMailJob;
 /*
@@ -102,7 +103,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('address-update/{id?}', [AddressController::class, 'addressUpdate'])->name('user.address-update');
 
     /** product review routes */
-    Route::post('review', [ReviewController::class, 'create'])->name('review.create');
+    Route::post('review', [ReviewController::class, 'create'])->name('user.review.create');
 });    
 
 require __DIR__.'/auth.php';
