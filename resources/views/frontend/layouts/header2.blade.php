@@ -100,7 +100,11 @@ $setting = \App\Models\Setting::first();
                                             <a href="{{route('contact')}}" class="nav-link">Contact</a>
                                         </li>
                                         <li class="nav-item d-lg-none">
-                                            <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
+                                    @if(Auth::check())
+                                    <a href="{{ route('userdashboard') }}" class="btn style1 w-block w-100">Welcome,{{Auth::user()->name}}</a>
+                                    @else
+                                    <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
+                                    @endif
                                         </li>
                                     </ul>
                                 </div>
@@ -136,7 +140,7 @@ $setting = \App\Models\Setting::first();
                     </nav>
                     <div class="mobile-bar-wrap d-lg-none">
                         <button class="searchbtn"><i class="ri-search-line"></i></button>
-                        <a class="shopcart-btn" href="cart.html"><i class="flaticon-bag"></i> <span>10</span></a>
+                        <a class="shopcart-btn" href="{{route('cart-details')}}"><i class="flaticon-bag"></i> <span class="cart-count">{{Cart::content()->count()}}</span></a>
                         <div class="mobile-menu d-lg-none">
                             <a href="javascript:void(0)"><i class="ri-menu-line"></i></a>
                         </div>

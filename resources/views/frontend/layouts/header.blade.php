@@ -101,8 +101,13 @@ $setting = \App\Models\Setting::first();
                                         <a href="{{route('contact')}}" class="nav-link">Contact</a>
                                     </li>
                                     <li class="nav-item d-lg-none">
-                                        <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
+                                    @if(Auth::check())
+                                    <a href="{{ route('userdashboard') }}" class="btn style1 w-block w-100">Welcome,{{Auth::user()->name}}</a>
+                                    @else
+                                    <a href="{{ route('login') }}" class="btn style1 w-block w-100">Login Now</a>
+                                    @endif
                                     </li>
+
                                 </ul>
                                 <div class="other-options md-none">
                                     <div class="option-item">
