@@ -60,8 +60,7 @@ class UserProductReviewsDataTable extends DataTable
                     ->minifiedAjax()
                     //->dom('Bfrtip')
                     ->orderBy(0)
-                    ->scrollX(true)  // Enable horizontal scrolling
-                    ->responsive(true)  // Enable responsiveness
+                    ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),

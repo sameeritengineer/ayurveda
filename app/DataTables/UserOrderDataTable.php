@@ -98,8 +98,6 @@ class UserOrderDataTable extends DataTable
                     //->dom('Bfrtip')
                     ->orderBy(0)
                     ->selectStyleSingle()
-                    ->scrollX(true)  // Enable horizontal scrolling
-                    ->responsive(true)  // Enable responsiveness
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),
