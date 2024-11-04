@@ -9,11 +9,19 @@ use Auth;
 use Cart;
 use App\Jobs\OrderConfirmationMailJob;
 use Illuminate\Support\Facades\Session;
+use App\Services\TwilioService;
 
 class PaymentController extends Controller
 {
     //
-    public function payWithrzform(){ 
+    protected $twilioService;
+
+    public function __construct(TwilioService $twilioService)
+    {
+        $this->twilioService = $twilioService;
+    }
+
+    public function payWithrzform(){
         $sessionData = session()->get('shippingDetails');
         if(empty($sessionData['payment_method_id'])){
             return redirect()->route('user.checkout');
@@ -32,7 +40,7 @@ class PaymentController extends Controller
     ]);
 
        $this->storeOrder($request->paymentMethod,$request->paymentStatus, $request->transactionId, $request->amount,$request->currency);
-     
+
        // clear session
        $this->clearSession();
 
@@ -43,7 +51,7 @@ class PaymentController extends Controller
         if(empty($sessionData['payment_method_id'])){
             return redirect()->route('user.checkout');
         }
-        
+
         // amount calculation
        $total = getFinalPayableAmount();
        $payableAmount = round($total, 2);
@@ -51,7 +59,7 @@ class PaymentController extends Controller
 
 
       $this->storeOrder('COD', 0, \Str::random(10), $payableAmount,$currency_name);
-     
+
        // clear session
        $this->clearSession();
 
@@ -63,7 +71,7 @@ class PaymentController extends Controller
     {
         $coupon = session()->get('coupon');
         $sessionData = session()->get('shippingDetails');
-        
+
         $shippingMethod = ShippingRule::findOrFail($sessionData['shipping_method_id'],['id','name','type','cost']);
         $address = UserAddress::findOrFail($sessionData['shipping_address_id'])->toArray();
 
@@ -114,8 +122,22 @@ class PaymentController extends Controller
 
         //प्रेषण कार्य
         dispatch(new OrderConfirmationMailJob($order)); //dispaching job
-    }   
-    
+
+        #------twilio sms code start-------#
+
+        $address = UserAddress::with('country_details')->findOrFail($sessionData['shipping_address_id']);
+        $data = [
+            'name' => $address->name, // Directly access the 'name' field
+            'order_id' => $order->id,
+        ];
+        $phone_no = $this->getCompleteMobileNo($address, $address->phone); // Access the phone directly from the model
+
+        $this->twilioService->sendSmsWithTemplate($phone_no, 'order_placed', $data);
+
+       #------twilio sms code end-------#
+       
+    }
+
     public function clearSession()
     {
         Cart::destroy();
@@ -126,5 +148,9 @@ class PaymentController extends Controller
     public function paymentSuccess()
     {
         return view('frontend.product.payment-success');
+    }
+
+    public function getCompleteMobileNo($address, $no){
+        return '+'.$address->country_details->phonecode.$no;
     }
 }

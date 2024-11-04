@@ -126,4 +126,5 @@ function truncateTo100Words($content) {
 }
 
 
+
 ?>

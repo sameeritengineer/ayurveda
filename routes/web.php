@@ -80,7 +80,7 @@ Route::post('razorpay/payment', [PaymentController::class, 'payWithRazorPay'])->
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/dashboard',[UserController::class,'index'])->name('userdashboard');
-    Route::get('profile', [UserController::class, 'userindex'])->name('user.profile'); 
+    Route::get('profile', [UserController::class, 'userindex'])->name('user.profile');
     Route::put('profile', [UserController::class, 'updateProfile'])->name('user.profileUpdate');
     Route::post('profile', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::get('reviews', [UserController::class, 'reviews'])->name('user.review');
@@ -104,7 +104,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
     /** product review routes */
     Route::post('review', [ReviewController::class, 'create'])->name('user.review.create');
-});    
+});
 
 require __DIR__.'/auth.php';
 
@@ -115,3 +115,36 @@ Route::get('or',function(){
 });
 
 //add new variable in .env ADMIN_EMAIL = avinashsmartitventures@gmail.com
+
+use Twilio\Rest\Client;
+
+Route::get('/send-sms', function () {
+    // Twilio credentials from .env
+    $sid = env('TWILIO_SID');
+    $authToken = env('TWILIO_AUTH_TOKEN');
+    $twilioNumber = env('TWILIO_PHONE_NUMBER');
+
+    // The phone number you want to send the message to
+    $recipientNumber = '+919877047825';  // Replace with the recipient's phone number
+
+    // The message content
+    $messageContent = 'Hello! This is a test message from your Laravel app.';
+
+    try {
+        // Initialize Twilio client
+        $client = new Client($sid, $authToken);
+
+        // Send the SMS
+        $message = $client->messages->create(
+            $recipientNumber, // To number
+            [
+                'from' => $twilioNumber,
+                'body' => $messageContent,
+            ]
+        );
+
+        return 'Message sent successfully to ' . $recipientNumber;
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
