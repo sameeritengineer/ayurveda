@@ -149,24 +149,29 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($request->id);
         $order->order_status = $request->status;
-       // $order->save();
+        $order->save();
 
         //प्रेषण कार्य
         dispatch(new OrderStatusMailJob($order)); //dispaching job
 
         #------twilio sms code start-------#
-        $status = $order->order_status;
-        $order = json_decode($order->order_address);
+        $valid_arr = ['shipped','delivered'];
+        
+        if(in_array($request->status, $valid_arr)){
+            $status = $order->order_status;
+            $order = json_decode($order->order_address);
 
-        $data = [
-           'order' => $order,
-           'status' => $status
-        ];
+            $data = [
+            'order' => $order,
+            'status' => $status
+            ];
 
-        $phone_no = $this->getCompleteMobileNo($order->country, $order->phone); 
+            $phone_no = $this->getCompleteMobileNo($order->country, $order->phone);
+            //\Log::alert("donedone");
+            // Send the SMS
+            $this->twilioService->sendSmsWithTemplate($phone_no, 'order_status_changed', $data);
 
-        // Send the SMS
-        $this->twilioService->sendSmsWithTemplate($phone_no, 'order_status_changed', $data);
+        }
         #------twilio sms code end-------#
 
 
@@ -187,13 +192,13 @@ class OrderController extends Controller
     public function getCompleteMobileNo($countryName, $no) {
         // Retrieve the country record and its phone code
         $country = Country::where('name', $countryName)->first();
-    
+
         // Check if the country exists
         if ($country) {
             $phoneCode = $country->phonecode; // Use the phone code from the country record
             return '+' . $phoneCode . $no; // Construct the full phone number
         }
-        
+
         return null; // Handle case where the country is not found
     }
 }
