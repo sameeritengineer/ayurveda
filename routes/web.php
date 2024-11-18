@@ -42,6 +42,7 @@ Route::post('/postcontact',[PageController::class,'postcontact'])->name('postcon
 Route::get('/about-us',[PageController::class,'about'])->name('about');
 Route::get('/pages/{slug}',[PageController::class,'pages'])->name('pages');
 Route::post('/newsletter',[PageController::class,'newsletter'])->name('newsletter');
+Route::get('cart-not-found', [CartController::class, 'cartNotFound'])->name('cart-not-found');
 
 
 

@@ -29,15 +29,16 @@
 
             ?>
             <!-- Country Code and Phone Number -->
+            <input type="hidden" value="+91" name="country_code">
             <div class="mt-4 flex items-center">
-                <div class="mr-2">
+               {{-- <div class="mr-2">
                     <x-label for="country_code" :value="__('Country Code')" />
                     <select id="country_code" name="country_code" class="block mt-1 w-full">
                         @foreach($countries as $country)
                             <option value="+{{ $country->phonecode }}">{{ $country->phonecode }} ({{ $country->shortname }})</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <div class="flex-1">
                     <x-label for="phone" :value="__('Phone Number')" />
                     <x-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" required />

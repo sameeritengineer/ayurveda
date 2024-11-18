@@ -18,10 +18,16 @@ class CartController extends Controller
 
         if(count($cartItems) === 0){
             Session::forget('coupon');
-            return redirect()->route('homepage');
+            return redirect()->route('cart-not-found');
+            // return redirect()->route('homepage');
         }
 
         return view('frontend.product.cart-detail', compact('cartItems'));
+    }
+
+    public function cartNotFound()
+    {
+        return view('frontend.product.cart_not_found');
     }
 
     public function addToCart(Request $request){
