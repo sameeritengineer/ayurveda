@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Models\{State, City, Country, UserAddress};
 use App\DataTables\{UserAddressesDataTable};
 use App\Services\AddressService;
+use \App\Models\{State, City, Country, UserAddress, Order};
 
 class AddressController extends Controller
 {
@@ -89,5 +90,16 @@ class AddressController extends Controller
         } else {
             return back()->with('danger', 'Failed to update. Please try again.');
         }
+    }
+
+    public function cancelOrder($id){
+        $order = Order::findOrFail($id);
+
+        if(!in_array($order->order_status,['pending','processed_and_ready_to_ship','dropped_off'])){
+            return back()->with('danger', 'cannot cancel order shipped..');
+        }
+        $order->cancelled_by_customer = '1';
+        $order->save();
+        return redirect()->back()->with(['alert' => 'success', 'message' => 'Order Cancelled Successfully!']);
     }
 }

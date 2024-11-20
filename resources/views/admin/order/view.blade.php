@@ -11,6 +11,7 @@
     <section class="section">
         <div class="section-header">
             <h1>Orders</h1>
+
         </div>
 
         <div class="section-body">
@@ -21,6 +22,9 @@
                             <div class="invoice-title">
                                 <h2></h2>
                                 <div class="invoice-number">Order #{{ $order->invocie_id }}</div>
+                                @if($order->cancelled_by_customer)
+                                <span class="text-danger">Order cancelled by customer</span>
+                                @endif
                             </div>
                             <hr>
                             <div class="row">
@@ -132,6 +136,9 @@
 
                                         <div class="form-group">
                                             <label for="">Order Status</label>
+                                            @if($order->cancelled_by_customer)
+                                            <span class="text-danger">Cancelled by customer</span>
+                                            @else
                                             <select name="order_status" id="order_status" data-id="{{ $order->id }}"
                                                 class="form-control">
                                                 @foreach (config('order_status.order_status_admin') as $key => $orderStatus)
@@ -139,6 +146,7 @@
                                                         value="{{ $key }}">{{ $orderStatus['status'] }}</option>
                                                 @endforeach
                                             </select>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

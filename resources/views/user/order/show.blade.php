@@ -10,9 +10,9 @@
         <div class="section-header">
             <h1>Orders</h1>
         </div>
-
         <div class="section-body">
             <div class="invoice">
+                @alert()
                 <div class="invoice-print">
                     <div class="row">
                         <div class="col-lg-12">
@@ -144,10 +144,29 @@
                     </div>
                 </div>
                 <hr>
-                <div class="text-md-right">
-                    <button class="btn btn-warning btn-icon icon-left print_invoice"><i class="fas fa-print"></i>
-                        Print</button>
+                <div class="d-flex justify-content-end gap-2">
+                    <!-- Print Button -->
+                    <button class="btn btn-warning btn-icon icon-left print_invoice">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+
+                    <!-- Cancel Order Button -->
+                    @if(in_array($order->order_status, ['pending', 'processed_and_ready_to_ship', 'dropped_off']) && !$order->cancelled_by_customer)
+                        <a href="{{ route('user.cancel-order', $order->id) }}"
+                           class="btn btn-danger btn-icon icon-left cancel"
+                           onclick="return confirmCancel();">
+                            <i class="fas fa-times"></i> Cancel Order
+                        </a>
+                    @endif
+
+                    <!-- Order Cancelled Button -->
+                    @if($order->cancelled_by_customer)
+                        <button class="btn btn-danger btn-icon icon-left cancel" disabled>
+                            <i class="fas fa-ban"></i> Order Cancelled
+                        </button>
+                    @endif
                 </div>
+
             </div>
         </div>
     </section>
@@ -165,5 +184,19 @@
             $('body').html(originalContents);
 
         })
+    </script>
+    <script>
+        function confirmCancel() {
+            // Show the confirm dialog box
+            var confirmation = confirm("Are you sure you want to cancel this order?");
+
+            // If the user clicks "OK", return true and the link will be followed
+            if (confirmation) {
+                return true;
+            } else {
+                // If the user clicks "Cancel", prevent the link from being followed
+                return false;
+            }
+        }
     </script>
 @endpush

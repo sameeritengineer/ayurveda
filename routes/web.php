@@ -105,6 +105,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
     /** product review routes */
     Route::post('review', [ReviewController::class, 'create'])->name('user.review.create');
+
+    Route::get('cancel-order/{id?}', [AddressController::class, 'cancelOrder'])->name('user.cancel-order');
 });
 
 require __DIR__.'/auth.php';
