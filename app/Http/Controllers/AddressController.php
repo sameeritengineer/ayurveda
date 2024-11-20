@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\{State, City, Country, UserAddress};
+use \App\Models\{State, City, Country, UserAddress, Order};
 use App\DataTables\{UserAddressesDataTable};
 use App\Services\AddressService;
-use \App\Models\{State, City, Country, UserAddress, Order};
 
 class AddressController extends Controller
 {

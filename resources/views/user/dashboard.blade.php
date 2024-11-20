@@ -66,10 +66,12 @@
                   </div>
                   <div class="col-md-4 mb-4 mb-lg-0 stretch-card transparent">
                     <div class="card card-light-blue">
+                      <a class="nav-link" href="{{route('user.address')}}">
                       <div class="card-body">
                         <p class="mb-4">Addresses</p>
                         <p class="fs-30 mb-2">{{$totalAddress}}</p>
                       </div>
+                    </a>
                     </div>
                   </div>
                 </div>
