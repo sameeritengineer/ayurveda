@@ -48,6 +48,12 @@
         <span class="menu-title">Completed Orders</span>
       </a>
     </li>
+    <li class="nav-item {{ Route::is('user.orders.cancelled') ? 'active' : '' }}">
+      <a class="nav-link" href="{{route('user.orders.cancelled')}}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Cancelled Orders</span>
+      </a>
+    </li>
     <li class="nav-item  @isActiveRoute(['user.address', 'user.address.edit'])">
       <a class="nav-link" href="{{route('user.address')}}">
         <i class="icon-grid menu-icon"></i>

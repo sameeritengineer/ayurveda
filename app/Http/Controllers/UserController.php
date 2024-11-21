@@ -9,6 +9,7 @@ use App\DataTables\UserProductReviewsDataTable;
 use App\DataTables\UserOrderDataTable;
 use App\DataTables\UserPendingOrderDataTable;
 use App\DataTables\UserCompletedOrderDataTable;
+use App\DataTables\UserCancelledOrderDataTable;
 use App\Models\Order;
 use App\Models\UserAddress;
 use App\Models\ProductReview;
@@ -98,6 +99,10 @@ class UserController extends Controller
         return $dataTable->render('user.order.index');
     }
     public function completedOrders(UserCompletedOrderDataTable $dataTable)
+    {
+        return $dataTable->render('user.order.index');
+    }
+    public function cancelledOrders(UserCancelledOrderDataTable $dataTable)
     {
         return $dataTable->render('user.order.index');
     }

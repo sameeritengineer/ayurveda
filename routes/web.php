@@ -90,6 +90,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('orders', [UserController::class, 'orderIndex'])->name('user.orders.index');
     Route::get('orders/pending', [UserController::class, 'pendingOrders'])->name('user.orders.pending');
     Route::get('orders/completed', [UserController::class, 'completedOrders'])->name('user.orders.completed');
+    Route::get('orders/cancelled', [UserController::class, 'cancelledOrders'])->name('user.orders.cancelled');
     Route::get('orders/show/{id}', [UserController::class, 'orderShow'])->name('user.orders.show');
     //user address related routes
     Route::get('address', [AddressController::class, 'address'])->name('user.address');

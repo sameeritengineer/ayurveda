@@ -97,7 +97,7 @@ class AddressController extends Controller
         if(!in_array($order->order_status,['pending','processed_and_ready_to_ship','dropped_off'])){
             return back()->with('danger', 'cannot cancel order shipped..');
         }
-        $order->cancelled_by_customer = '1';
+        $order->order_status = 'canceled';
         $order->save();
         return redirect()->back()->with(['alert' => 'success', 'message' => 'Order Cancelled Successfully!']);
     }
