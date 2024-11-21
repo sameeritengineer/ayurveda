@@ -21,7 +21,7 @@ class User extends Authenticatable
         \Log::info("sendPasswordResetNotification called for user: {$this->email}");
 
         // Construct the reset URL
-        $resetUrl = URL::to('/password/reset/' . $token . '?email=' . urlencode($this->email));
+        $resetUrl = URL::to('/reset-password/' . $token . '?email=' . urlencode($this->email));
 
         // Send the email notification
         $this->notify(new CustomResetPasswordNotification($token));
