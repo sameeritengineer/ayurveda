@@ -198,7 +198,7 @@ $(document).ready(function() {
             Swal.fire({
                     title: title,
                     text: "",
-                    icon: 'warning',
+                    icon: null,
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',

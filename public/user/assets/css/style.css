@@ -25700,3 +25700,17 @@ li.nav-item.logout:hover {
 li.nav-item.logout span.menu-title:hover{
   color:#fff;
 }
+button.btn.btn-danger.btn-icon.icon-left.cancel,button.btn.btn-warning.btn-icon.icon-left.print_invoice {
+    width: 200px;
+    font-size: 20px;
+    color: #000;
+}
+.hideondesk{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hideondesk {
+        display: block;
+    }
+}

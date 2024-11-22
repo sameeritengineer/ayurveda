@@ -55,7 +55,7 @@
                     </a>  
                     </div>
                   </div>
-                  <div class="col-md-4 stretch-card transparent">
+                  <div class="col-md-4 mb-4 mb-lg-0 stretch-card transparent">
                     <div class="card card-light-danger">
                     <a class="nav-link" href="{{route('user.profile')}}">  
                       <div class="card-body">
@@ -72,6 +72,20 @@
                         <p class="fs-30 mb-2">{{$totalAddress}}</p>
                       </div>
                     </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4 mb-lg-0 stretch-card transparent hideondesk">
+                    <div class="card card-light-danger">
+                    <a class="nav-link" href="{{route('user.profile')}}">  
+                      <div class="card-body">
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+                        this.closest('form').submit();"><i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Log out</span></a>
+                    </form>
+                      </div>
+                    </a>  
                     </div>
                   </div>
                 </div>
