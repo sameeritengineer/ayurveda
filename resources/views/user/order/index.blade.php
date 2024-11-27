@@ -1,4 +1,10 @@
 @extends('user.layouts.app')
+<style>
+    .dataTables_wrapper {
+    overflow-x: auto;
+}
+
+</style>
 @section('content')
 <div class="row">
     <div class="col-xl-12 col-xxl-12 col-lg-12">
@@ -21,7 +27,7 @@
     </div>
   </div>
 </div>
-@endsection    
+@endsection
 @push('scripts')
 {{ $dataTable->scripts() }}
 @endpush

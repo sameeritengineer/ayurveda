@@ -10,10 +10,10 @@ class AddressService
 {
     public function storeOrUpdateAddress(Request $request, $id = null)
     {
-  
+// dd($request);
         $validated = $this->validateRequest($request, $id);
 
-        
+
         if ($id) {
             $address = UserAddress::findOrFail($id);
         } else {
@@ -21,7 +21,7 @@ class AddressService
             $address->user_id = Auth::id();
         }
 
-       
+
         $address->name = $validated['name'];
         $address->email = $validated['email'];
         $address->phone = $validated['phone'];
@@ -31,13 +31,13 @@ class AddressService
         $address->zip = $validated['zip'];
         $address->address = $validated['address'];
 
-        
+
         return $address->save();
     }
 
     private function validateRequest(Request $request, $id = null)
     {
-      
+
         $emailRule = $id ? 'required|email|unique:users,email,' . $id : 'required|email|unique:users,email';
 
         return $request->validate([
@@ -45,7 +45,7 @@ class AddressService
             //'email' => $emailRule,
             'email' => 'required|email',
             'phone' => 'required|numeric|digits_between:10,15',
-            'country' => 'required|exists:countries,name',
+           'country' => 'required',
             'state' => 'required|exists:states,name',
             'city' => 'required|exists:cities,name',
             'zip' => 'required|numeric|digits:6',

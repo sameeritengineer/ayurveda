@@ -56,8 +56,8 @@
                                             <x-input id="phone" class="block mt-1 w-full" placeholder="Phone Number" type="text" name="phone" :value="old('phone')" required />
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-12">
+                                    <input type="hidden" value="India" name="country">
+                                    {{-- <div class="col-lg-12">
                                         <div class="form-group">
                                             <select id="country" class="block mt-1 w-full form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full" name="country" required>
                                                 <option value="">Select Country</option>
@@ -66,13 +66,16 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <!-- State -->
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <select id="state" class="block mt-1 w-full form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full" name="state" required>
                                                 <option value="">Select State</option>
+                                                @foreach($states as $state)
+                                                    <option value="{{ $state->name }}" data-id="{{ $state->id }}">{{ $state->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -99,8 +102,8 @@
                                             <textarea id="address" class="block mt-1 w-full form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full" placeholder="Address" name="address" required>{{ old('address') }}</textarea>
                                         </div>
                                     </div>
-                                    
-                                 
+
+
 
                                     <div class="col-lg-12">
                                         <div class="form-group">
@@ -125,7 +128,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#country').on('change', function() {
-            var country_id = $(this).find('option:selected').data('id'); 
+            var country_id = $(this).find('option:selected').data('id');
             if(country_id) {
                 $.ajax({
                     url: '{{ route("user.get-states", ":country_id") }}'.replace(':country_id', country_id),
@@ -146,7 +149,7 @@
         });
 
         $('#state').on('change', function() {
-            var state_id = $(this).find('option:selected').data('id'); 
+            var state_id = $(this).find('option:selected').data('id');
             if(state_id) {
                 $.ajax({
                     url: '{{ route("user.get-cities", ":state_id") }}'.replace(':state_id', state_id),

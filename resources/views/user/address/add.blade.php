@@ -13,20 +13,20 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    
+
     @alert
-    
+
     <div class="col-md-12 grid-margin stretch-card">
-        <div class="card">  
+        <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $type == 1 ? 'Add Address' : 'Edit Address' }}</h4>
-                
+
                 <form class="forms-sample" action="{{ $type == 1 ? route('user.address-store') : route('user.address-update',$address->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @if($type == 2)
                         @method('PUT')
                     @endif
-                    
+
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ old('name', $address->name ?? '') }}">
@@ -42,7 +42,8 @@
                         <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" value="{{ old('phone', $address->phone ?? '') }}">
                         @validationErr('phone')
                     </div>
-                    <div class="form-group">
+                    <input type="hidden" value="India" name="country">
+                    {{-- <div class="form-group d-none">
                         <label for="country">Country</label>
                         <select class="form-control" id="country" name="country" required>
                             <option value="">Select Country</option>
@@ -51,7 +52,7 @@
                             @endforeach
                         </select>
                         @validationErr('country')
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="state">State</label>
@@ -88,7 +89,7 @@
                         <textarea class="form-control" id="address" placeholder="Address" name="address">{{ old('address', $address->address ?? '') }}</textarea>
                         @validationErr('address')
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary me-2">{{ $type == 1 ? 'Add Address' : 'Update Address' }}</button>
                 </form>
             </div>
@@ -100,7 +101,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#country').on('change', function() {
-            var country_id = $(this).find('option:selected').data('id'); 
+            var country_id = $(this).find('option:selected').data('id');
             if(country_id) {
                 $.ajax({
                     url: '{{ route("user.get-states", ":country_id") }}'.replace(':country_id', country_id),
@@ -121,7 +122,7 @@
         });
 
         $('#state').on('change', function() {
-            var state_id = $(this).find('option:selected').data('id'); 
+            var state_id = $(this).find('option:selected').data('id');
             if(state_id) {
                 $.ajax({
                     url: '{{ route("user.get-cities", ":state_id") }}'.replace(':state_id', state_id),

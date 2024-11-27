@@ -29,11 +29,11 @@
                                         <form action="{{route('all-blogs')}}">
                                             <div class="form-group">
                                                 <input type="search" name="search" placeholder="Search">
-                                                <button type="submit"> 
+                                                <button type="submit">
                                                     <i class="flaticon-search"></i>
                                                 </button>
                                             </div>
-                                        </form>    
+                                        </form>
                                         </div>
                                     </div>
                                     <div class="sidebar-widget popular-post">
@@ -53,7 +53,7 @@
                                     </h6>
                                 </div>
                             </div>
-                        @endforeach  
+                        @endforeach
                                         </div>
                                     </div>
                                     <div class="sidebar-widget categories">
@@ -84,9 +84,10 @@
                                     </div> -->
                                     <div class="sidebar-widget contact-widget">
                                         <h3>How We Can Help You</h3>
-                                        <p>Lorem ipsum dolor sit amet consec tetur adipcing elit. Voluptate quib ausd possq imus voluptem.</p>
-                                        <a href="contact.html" class="btn style1">Contact us</a>
+                                        <p>Have questions or need assistance? Reach out to us! We're here to help with any inquiries about our products, services, or your orders.</p>
+                                        <a href="{{route('contact')}}" class="btn style1">Contact Us</a>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-12 order-xl-2 order-lg-1 order-md-1 order-1">

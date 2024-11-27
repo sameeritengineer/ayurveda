@@ -29,7 +29,7 @@
         </div> -->
         <div class="row">
         <h3 class="checkout-box-title">Shipping Details</h3>
-        @foreach($addresses as $address)    
+        @foreach($addresses as $address)
         <div class="col-md-4">
     <div class="card mb-3">
         <div class="card-body">
@@ -50,7 +50,7 @@
     </div>
 </div>
 
-        @endforeach    
+        @endforeach
         </div>
 
         <form action="#" class="checkout-form">
@@ -203,7 +203,7 @@
                             <div>
                                 <input type="radio" id="test1" name="radio-group">
                                 <label for="test1">Direct Bank Transfer</label>
-                                <p>Lorem ipsum dolor sit amet consectetur adipi consec sicing elit similique veniam.</p>
+                                {{-- <p>Lorem ipsum dolor sit amet consectetur adipi consec sicing elit similique veniam.</p> --}}
                             </div>
                             <div>
                                 <input type="radio" id="test3" name="radio-group">
@@ -236,5 +236,5 @@ $(document).ready(function() {
                 $(this).closest('.card').addClass('selected-address');
             });
         });
-</script>        
+</script>
 @endpush

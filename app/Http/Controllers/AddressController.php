@@ -23,12 +23,13 @@ class AddressController extends Controller
 
     public function addAddress(){
         $countries = Country::all();
-        return view('user.address',compact('countries'));
+        $states = State::all();
+        return view('user.address',compact('countries','states'));
     }
 
     public function storeAddress(Request $request, AddressService $addressService)
     {
-      
+
         $success = $addressService->storeOrUpdateAddress($request, null);
 
         if ($success) {
@@ -39,7 +40,7 @@ class AddressController extends Controller
     }
 
     public function address(UserAddressesDataTable $dataTable){
-      
+
         return $dataTable->render('user.address.list');
     }
 
@@ -47,10 +48,10 @@ class AddressController extends Controller
     {
         $type = 2; // For editing
         $address = UserAddress::with(['country_details:id,name', 'state_details:id,name',  'city_details:id,name'])->findOrFail($id);
-    
+       $address->country_details->id;
         $countries = Country::all();
-        $states = State::where('country_id', $address->country_details->id)->get(); 
-        $cities = City::where('state_id', $address->state_details->id)->get(); 
+        $states = State::where('country_id', $address->country_details->id)->get();
+        $cities = City::where('state_id', $address->state_details->id)->get();
         return view('user.address.add', compact('type', 'address', 'countries', 'states', 'cities'));
     }
 
@@ -60,20 +61,21 @@ class AddressController extends Controller
         session()->flash('alert', 'success');
         session()->flash('message', 'Deleted Successfully!');
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
-        
+
     }
 
     public function addressAdd(){
         $countries = Country::all();
+        $states = State::all();
         $type = 1; //for add
-        return view('user.address.add',compact('type','countries'));
+        return view('user.address.add',compact('type','countries','states'));
     }
 
     public function addressStore(Request $request, AddressService $addressService){
         // return $request;
         $success = $addressService->storeOrUpdateAddress($request, null);
 
-        if ($success) {  
+        if ($success) {
             return redirect()->route('user.address')->with(['alert' => 'success', 'message' => 'Profile Address Added Successfully!']);
         } else {
             return back()->with('danger', 'Failed to update. Please try again.');
@@ -84,7 +86,7 @@ class AddressController extends Controller
         // return $request;
         $success = $addressService->storeOrUpdateAddress($request, $id);
 
-        if ($success) {  
+        if ($success) {
             return redirect()->route('user.address')->with(['alert' => 'success', 'message' => 'Profile Address Updated Successfully!']);
         } else {
             return back()->with('danger', 'Failed to update. Please try again.');

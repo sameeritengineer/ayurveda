@@ -70,12 +70,12 @@ class UserAddressesDataTable extends DataTable
             Column::make('name'),
             Column::make('email'),
             Column::make('phone'),
-            Column::make('country'),
+            // Column::make('country'),
             Column::make('state'),
             Column::make('city'),
             Column::make('zip'),
             Column::make('address'),
-            
+
             Column::make('actions')->title('Actions')->orderable(false)->searchable(false)
         ];
     }
